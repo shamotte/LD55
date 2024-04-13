@@ -27,7 +27,7 @@ func _process(delta):
 	
 	match state:
 		STATES.IDLE:
-			print("idle")
+			
 			current_action = Priorities.get_action(priorities)
 			if current_action != null:
 				state = STATES.WALK
@@ -35,7 +35,7 @@ func _process(delta):
 			target = current_action.node.position
 			agent.target_position = target
 			if agent.distance_to_target() < range :
-				print("doszedl")
+				
 				state = STATES.WORK
 				work_time = current_action.time
 		STATES.WORK:
@@ -46,7 +46,7 @@ func _process(delta):
 			if work_time<=0:
 				state = STATES.IDLE
 				current_action.node.action_finished()
-				print("koniec pracy")
+				
 	if state == STATES.WORK or state == STATES.WALK:
 		look_for_higher_priority_job()
 	

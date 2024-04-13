@@ -11,7 +11,6 @@ var resource_info
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	for r in Global.current_resources:
 		var s = resource_slot.instantiate()
 		s.get_node("Sprite").texture = Global.resources[r]["sprite"]

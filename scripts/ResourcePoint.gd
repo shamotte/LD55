@@ -15,7 +15,7 @@ func action_finished():
 	
 
 func add_self_to_available_actions():
-	print("resource",id)
+	
 	Priorities.add_action(Global.resources[resource_type].type,id,get_node("."),Global.resources[resource_type].time)
 	
 func _ready():
