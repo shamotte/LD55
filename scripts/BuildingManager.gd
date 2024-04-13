@@ -14,4 +14,6 @@ func _process(delta):
 func _on_check_button_toggled(toggled_on):
 	$Panel.visible = toggled_on
 
-
+func hide_panel(hide):
+	$Panel.visible = !hide
+	$CheckButton.button_pressed = !hide
