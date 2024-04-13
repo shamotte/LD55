@@ -5,6 +5,7 @@ var item_slot = preload("res://interface/item_slot.tscn")
 var building_slot = preload("res://interface/building_slot.tscn")
 var building_cost = preload("res://interface/building_cost.tscn")
 
+var resource_info
 #Buildings Objects
 
 
@@ -17,6 +18,7 @@ func _ready():
 		s.get_node("Count").text = str(Global.current_resources[r])
 		s.get_node("Name").text = Global.resources[r]["name"]
 		$UI/UI/Resources.add_child(s)
+	resource_info = $UI/UI/Resources.get_children() 
 		
 	for i in Global.current_items:
 		var s = item_slot.instantiate()
@@ -39,5 +41,23 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	for i in range(Global.current_resources.size()):
+		resource_info[i].get_node("Count").text = str(Global.current_resources[i])
+	#for r in Global.current_resources:
+	#	var s = resource_slot.instantiate()
+	#	s.get_node("Sprite").texture = Global.resources[r]["sprite"]
+	#	s.get_node("Count").text = str(Global.current_resources[r])
+	#	s.get_node("Name").text = Global.resources[r]["name"]
+	#	$UI/UI/Resources.add_child(s)
 	#set_building_id(0)
+
+
+var resource_point = preload("res://object/resource_point.tscn")
+
+func _on_resource_spawn_timer_timeout():
+	if get_tree().get_nodes_in_group("resource_point").size() < 10:
+		for i in range(3):
+			var rp = resource_point.instantiate()
+			rp.global_position = Vector2(randi_range(0, 640), randi_range(0,360))
+			rp.resource_type = Global.resources.keys().pick_random()
+			$GameSpace.add_child(rp)

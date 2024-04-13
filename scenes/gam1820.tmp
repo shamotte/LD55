@@ -1,11 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=13 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
 [ext_resource type="Texture2D" uid="uid://gxj6gtkdb4s3" path="res://sprites/grass.png" id="2_mb5b4"]
-[ext_resource type="Script" path="res://scripts/camera_motor.gd" id="2_xykrx"]
 [ext_resource type="PackedScene" uid="uid://fvp2heuuowys" path="res://object/resource_point.tscn" id="3_jhk85"]
 [ext_resource type="Script" path="res://scripts/Buildings.gd" id="3_y6sc7"]
+[ext_resource type="PackedScene" uid="uid://rynd5iuo55pm" path="res://object/tower.tscn" id="5_5otvq"]
 [ext_resource type="Script" path="res://scripts/BuildingManager.gd" id="5_ysb7k"]
 [ext_resource type="Texture2D" uid="uid://dr26fk5p3bowt" path="res://sprites/Build_Icon_Checked.png" id="6_85scb"]
 [ext_resource type="Texture2D" uid="uid://cj1f3d7jl57jo" path="res://sprites/Build_Icon.png" id="6_mi60c"]
@@ -32,9 +32,6 @@ CheckButton/styles/focus = SubResource("StyleBoxEmpty_eev7q")
 [node name="Game" type="Node2D"]
 script = ExtResource("1_x25h7")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("2_xykrx")
-
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -54,18 +51,32 @@ stretch_mode = 1
 navigation_polygon = SubResource("NavigationPolygon_y668m")
 
 [node name="GameSpace" type="Node2D" parent="."]
-y_sort_enabled = true
 
 [node name="Buildings" type="Node" parent="GameSpace" groups=["BuildingManager"]]
 script = ExtResource("3_y6sc7")
 
+[node name="Building" parent="GameSpace/Buildings" instance=ExtResource("5_5otvq")]
+position = Vector2(196, 143)
+
+[node name="ResourcePoint" parent="GameSpace" instance=ExtResource("3_jhk85")]
+position = Vector2(240, 88)
+resource_type = 1
+
+[node name="ResourcePoint2" parent="GameSpace" instance=ExtResource("3_jhk85")]
+position = Vector2(288, 144)
+resource_type = 1
+
+[node name="ResourcePoint3" parent="GameSpace" instance=ExtResource("3_jhk85")]
+position = Vector2(112, 184)
+
+[node name="ResourcePoint4" parent="GameSpace" instance=ExtResource("3_jhk85")]
+position = Vector2(408, 96)
+resource_type = 1
+
+[node name="ResourcePoint5" parent="GameSpace" instance=ExtResource("3_jhk85")]
+position = Vector2(440, 208)
+
 [node name="Unit" parent="GameSpace" instance=ExtResource("1_fh80v")]
-position = Vector2(53, 147)
-
-[node name="Unit2" parent="GameSpace" instance=ExtResource("1_fh80v")]
-position = Vector2(181, 226)
-
-[node name="Unit3" parent="GameSpace" instance=ExtResource("1_fh80v")]
 position = Vector2(93, 77)
 
 [node name="CursorSprite" type="Sprite2D" parent="."]
@@ -143,9 +154,4 @@ grow_vertical = 2
 [node name="GridContainer" type="GridContainer" parent="UI/UI/Building/Panel/ScrollContainer"]
 layout_mode = 2
 
-[node name="ResourceSpawnTimer" type="Timer" parent="."]
-wait_time = 10.0
-autostart = true
-
 [connection signal="toggled" from="UI/UI/Building/CheckButton" to="UI/UI/Building" method="_on_check_button_toggled"]
-[connection signal="timeout" from="ResourceSpawnTimer" to="." method="_on_resource_spawn_timer_timeout"]
