@@ -25,6 +25,25 @@ var items = {
 }
 var current_items = {}
 
+enum BUILDINGS { TOWER, B1,B2,B3 }
+var buildings = {
+	BUILDINGS.TOWER: {
+		"name": "Tower","sprite": preload("res://sprites/tower.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [50,75]
+	},
+	BUILDINGS.B1: {
+		"name": "Tower","sprite": preload("res://sprites/tower.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [50,75]
+	},
+	BUILDINGS.B2: {
+		"name": "Tower","sprite": preload("res://sprites/tower.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [50,75]
+	},
+	BUILDINGS.B3: {
+		"name": "Tower","sprite": preload("res://sprites/tower.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [50,75]
+	}
+}
 
 func _ready():
 	
