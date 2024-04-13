@@ -22,9 +22,12 @@ func _ready():
 	match resource_type:
 		Global.RESOURCE.WOOD:
 			$Sprite2D.texture = load("res://sprites/tree.png")
-			
 		Global.RESOURCE.ROCK:
 			$Sprite2D.texture = load("res://sprites/rock.png")
+		Global.RESOURCE.IRON:
+			$Sprite2D.texture = load("res://sprites/Iron.png")
+		Global.RESOURCE.GOLD:
+			$Sprite2D.texture = load("res://sprites/gold.png")
 		_:
 			$Sprite2D.texture = load("res://icon.svg")
 	add_self_to_available_actions()
