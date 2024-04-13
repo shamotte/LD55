@@ -10,11 +10,11 @@ func action_finished():
 	if resource_count == 0:
 		queue_free()
 	await get_tree().create_timer(10.0).timeout
-	add_self_to_aveilible_actions()
+	add_self_to_available_actions()
 
 	
 
-func add_self_to_aveilible_actions():
+func add_self_to_available_actions():
 	print("resource",id)
 	Priorities.add_action(Global.resources[resource_type].type,id,get_node("."),Global.resources[resource_type].time)
 	
@@ -26,6 +26,8 @@ func _ready():
 		Global.RESOURCE.ROCK:
 			$Sprite2D.texture = load("res://sprites/rock.png")
 		_:
-			$Sprite2D.texture = null
-	add_self_to_aveilible_actions()
+			$Sprite2D.texture = load("res://icon.svg")
+	add_self_to_available_actions()
+	
+	$AnimationPlayer.play("spawn")
 
