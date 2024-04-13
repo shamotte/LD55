@@ -1,7 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://rynd5iuo55pm"]
 
+<<<<<<< HEAD:object/building.tscn
 [ext_resource type="Script" path="res://object/biulding.gd" id="1_g414g"]
 [ext_resource type="Texture2D" uid="uid://bcd1mc6c6h2eg" path="res://sprites/tower.png" id="1_yisvd"]
+=======
+[ext_resource type="Texture2D" uid="uid://bcd1mc6c6h2eg" path="res://sprites/tower.png" id="1_qf5ig"]
+>>>>>>> 34b878f0db7e34a74483f31f71e2663bc8aa6731:object/tower.tscn
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f83t4"]
 size = Vector2(48, 48)
@@ -10,7 +14,7 @@ size = Vector2(48, 48)
 script = ExtResource("1_g414g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_yisvd")
+texture = ExtResource("1_qf5ig")
 
 [node name="Area2D" type="Area2D" parent="."]
 
