@@ -3,16 +3,20 @@ extends Node
 enum RESOURCE { WOOD, ROCK, IRON, GOLD }
 var resources = {
 	RESOURCE.WOOD: {
-		"name": "Wood", "sprite": preload("res://sprites/wood.png")
+		"name": "Wood", "sprite": preload("res://sprites/wood.png"), "type" : Priorities.ACTIONTYPES.GATHERWOOD
+		,"time" : 2.0
 	},
 	RESOURCE.ROCK: {
-		"name": "Rock", "sprite": preload("res://sprites/wood.png")
+		"name": "Rock", "sprite": preload("res://sprites/wood.png"), "type" : Priorities.ACTIONTYPES.GATHERROCK
+		,"time" : 3.0	
 	},
 	RESOURCE.IRON: {
-		"name": "Iron", "sprite": preload("res://sprites/wood.png")
+		"name": "Iron", "sprite": preload("res://sprites/wood.png"), "type" : Priorities.ACTIONTYPES.GATHERIRON,
+		"time" : 7.0
 	},
 	RESOURCE.GOLD: {
-		"name": "Gold", "sprite": preload("res://sprites/wood.png")
+		"name": "Gold", "sprite": preload("res://sprites/wood.png"), "type" : Priorities.ACTIONTYPES.GATHERGOLD
+		,"time" : 10.0
 	}
 }
 var current_resources = {}

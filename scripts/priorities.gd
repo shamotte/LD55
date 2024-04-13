@@ -1,15 +1,17 @@
 extends Node
 
-enum ACTIONTYPES {GATHERWOOD =0, GATHERROCK,GATHERIRON,GATHERFOOD}
+enum ACTIONTYPES {GATHERWOOD =0, GATHERROCK,GATHERIRON,GATHERFOOD,GATHERGOLD,CRAFT}
 
 class action:
 	var type: ACTIONTYPES
 	var id : int
 	var node :Node2D
-	func _init(t,i,n):
+	var time : float
+	func _init(t,i,n,ti):
 		type = t
 		id = i
 		node = n
+		time = ti
 
 var aveilable = [] 
 
@@ -20,8 +22,11 @@ func get_id() -> int:
 	
 
 
-func add_action(type : ACTIONTYPES,id : int, node :Node2D):
-	aveilable.append(action.new(type,id,node))
+func add_action(type : ACTIONTYPES,id : int, node :Node2D,time : float):
+	aveilable.append(action.new(type,id,node,time))
+	
+func return_action(act: action):
+	aveilable.append(act)
 	
 func get_action(a)->action:
 	aveilable.sort_custom(func(l,r):return a[l.type]>a[r.type])
