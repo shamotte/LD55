@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://6o0ppecfcqvo"]
+
+[ext_resource type="Script" path="res://scripts/unit.gd" id="1_g8wtp"]
+[ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/imp.png" id="2_ey7t7"]
+[ext_resource type="Texture2D" uid="uid://cc3bd3vpufmr1" path="res://sprites/axe.png" id="3_xcimi"]
+
+[node name="Unit" type="Node2D"]
+script = ExtResource("1_g8wtp")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ey7t7")
+
+[node name="Item" type="Sprite2D" parent="."]
+position = Vector2(5, 0)
+texture = ExtResource("3_xcimi")
