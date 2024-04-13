@@ -44,6 +44,7 @@ func _process(delta):
 			
 			work_time -=delta
 			if work_time<=0:
+				$gather.play()
 				state = STATES.IDLE
 				current_action.node.action_finished()
 				

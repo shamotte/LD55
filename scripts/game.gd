@@ -36,7 +36,13 @@ func _ready():
 			s.get_node("Cost").add_child(c)
 		$UI/UI/Building/Panel/ScrollContainer/GridContainer.add_child(s)
 		
-
+		
+var active_selection
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index ==1 and event.is_pressed():
+			pass
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
