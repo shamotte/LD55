@@ -66,3 +66,6 @@ func _on_resource_spawn_timer_timeout():
 			rp.global_position = Vector2(randi_range(0, 640), randi_range(0,360))
 			rp.resource_type = Global.resources.keys().pick_random()
 			$GameSpace.add_child(rp)
+			
+func mousePos():
+	return get_global_mouse_position()

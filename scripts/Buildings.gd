@@ -9,16 +9,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print($"../..".mousePos())
 	if Input.is_action_just_pressed("left_mouse_button"):
-		build_building(get_viewport().get_mouse_position())
+		build_building(mousePosition())
 	if Input.is_action_just_pressed("back"):
 		selected_building = -1
 	if selected_building != -1:
-		$"../../CursorSprite".global_position = get_viewport().get_mouse_position()
+		$"../../CursorSprite".position = mousePosition()
 		$"../../CursorSprite".texture = Global.buildings[selected_building]["sprite"]
 	else:
-		$"../../CursorSprite".texture = null
-		
+		$"../../CursorSprite".global_position = mousePosition()
+		#$"../../CursorSprite".texture = preload("res://sprites/wood.png")
 
 func build_building(position):
 	if selected_building != -1:
@@ -34,3 +35,7 @@ func build_building(position):
 #set id for building
 func set_building_id(id):
 	selected_building = id
+	
+func mousePosition():
+	return $"../..".mousePos()
+	 

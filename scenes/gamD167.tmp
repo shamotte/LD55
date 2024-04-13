@@ -68,7 +68,7 @@ position = Vector2(181, 226)
 [node name="Unit3" parent="GameSpace" instance=ExtResource("1_fh80v")]
 position = Vector2(93, 77)
 
-[node name="CursorSprite" type="Sprite2D" parent="."]
+[node name="CursorSprite" type="Sprite2D" parent="GameSpace"]
 modulate = Color(1, 1, 1, 0.501961)
 self_modulate = Color(1, 1, 1, 0.752941)
 texture = ExtResource("6_q5g7h")
