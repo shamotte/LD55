@@ -1,12 +1,15 @@
 extends Node2D
 
 @export var resource_type: Global.RESOURCE
-@export var resorce_count: int
+@export var resource_count: int = 3
 
 @onready var id =  Priorities.get_id()
 
 func action_finished():
-	resource_type-=1;
+	resource_count-=1;
+	if resource_count == 0:
+		queue_free()
+	await get_tree().create_timer(10.0).timeout
 	add_self_to_aveilible_actions()
 
 	
