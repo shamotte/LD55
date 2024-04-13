@@ -48,25 +48,25 @@ enum BUILDINGS { TOWER, B1,B2,B3 }
 var buildings = {
 	BUILDINGS.TOWER: {
 		"name": "Tower","sprite": preload("res://sprites/tower.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [50,75],
+		"resource_type": [RESOURCE.ROCK], "resource_cost": [2],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : RECIPES.AXE
 	},
 	BUILDINGS.B1: {
 		"name": "Tower","sprite": preload("res://sprites/tower.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [50,75],
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [5,7],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : null
 	},
 	BUILDINGS.B2: {
 		"name": "Tower","sprite": preload("res://sprites/tower.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [50,75],
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [15,17],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : null
 	},
 	BUILDINGS.B3: {
 		"name": "Tower","sprite": preload("res://sprites/tower.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [50,75],
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [50,70],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : null
 	}
@@ -74,7 +74,7 @@ var buildings = {
 
 func _ready():
 	for r in resources:
-		current_resources[r] = 100
+		current_resources[r] = 10
 		
 	for i in items:
 		current_items[i] = 1

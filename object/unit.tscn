@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://6o0ppecfcqvo"]
+[gd_scene load_steps=8 format=3 uid="uid://6o0ppecfcqvo"]
 
 [ext_resource type="Script" path="res://scripts/unit.gd" id="1_g8wtp"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/imp.png" id="2_ey7t7"]
@@ -6,6 +6,38 @@
 [ext_resource type="AudioStream" uid="uid://bdhx5imabp37l" path="res://sounds/gather.wav" id="4_oaxnj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c0mvu"]
+
+[sub_resource type="Animation" id="Animation_kchxp"]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(7.72749, 1),
+"update": 0,
+"values": [Vector2(2, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(7.72749, 1),
+"update": 0,
+"values": [Vector2(0, 4), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1yred"]
+_data = {
+"spawn": SubResource("Animation_kchxp")
+}
 
 [node name="Unit" type="CharacterBody2D"]
 collision_mask = 0
@@ -26,3 +58,8 @@ shape = SubResource("CapsuleShape2D_c0mvu")
 
 [node name="gather" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_oaxnj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1yred")
+}

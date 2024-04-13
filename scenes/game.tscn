@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=13 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -17,6 +17,14 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eev7q"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wh76"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
 [sub_resource type="Theme" id="Theme_70afd"]
 CheckButton/icons/checked = ExtResource("6_85scb")
 CheckButton/icons/checked_disabled = ExtResource("6_mi60c")
@@ -27,6 +35,7 @@ CheckButton/icons/unchecked_disabled = ExtResource("6_mi60c")
 CheckButton/icons/unchecked_disabled_mirrored = ExtResource("6_mi60c")
 CheckButton/icons/unchecked_mirrored = ExtResource("6_mi60c")
 CheckButton/styles/focus = SubResource("StyleBoxEmpty_eev7q")
+Panel/styles/panel = SubResource("StyleBoxFlat_2wh76")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_x25h7")
@@ -67,6 +76,9 @@ position = Vector2(181, 226)
 [node name="Unit3" parent="GameSpace" instance=ExtResource("1_fh80v")]
 position = Vector2(93, 77)
 
+[node name="Unit4" parent="GameSpace" instance=ExtResource("1_fh80v")]
+position = Vector2(243, 77)
+
 [node name="CursorSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
 self_modulate = Color(1, 1, 1, 0.752941)
@@ -90,11 +102,16 @@ offset_right = 632.0
 offset_bottom = 319.0
 
 [node name="Resources" type="HBoxContainer" parent="UI/UI"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 48.0
-offset_bottom = 24.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -82.0
+offset_top = 4.0
+offset_right = -42.0
+offset_bottom = 20.0
+grow_horizontal = 0
+alignment = 2
 
 [node name="Items" type="HBoxContainer" parent="UI/UI"]
 layout_mode = 0
@@ -126,9 +143,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -108.0
+offset_left = -114.0
 offset_top = 40.0
-offset_bottom = 270.0
+offset_right = -6.0
+offset_bottom = 352.0
 grow_horizontal = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/UI/Building/Panel"]

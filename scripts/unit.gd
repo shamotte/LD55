@@ -10,8 +10,9 @@ var priorities = [2,3,1,1,1,1] #tablica wskazująca priorytety danych akcji w ta
 
 var current_action: Priorities.action = null
 var work_time: float
+
 func _ready():
-	pass
+	$AnimationPlayer.play("spawn")
 
 
 func _input(event):
