@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=14 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
 [ext_resource type="Texture2D" uid="uid://gxj6gtkdb4s3" path="res://sprites/grass.png" id="2_mb5b4"]
+[ext_resource type="Script" path="res://scripts/camera_motor.gd" id="2_xykrx"]
 [ext_resource type="PackedScene" uid="uid://fvp2heuuowys" path="res://object/resource_point.tscn" id="3_jhk85"]
 [ext_resource type="Script" path="res://scripts/Buildings.gd" id="3_y6sc7"]
 [ext_resource type="PackedScene" uid="uid://rynd5iuo55pm" path="res://object/tower.tscn" id="5_5otvq"]
@@ -31,6 +32,9 @@ CheckButton/styles/focus = SubResource("StyleBoxEmpty_eev7q")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_x25h7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_xykrx")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -77,6 +81,12 @@ resource_type = 1
 position = Vector2(440, 208)
 
 [node name="Unit" parent="GameSpace" instance=ExtResource("1_fh80v")]
+position = Vector2(53, 147)
+
+[node name="Unit2" parent="GameSpace" instance=ExtResource("1_fh80v")]
+position = Vector2(181, 226)
+
+[node name="Unit3" parent="GameSpace" instance=ExtResource("1_fh80v")]
 position = Vector2(93, 77)
 
 [node name="CursorSprite" type="Sprite2D" parent="."]
