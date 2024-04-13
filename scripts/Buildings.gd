@@ -22,6 +22,10 @@ func _process(delta):
 
 func build_building(position):
 	if selected_building != -1:
+		#paying for building
+		for i in range(Global.buildings[selected_building]["resource_type"].size()):
+			Global.current_resources[Global.buildings[selected_building]["resource_type"][i]] -= Global.buildings[selected_building]["resource_cost"][i]
+		#Summoning Object
 		var newBuilding = Global.buildings[selected_building]["object"].instantiate()
 		newBuilding.position = position
 		add_child(newBuilding)

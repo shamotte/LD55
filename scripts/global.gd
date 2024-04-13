@@ -56,7 +56,7 @@ var buildings = {
 func _ready():
 	
 	for r in resources:
-		current_resources[r] = 0
+		current_resources[r] = 100
 		
 	for i in items:
 		current_items[i] = 1
