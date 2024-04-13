@@ -50,3 +50,14 @@ func _process(delta):
 	#	s.get_node("Name").text = Global.resources[r]["name"]
 	#	$UI/UI/Resources.add_child(s)
 	#set_building_id(0)
+
+
+var resource_point = preload("res://object/resource_point.tscn")
+
+func _on_resource_spawn_timer_timeout():
+	if get_tree().get_nodes_in_group("resource_point").size() < 10:
+		for i in range(3):
+			var rp = resource_point.instantiate()
+			rp.global_position = Vector2(randi_range(0, 640), randi_range(0,360))
+			rp.resource_type = Global.resources.keys().pick_random()
+			$GameSpace.add_child(rp)
