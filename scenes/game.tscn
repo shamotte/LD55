@@ -13,9 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/imp.png" id="11_tqatv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
-vertices = PackedVector2Array(630, 350, 10, 350, 10, 10, 630, 10)
+vertices = PackedVector2Array(630, 9, 630, 350, 2, 357, 2, 2)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(640, 0, 640, 360, 0, 360, 0, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(640, 0, 640, 360, -8, 368, -8, -8)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eev7q"]
@@ -193,25 +193,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="UI/UI/PreviewManager/Panel"]
-position = Vector2(33, 44)
+[node name="preview_icon" type="Sprite2D" parent="UI/UI/PreviewManager/Panel"]
+unique_name_in_owner = true
+position = Vector2(33, 52)
 texture = ExtResource("11_tqatv")
 
-[node name="Control" type="Control" parent="UI/UI/PreviewManager/Panel"]
+[node name="UnitName" type="Label" parent="UI/UI/PreviewManager/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 65.0
+offset_bottom = 23.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UI/PreviewManager/Panel"]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -281.0
+offset_left = -305.0
 grow_horizontal = 0
 grow_vertical = 2
-
-[node name="UnitName" type="Label" parent="UI/UI/PreviewManager/Panel/Control"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="ResourceSpawnTimer" type="Timer" parent="."]
 wait_time = 10.0

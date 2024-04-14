@@ -2,8 +2,10 @@ extends CharacterBody2D
 class_name unit
 @export var range = 10
 @export var speed = 100
+@export var type:	Global.UNIT = Global.UNIT.IMP
 var target: Vector2 = Vector2(100, 100)
 var item_equipped = Global.ITEM.AXE
+
 
 @onready var agent : NavigationAgent2D = %NavAgent
 var priorities = [2,3,1,1,1,1] #tablica wskazująca priorytety danych akcji w takiej samej kolejności jak w enumie Priorities.ACTIONTYPES
@@ -76,5 +78,6 @@ func _physics_process(delta):
 		move_and_slide()
 
 
-func display_previev(panel : Panel):
+func display_previev(node : Control):
+		node.unit_selection(self)
 	
