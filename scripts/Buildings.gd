@@ -16,6 +16,10 @@ func _process(delta):
 
 func build_building(position):
 	if selected_building != -1:
+		#Is building overlap other object
+		var Cursor = get_tree().get_first_node_in_group("CursorOverlaping")
+		if Cursor.is_overalaping():
+			return
 		#paying for building
 		for i in range(Global.buildings[selected_building]["resource_type"].size()):
 			Global.current_resources[Global.buildings[selected_building]["resource_type"][i]] -= Global.buildings[selected_building]["resource_cost"][i]
