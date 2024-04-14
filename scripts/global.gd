@@ -111,15 +111,15 @@ func _process(delta):
 	pass
 	
 func add_resources(resource : RESOURCE, count : int):
-	if current_items.has(resource):
-		current_items[resource] += count
+	if current_resources.has(resource):
+		current_resources[resource] += count
 	else:
-		current_items[resource] = count
+		current_resources[resource] = count
 	
 func subtract_resources(resource : RESOURCE, count : int) -> bool:
-	if current_items.has(resource):
-		if current_items[resource] >=count:
-			current_items[resource] -= count
+	if current_resources.has(resource):
+		if current_resources[resource] >=count:
+			current_resources[resource] -= count
 			return true
 		else:
 			return false
@@ -127,7 +127,7 @@ func subtract_resources(resource : RESOURCE, count : int) -> bool:
 		return false
 
 func get_resource_count(resource : RESOURCE) -> int:
-	if current_items.has(resource):
-		return current_items[resource]
+	if current_resources.has(resource):
+		return current_resources[resource]
 	else:
 		return 0

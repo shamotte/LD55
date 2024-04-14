@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tt6cc4pm7if6"
-path="res://.godot/imported/Amongium.png-8983e528b56dffc4256ae29a84747200.ctex"
+uid="uid://c3jfyoxar6qss"
+path="res://.godot/imported/wendigobehindtheslaugher.png-6f8ad1fc2614be6dff04a9ca7333b3ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Amongium.png"
-dest_files=["res://.godot/imported/Amongium.png-8983e528b56dffc4256ae29a84747200.ctex"]
+source_file="res://sprites/wendigobehindtheslaugher.png"
+dest_files=["res://.godot/imported/wendigobehindtheslaugher.png-6f8ad1fc2614be6dff04a9ca7333b3ad.ctex"]
 
 [params]
 

@@ -21,7 +21,6 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	
 	#checking if player can buy building
 	for i in range(Global.buildings[building]["resource_type"].size()):
 		if Global.current_resources[ Global.buildings[building]["resource_type"][i] ] < Global.buildings[building]["resource_cost"][i]:

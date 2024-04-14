@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=24 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/Buildings.gd" id="3_y6sc7"]
 [ext_resource type="Script" path="res://scripts/Units.gd" id="5_smeyy"]
 [ext_resource type="Script" path="res://scripts/BuildingManager.gd" id="5_ysb7k"]
+[ext_resource type="Script" path="res://interface/CheckSpace.gd" id="7_40o6t"]
 [ext_resource type="Texture2D" uid="uid://b68vottib3284" path="res://sprites/Build_Menu_Selected.png" id="8_t8nvj"]
 [ext_resource type="Texture2D" uid="uid://fp71qwttyi3j" path="res://sprites/Build_Menu.png" id="9_hqmam"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
@@ -17,6 +18,8 @@ vertices = PackedVector2Array(630, 9, 630, 350, 2, 357, 2, 2)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(640, 0, 640, 360, -8, 368, -8, -8)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqn1q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eev7q"]
 
@@ -117,9 +120,26 @@ script = ExtResource("5_smeyy")
 [node name="Unit" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
 position = Vector2(53, 147)
 
-[node name="CursorSprite" type="Sprite2D" parent="."]
+[node name="Unit2" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+position = Vector2(181, 226)
+
+[node name="Unit3" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+position = Vector2(93, 77)
+
+[node name="Unit4" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+position = Vector2(243, 77)
+
+[node name="CursorSprite" type="Sprite2D" parent="." groups=["CursorOverlaping"]]
 modulate = Color(1, 1, 1, 0.501961)
 self_modulate = Color(1, 1, 1, 0.752941)
+script = ExtResource("7_40o6t")
+
+[node name="CheckPointer" type="Area2D" parent="CursorSprite"]
+position = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CursorSprite/CheckPointer"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_jqn1q")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
