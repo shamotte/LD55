@@ -5,10 +5,9 @@ extends Control
 func _ready():
 	$Panel.visible = false
 	$Panel.set_tab_title(0,"")
-	$Panel.set_tab_icon(0,load("res://sprites/Build_Icon.png"))
-	
+	$Panel.set_tab_icon(0,load("res://sprites/UI/Build_Icon.png"))
 	$Panel.set_tab_title(1,"")
-	$Panel.set_tab_icon(1,load("res://sprites/Unit_Icon.png"))
+	$Panel.set_tab_icon(1,load("res://sprites/UI/Unit_Icon.png"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

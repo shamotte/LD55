@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dexf4abab7di7"]
 
-[ext_resource type="Texture2D" uid="uid://bbd6xt53dmrjc" path="res://sprites/wood.png" id="1_g6htu"]
+[ext_resource type="Texture2D" uid="uid://bbd6xt53dmrjc" path="res://sprites/Resources/wood.png" id="1_3cyhc"]
 
 [node name="ItemSlot" type="Control"]
 custom_minimum_size = Vector2(32, 32)
@@ -14,7 +14,7 @@ mouse_filter = 2
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(16, 16)
-texture = ExtResource("1_g6htu")
+texture = ExtResource("1_3cyhc")
 
 [node name="Count" type="Label" parent="."]
 layout_mode = 0

@@ -8,10 +8,10 @@
 [ext_resource type="Script" path="res://scripts/Units.gd" id="5_smeyy"]
 [ext_resource type="Script" path="res://scripts/BuildingManager.gd" id="5_ysb7k"]
 [ext_resource type="Script" path="res://interface/CheckSpace.gd" id="7_40o6t"]
-[ext_resource type="Texture2D" uid="uid://b68vottib3284" path="res://sprites/Build_Menu_Selected.png" id="8_t8nvj"]
-[ext_resource type="Texture2D" uid="uid://fp71qwttyi3j" path="res://sprites/Build_Menu.png" id="9_hqmam"]
+[ext_resource type="Texture2D" uid="uid://b68vottib3284" path="res://sprites/UI/Build_Menu_Selected.png" id="8_t8nvj"]
+[ext_resource type="Texture2D" uid="uid://fp71qwttyi3j" path="res://sprites/UI/Build_Menu.png" id="9_hqmam"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
-[ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/imp.png" id="11_tqatv"]
+[ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
 vertices = PackedVector2Array(630, 9, 630, 350, 2, 357, 2, 2)

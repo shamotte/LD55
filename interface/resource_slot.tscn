@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dcps1ugp7atbk"]
 
-[ext_resource type="Texture2D" uid="uid://lemwt0t1h32l" path="res://sprites/slot_background.png" id="1_rcpxt"]
-[ext_resource type="Texture2D" uid="uid://bbd6xt53dmrjc" path="res://sprites/wood.png" id="1_tsf3a"]
+[ext_resource type="Texture2D" uid="uid://lemwt0t1h32l" path="res://sprites/UI/slot_background.png" id="1_sfrpo"]
+[ext_resource type="Texture2D" uid="uid://bbd6xt53dmrjc" path="res://sprites/Resources/wood.png" id="2_xcpco"]
 
 [node name="ItemSlot" type="Control"]
 custom_minimum_size = Vector2(32, 32)
@@ -14,11 +14,11 @@ grow_vertical = 2
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(16, 16)
-texture = ExtResource("1_rcpxt")
+texture = ExtResource("1_sfrpo")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(16, 16)
-texture = ExtResource("1_tsf3a")
+texture = ExtResource("2_xcpco")
 
 [node name="Count" type="Label" parent="."]
 layout_mode = 0
