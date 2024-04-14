@@ -1,4 +1,5 @@
 extends Node2D
+class_name Res
 
 @export var resource_type: Global.RESOURCE
 @export var resource_count: int = 3
@@ -33,4 +34,8 @@ func _ready():
 	add_self_to_available_actions()
 	
 	$AnimationPlayer.play("spawn")
+	
+	
+func display_previev(node : Control):
+		node.resource_selection(self)
 
