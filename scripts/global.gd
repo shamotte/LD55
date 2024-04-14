@@ -4,19 +4,19 @@ var ITEM_OFFSET = 1000
 enum RESOURCE { WOOD, ROCK, IRON, GOLD }
 var resources = {
 	RESOURCE.WOOD: {
-		"name": "Wood", "sprite": preload("res://sprites/wood.png"), "type" : Priorities.ACTIONTYPES.GATHERWOOD
+		"name": "Wood", "sprite": preload("res://sprites/Resources/wood.png"), "type" : Priorities.ACTIONTYPES.GATHERWOOD
 		,"time" : 2.0
 	},
 	RESOURCE.ROCK: {
-		"name": "Rock", "sprite": preload("res://sprites/wood.png"), "type" : Priorities.ACTIONTYPES.GATHERROCK
+		"name": "Rock", "sprite": preload("res://sprites/Resources/green_gem.png"), "type" : Priorities.ACTIONTYPES.GATHERROCK
 		,"time" : 3.0	
 	},
 	RESOURCE.IRON: {
-		"name": "Iron", "sprite": preload("res://sprites/wood.png"), "type" : Priorities.ACTIONTYPES.GATHERIRON,
+		"name": "Iron", "sprite": preload("res://sprites/Resources/Copium1.png"), "type" : Priorities.ACTIONTYPES.GATHERIRON,
 		"time" : 7.0
 	},
 	RESOURCE.GOLD: {
-		"name": "Gold", "sprite": preload("res://sprites/wood.png"), "type" : Priorities.ACTIONTYPES.GATHERGOLD
+		"name": "Gold", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHERGOLD
 		,"time" : 10.0
 	}
 }
@@ -28,7 +28,7 @@ var current_resources = {}
 enum ITEM { AXE = 1001, SWORD}
 var items = {
 	ITEM.AXE: {
-		"name": "Axe", "sprite": preload("res://sprites/axe.png"),
+		"name": "Axe", "sprite": preload("res://sprites/Items/axe.png"),
 	}
 }
 var current_items = {}
@@ -44,61 +44,103 @@ var recipes = {
 	
 }
 
-enum BUILDINGS { TOWER, B1,B2,B3 }
+enum BUILDINGS { PORTAL,TOWER,B2,B3 }
 var buildings = {
-	BUILDINGS.TOWER: {
-		"name": "Tower","sprite": preload("res://sprites/tower.png"),
+	BUILDINGS.PORTAL: {
+		"name": "Tower","sprite": preload("res://sprites/Buildings/DonutPortal.png"),
 		"resource_type": [RESOURCE.ROCK], "resource_cost": [2],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : RECIPES.AXE
 	},
-	BUILDINGS.B1: {
-		"name": "Tower","sprite": preload("res://sprites/tower.png"),
+	BUILDINGS.TOWER: {
+		"name": "Tower","sprite": preload("res://sprites/Buildings/tower.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [5,7],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : null
 	},
 	BUILDINGS.B2: {
-		"name": "Tower","sprite": preload("res://sprites/tower.png"),
+		"name": "Tower","sprite": preload("res://sprites/Buildings/tower.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [15,17],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : null
 	},
 	BUILDINGS.B3: {
-		"name": "Tower","sprite": preload("res://sprites/tower.png"),
+		"name": "Tower","sprite": preload("res://sprites/Buildings/tower.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [50,70],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : null
 	}
 }
 
-enum UNIT {IMP,U1,U2,U3}
+enum UNIT {CULTIST,IMP,CEMON,PYTHONOMIUM,LORD}
 var units = {
-	UNIT.IMP: {
-		"name" : "Imp", "sprite": preload("res://sprites/imp.png"),
+	UNIT.CULTIST: {
+		"name" : "Kultysta", "sprite": preload("res://sprites/Units/Cultist.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
 		"HP" : 10, "DMG" : 2
 	},
-	UNIT.U1: {
-		"name" : "Imp", "sprite": preload("res://sprites/imp.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [10,16],
+	UNIT.IMP: {
+		"name" : "Imp", "sprite": preload("res://sprites/Units/imp.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
 		"HP" : 10, "DMG" : 2
 	},
-	UNIT.U2: {
-		"name" : "Imp", "sprite": preload("res://sprites/imp.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [11,11],
+	UNIT.CEMON: {
+		"name" : "Imp", "sprite": preload("res://sprites/Units/Cemon.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
 		"HP" : 10, "DMG" : 2
 	},
-	UNIT.U3: {
-		"name" : "Imp", "sprite": preload("res://sprites/imp.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [12,13],
+	UNIT.PYTHONOMIUM: {
+		"name" : "Imp", "sprite": preload("res://sprites/Units/Pythonomium.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
 		"HP" : 10, "DMG" : 2
-	}
+	},
+	UNIT.LORD: {
+		"name" : "Imp", "sprite": preload("res://sprites/Units/DemonLord.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
+		"object": preload("res://object/unit.tscn"),
+		"HP" : 10, "DMG" : 2
+	},
 }
+
+enum ENEMY {SLIME,WENDIGO,PEASANT,PRIEST,KNIGHT,HORSEMAN}
+var enemies = {
+	ENEMY.SLIME: {
+		"name" : "Chłop", "sprite": preload("res://sprites/Units/Peasant.png"),
+		"object": preload("res://object/unit.tscn"),
+		"HP" : 5, "DMG" : 1
+	},
+	ENEMY.WENDIGO: {
+		"name" : "Kapłan", "sprite": preload("res://sprites/Units/Priest.png"),
+		"object": preload("res://object/unit.tscn"),
+		"HP" : 5, "DMG" : 1
+	},
+	ENEMY.PEASANT: {
+		"name" : "Chłop", "sprite": preload("res://sprites/Units/Peasant.png"),
+		"object": preload("res://object/unit.tscn"),
+		"HP" : 5, "DMG" : 1
+	},
+	ENEMY.PRIEST: {
+		"name" : "Kapłan", "sprite": preload("res://sprites/Units/Priest.png"),
+		"object": preload("res://object/unit.tscn"),
+		"HP" : 5, "DMG" : 1
+	},
+	ENEMY.KNIGHT: {
+		"name" : "Chłop", "sprite": preload("res://sprites/Units/knight.png"),
+		"object": preload("res://object/unit.tscn"),
+		"HP" : 5, "DMG" : 1
+	},
+	ENEMY.HORSEMAN: {
+		"name" : "Chłop", "sprite": preload("res://sprites/Units/Horseman.png"),
+		"object": preload("res://object/unit.tscn"),
+		"HP" : 5, "DMG" : 1
+	},
+	
+}
+
 
 func _ready():
 	for r in resources:
