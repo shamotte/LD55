@@ -7,7 +7,6 @@ var c
 func _ready():
 	c = $Cost.get_children()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	for i in range(Global.buildings[building]["resource_type"].size()):

@@ -11,13 +11,14 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("left_mouse_button"):
 		build_building(mousePosition())
-	if Input.is_action_just_pressed("back"):
+	if Input.is_action_just_pressed("back") or Input.is_action_just_pressed("right_mouse_button"):
 		selected_building = -1
 	if selected_building != -1:
 		$"../../CursorSprite".position = mousePosition()
 		$"../../CursorSprite".texture = Global.buildings[selected_building]["sprite"]
 	else:
 		$"../../CursorSprite".global_position = mousePosition()
+		$"../../CursorSprite".texture = null
 		#$"../../CursorSprite".texture = preload("res://sprites/wood.png")
 
 func build_building(position):

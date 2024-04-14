@@ -72,6 +72,34 @@ var buildings = {
 	}
 }
 
+enum UNIT {IMP,U1,U2,U3}
+var units = {
+	UNIT.IMP: {
+		"name" : "Imp", "sprite": preload("res://sprites/imp.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [15,17],
+		"object": preload("res://object/unit.tscn"),
+		"HP" : 10, "DMG" : 2
+	},
+	UNIT.U1: {
+		"name" : "Imp", "sprite": preload("res://sprites/imp.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [10,16],
+		"object": preload("res://object/unit.tscn"),
+		"HP" : 10, "DMG" : 2
+	},
+	UNIT.U2: {
+		"name" : "Imp", "sprite": preload("res://sprites/imp.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [11,11],
+		"object": preload("res://object/unit.tscn"),
+		"HP" : 10, "DMG" : 2
+	},
+	UNIT.U3: {
+		"name" : "Imp", "sprite": preload("res://sprites/imp.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [12,13],
+		"object": preload("res://object/unit.tscn"),
+		"HP" : 10, "DMG" : 2
+	}
+}
+
 func _ready():
 	for r in resources:
 		current_resources[r] = 10

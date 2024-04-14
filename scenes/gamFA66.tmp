@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=14 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -9,8 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dr26fk5p3bowt" path="res://sprites/Build_Icon_Checked.png" id="6_85scb"]
 [ext_resource type="Texture2D" uid="uid://cj1f3d7jl57jo" path="res://sprites/Build_Icon.png" id="6_mi60c"]
 [ext_resource type="Texture2D" uid="uid://bbd6xt53dmrjc" path="res://sprites/wood.png" id="6_q5g7h"]
-[ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
-[ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/imp.png" id="11_tqatv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
 vertices = PackedVector2Array(630, 350, 10, 350, 10, 10, 630, 10)
@@ -39,9 +37,6 @@ CheckButton/icons/unchecked_disabled_mirrored = ExtResource("6_mi60c")
 CheckButton/icons/unchecked_mirrored = ExtResource("6_mi60c")
 CheckButton/styles/focus = SubResource("StyleBoxEmpty_eev7q")
 Panel/styles/panel = SubResource("StyleBoxFlat_2wh76")
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jq1be"]
-radius = 3.0
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_x25h7")
@@ -73,18 +68,16 @@ y_sort_enabled = true
 [node name="Buildings" type="Node" parent="GameSpace" groups=["BuildingManager"]]
 script = ExtResource("3_y6sc7")
 
-[node name="Units" type="Node" parent="GameSpace"]
-
-[node name="Unit" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+[node name="Unit" parent="GameSpace" instance=ExtResource("1_fh80v")]
 position = Vector2(53, 147)
 
-[node name="Unit2" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+[node name="Unit2" parent="GameSpace" instance=ExtResource("1_fh80v")]
 position = Vector2(181, 226)
 
-[node name="Unit3" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+[node name="Unit3" parent="GameSpace" instance=ExtResource("1_fh80v")]
 position = Vector2(93, 77)
 
-[node name="Unit4" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+[node name="Unit4" parent="GameSpace" instance=ExtResource("1_fh80v")]
 position = Vector2(243, 77)
 
 [node name="CursorSprite" type="Sprite2D" parent="."]
@@ -165,65 +158,14 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="SpawnList" type="ScrollContainer" parent="UI/UI/Building/Panel"]
-visible = false
 layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="UI/UI/Building/Panel/SpawnList"]
 layout_mode = 2
 
-[node name="PreviewManager" type="Control" parent="UI/UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -193.0
-offset_top = -84.0
-offset_right = 193.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("10_d5ti3")
-
-[node name="Panel" type="Panel" parent="UI/UI/PreviewManager"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="UI/UI/PreviewManager/Panel"]
-position = Vector2(33, 44)
-texture = ExtResource("11_tqatv")
-
-[node name="Control" type="Control" parent="UI/UI/PreviewManager/Panel"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -281.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="UnitName" type="Label" parent="UI/UI/PreviewManager/Panel/Control"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="ResourceSpawnTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
-
-[node name="MousePointer" type="Area2D" parent="."]
-unique_name_in_owner = true
-collision_layer = 0
-collision_mask = 128
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MousePointer"]
-shape = SubResource("CircleShape2D_jq1be")
 
 [connection signal="toggled" from="UI/UI/Building/CheckButton" to="UI/UI/Building" method="_on_check_button_toggled"]
 [connection signal="timeout" from="ResourceSpawnTimer" to="." method="_on_resource_spawn_timer_timeout"]
