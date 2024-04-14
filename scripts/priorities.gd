@@ -2,6 +2,21 @@ extends Node
 
 enum ACTIONTYPES {GATHERWOOD =0, GATHERROCK,GATHERIRON,GATHERFOOD,GATHERGOLD,CRAFT}
 
+func get_action_name(index:int) -> String:
+
+	match index:
+		0:
+			return "wood"
+		1:
+			return "rock"
+		2: return "iron"
+		3: return "food"
+		4: return "gold"
+		5: return "craft"
+	return "error_string"
+		
+
+
 class action:
 	var type: ACTIONTYPES
 	var id : int
@@ -29,7 +44,7 @@ func return_action(act: action):
 	aveilable.append(act)
 	
 func get_action(a)->action:
-	aveilable.sort_custom(func(l,r):return a[l.type]>a[r.type])
+	aveilable.sort_custom(func(l,r):return a[l.type]<a[r.type])
 	return aveilable.pop_front()
 	
 

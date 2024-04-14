@@ -2,20 +2,28 @@
 
 [ext_resource type="Script" path="res://object/priority_elem.gd" id="1_0kerx"]
 
-[node name="priority_elem" type="Button"]
-offset_right = 8.0
-offset_bottom = 8.0
-text = "1"
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
 script = ExtResource("1_0kerx")
+
+[node name="priority_elem" type="Button" parent="."]
+offset_left = 21.0
+offset_top = 32.0
+offset_right = 39.0
+offset_bottom = 63.0
+text = "1"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 40.0
-offset_bottom = -8.0
+offset_left = 5.0
+offset_right = 61.0
+offset_bottom = 32.0
 text = "wood"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="priority_elem" to="." method="_on_priority_elem_pressed"]

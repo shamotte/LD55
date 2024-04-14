@@ -228,6 +228,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -127.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -245,13 +246,15 @@ offset_bottom = 23.0
 [node name="PriorityBoxes" type="HBoxContainer" parent="UI/UI/PreviewManager/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 11
+anchors_preset = 3
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -305.0
+offset_top = -48.0
 grow_horizontal = 0
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="ResourceSpawnTimer" type="Timer" parent="."]
 wait_time = 10.0

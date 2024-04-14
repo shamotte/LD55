@@ -1,10 +1,27 @@
 extends Control
 
-
+var PRIORITIESLENGTH = 6
+@onready var priority_box= preload("res://object/priority_elem.tscn")
 # Called when the node enters the scene tree for the first time.
 var camera :Camera2D
+func update_priority(index:int,new_value : int):
+	
+	if active_selection is unit:
+		active_selection.priorities[index] = new_value
+		print("writing new priority")
 func _ready():
 	camera = get_viewport().get_camera_2d()
+	%PriorityBoxes.visible= false
+	for p in range(PRIORITIESLENGTH):
+		var child = priority_box.instantiate() 
+		child.priority = 0
+		child.index = p
+		child.value_changed.connect(update_priority)
+		child.change_label(Priorities.get_action_name(p))
+		%PriorityBoxes.add_child(child)
+		
+	
+	
 
 @onready var pointer:Area2D = %MousePointer
 var active_selection
@@ -20,16 +37,19 @@ func _input(event):
 				
 			
 	
-@onready var priority_box= preload("res://object/priority_elem.tscn")
+
 func unit_selection(object : unit):
 	%UnitName.text = Global.units[object.type].name
 	%preview_icon.texture = object.get_node("Sprite").texture
+	%PriorityBoxes.visible = true
+	active_selection = object
 	
 	for p in range(len(object.priorities)):
-		%PriorityBoxes.get_child(p).priority = object.priorities[p]
+		%PriorityBoxes.get_child(p).change_priority(object.priorities[p])
 		
 	
 func resource_selection(object : Res):
+	%PriorityBoxes.visible = false
 	%UnitName.text = Global.resources[object.resource_type].name
 	%preview_icon.texture = object.get_node("Sprite2D").texture
 
