@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=19 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -27,6 +27,38 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8celt"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 1)
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqxit"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2ng8"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+border_width_top = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjns5"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+border_width_top = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unl3m"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 1)
+border_width_top = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+anti_aliasing = false
+
 [sub_resource type="Theme" id="Theme_70afd"]
 CheckButton/icons/checked = ExtResource("6_85scb")
 CheckButton/icons/checked_disabled = ExtResource("6_mi60c")
@@ -38,6 +70,12 @@ CheckButton/icons/unchecked_disabled_mirrored = ExtResource("6_mi60c")
 CheckButton/icons/unchecked_mirrored = ExtResource("6_mi60c")
 CheckButton/styles/focus = SubResource("StyleBoxEmpty_eev7q")
 Panel/styles/panel = SubResource("StyleBoxFlat_2wh76")
+TabContainer/constants/side_margin = 0
+TabContainer/styles/panel = SubResource("StyleBoxFlat_8celt")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_qqxit")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_t2ng8")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_rjns5")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_unl3m")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_x25h7")
