@@ -12,13 +12,13 @@ func _process(delta):
 	if Input.is_action_just_pressed("left_mouse_button"):
 		build_unit(mousePosition())
 	if Input.is_action_just_pressed("back") or Input.is_action_just_pressed("right_mouse_button"):
-		selected_unit = -1
+		UnselectObject()
 	if selected_unit != -1:
 		$"../../CursorSprite".position = mousePosition()
 		$"../../CursorSprite".texture = Global.units[selected_unit]["sprite"]
 	else:
 		$"../../CursorSprite".global_position = mousePosition()
-		$"../../CursorSprite".texture = null
+		
 
 func build_unit(position):
 	if selected_unit != -1:
@@ -29,7 +29,7 @@ func build_unit(position):
 		var newUnit = Global.units[selected_unit]["object"].instantiate()
 		newUnit.position = position
 		add_child(newUnit)
-		selected_unit = -1
+		UnselectObject()
 
 #set id for unit
 func set_unit_id(id):
@@ -37,3 +37,7 @@ func set_unit_id(id):
 	
 func mousePosition():
 	return $"../..".mousePos()
+	
+func UnselectObject():
+	selected_unit = -1
+	$"../../CursorSprite".texture = null
