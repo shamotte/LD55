@@ -9,7 +9,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print($"../..".mousePos())
 	if Input.is_action_just_pressed("left_mouse_button"):
 		build_building(mousePosition())
 	if Input.is_action_just_pressed("back"):

@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name unit
 @export var range = 10
 @export var speed = 100
 var target: Vector2 = Vector2(100, 100)
@@ -20,6 +20,7 @@ func _input(event):
 		if event.button_index ==1 and event.is_pressed():
 			pass
 			
+
 
 enum STATES  { WORK, WALK, IDLE}
 var state: STATES = STATES.IDLE
@@ -73,3 +74,7 @@ func _physics_process(delta):
 		direction = direction.normalized()
 		velocity = velocity.lerp(direction * speed , 0.25)
 		move_and_slide()
+
+
+func display_previev(panel : Panel):
+	

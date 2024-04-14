@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://6o0ppecfcqvo"]
+[gd_scene load_steps=9 format=3 uid="uid://6o0ppecfcqvo"]
 
 [ext_resource type="Script" path="res://scripts/unit.gd" id="1_g8wtp"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/imp.png" id="2_ey7t7"]
@@ -39,9 +39,16 @@ _data = {
 "spawn": SubResource("Animation_kchxp")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_exkfb"]
+
 [node name="Unit" type="CharacterBody2D"]
+position = Vector2(0, 4)
+scale = Vector2(2, 1e-05)
+collision_layer = 129
 collision_mask = 0
 script = ExtResource("1_g8wtp")
+range = null
+speed = null
 
 [node name="NavAgent" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
@@ -63,3 +70,10 @@ stream = ExtResource("4_oaxnj")
 libraries = {
 "": SubResource("AnimationLibrary_1yred")
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_exkfb")
