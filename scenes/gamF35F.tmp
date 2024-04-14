@@ -242,8 +242,7 @@ layout_mode = 1
 offset_right = 65.0
 offset_bottom = 23.0
 
-[node name="PriorityBoxes" type="HBoxContainer" parent="UI/UI/PreviewManager/Panel"]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UI/PreviewManager/Panel"]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0

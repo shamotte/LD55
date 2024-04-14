@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=15 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -7,15 +7,14 @@
 [ext_resource type="Script" path="res://scripts/Buildings.gd" id="3_y6sc7"]
 [ext_resource type="Script" path="res://scripts/Units.gd" id="5_smeyy"]
 [ext_resource type="Script" path="res://scripts/BuildingManager.gd" id="5_ysb7k"]
-[ext_resource type="Texture2D" uid="uid://b68vottib3284" path="res://sprites/Build_Menu_Selected.png" id="8_t8nvj"]
-[ext_resource type="Texture2D" uid="uid://fp71qwttyi3j" path="res://sprites/Build_Menu.png" id="9_hqmam"]
-[ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
-[ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/imp.png" id="11_tqatv"]
+[ext_resource type="Texture2D" uid="uid://dr26fk5p3bowt" path="res://sprites/Build_Icon_Checked.png" id="6_85scb"]
+[ext_resource type="Texture2D" uid="uid://cj1f3d7jl57jo" path="res://sprites/Build_Icon.png" id="6_mi60c"]
+[ext_resource type="Texture2D" uid="uid://bbd6xt53dmrjc" path="res://sprites/wood.png" id="6_q5g7h"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
-vertices = PackedVector2Array(630, 9, 630, 350, 2, 357, 2, 2)
+vertices = PackedVector2Array(630, 350, 10, 350, 10, 10, 630, 10)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(640, 0, 640, 360, -8, 368, -8, -8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(640, 0, 640, 360, 0, 360, 0, 0)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eev7q"]
@@ -28,58 +27,17 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8celt"]
-bg_color = Color(0.105882, 0.105882, 0.105882, 1)
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-anti_aliasing = false
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqxit"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2ng8"]
-bg_color = Color(0.152941, 0.152941, 0.152941, 1)
-border_width_top = 4
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjns5"]
-bg_color = Color(0.152941, 0.152941, 0.152941, 1)
-border_width_top = 2
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unl3m"]
-bg_color = Color(0.105882, 0.105882, 0.105882, 1)
-border_width_top = 2
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-anti_aliasing = false
-
 [sub_resource type="Theme" id="Theme_70afd"]
-CheckButton/icons/checked = ExtResource("8_t8nvj")
-CheckButton/icons/checked_disabled = ExtResource("9_hqmam")
-CheckButton/icons/checked_disabled_mirrored = ExtResource("9_hqmam")
-CheckButton/icons/checked_mirrored = ExtResource("9_hqmam")
-CheckButton/icons/unchecked = ExtResource("9_hqmam")
-CheckButton/icons/unchecked_disabled = ExtResource("9_hqmam")
-CheckButton/icons/unchecked_disabled_mirrored = ExtResource("9_hqmam")
-CheckButton/icons/unchecked_mirrored = ExtResource("9_hqmam")
+CheckButton/icons/checked = ExtResource("6_85scb")
+CheckButton/icons/checked_disabled = ExtResource("6_mi60c")
+CheckButton/icons/checked_disabled_mirrored = ExtResource("6_mi60c")
+CheckButton/icons/checked_mirrored = ExtResource("6_mi60c")
+CheckButton/icons/unchecked = ExtResource("6_mi60c")
+CheckButton/icons/unchecked_disabled = ExtResource("6_mi60c")
+CheckButton/icons/unchecked_disabled_mirrored = ExtResource("6_mi60c")
+CheckButton/icons/unchecked_mirrored = ExtResource("6_mi60c")
 CheckButton/styles/focus = SubResource("StyleBoxEmpty_eev7q")
 Panel/styles/panel = SubResource("StyleBoxFlat_2wh76")
-TabContainer/constants/side_margin = 0
-TabContainer/styles/panel = SubResource("StyleBoxFlat_8celt")
-TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_qqxit")
-TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_t2ng8")
-TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_rjns5")
-TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_unl3m")
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jq1be"]
-radius = 3.0
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_x25h7")
@@ -129,6 +87,7 @@ position = Vector2(243, 77)
 [node name="CursorSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
 self_modulate = Color(1, 1, 1, 0.752941)
+texture = ExtResource("6_q5g7h")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -209,61 +168,9 @@ layout_mode = 2
 [node name="GridContainer" type="GridContainer" parent="UI/UI/Building/Panel/SpawnList"]
 layout_mode = 2
 
-[node name="PreviewManager" type="Control" parent="UI/UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -193.0
-offset_top = -84.0
-offset_right = 193.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("10_d5ti3")
-
-[node name="Panel" type="Panel" parent="UI/UI/PreviewManager"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="preview_icon" type="Sprite2D" parent="UI/UI/PreviewManager/Panel"]
-unique_name_in_owner = true
-position = Vector2(33, 52)
-texture = ExtResource("11_tqatv")
-
-[node name="UnitName" type="Label" parent="UI/UI/PreviewManager/Panel"]
-unique_name_in_owner = true
-layout_mode = 1
-offset_right = 65.0
-offset_bottom = 23.0
-
-[node name="PriorityBoxes" type="HBoxContainer" parent="UI/UI/PreviewManager/Panel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -305.0
-grow_horizontal = 0
-grow_vertical = 2
-
 [node name="ResourceSpawnTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
-
-[node name="MousePointer" type="Area2D" parent="."]
-unique_name_in_owner = true
-collision_layer = 0
-collision_mask = 128
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MousePointer"]
-shape = SubResource("CircleShape2D_jq1be")
 
 [connection signal="toggled" from="UI/UI/Building/CheckButton" to="UI/UI/Building" method="_on_check_button_toggled"]
 [connection signal="timeout" from="ResourceSpawnTimer" to="." method="_on_resource_spawn_timer_timeout"]

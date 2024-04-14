@@ -1,6 +1,6 @@
 extends Control
 
-var units: Global.BUILDINGS
+var units: Global.UNIT
 var c
 
 # Called when the node enters the scene tree for the first time.
@@ -21,8 +21,7 @@ func _on_button_pressed():
 	for i in range(Global.units[units]["resource_type"].size()):
 		if Global.current_resources[ Global.units[units]["resource_type"][i] ] < Global.units[units]["resource_cost"][i]:
 			return
-	
-	#var manager = get_tree().get_first_node_in_group("BuildingManager")
-	#manager.set_building_id(building)
-	#var managerUI = get_tree().get_first_node_in_group("BuildingUI")
-	#managerUI.hide_panel(true)
+		var manager = get_tree().get_first_node_in_group("Units")
+		manager.set_unit_id(units)
+		var managerUI = get_tree().get_first_node_in_group("BuildingUI")
+		managerUI.hide_panel(true)
