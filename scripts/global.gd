@@ -76,7 +76,7 @@ enum UNIT {IMP,U1,U2,U3}
 var units = {
 	UNIT.IMP: {
 		"name" : "Imp", "sprite": preload("res://sprites/imp.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [15,17],
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
 		"HP" : 10, "DMG" : 2
 	},
