@@ -68,18 +68,16 @@ y_sort_enabled = true
 [node name="Buildings" type="Node" parent="GameSpace" groups=["BuildingManager"]]
 script = ExtResource("3_y6sc7")
 
-[node name="Units" type="Node" parent="GameSpace"]
-
-[node name="Unit" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+[node name="Unit" parent="GameSpace" instance=ExtResource("1_fh80v")]
 position = Vector2(53, 147)
 
-[node name="Unit2" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+[node name="Unit2" parent="GameSpace" instance=ExtResource("1_fh80v")]
 position = Vector2(181, 226)
 
-[node name="Unit3" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+[node name="Unit3" parent="GameSpace" instance=ExtResource("1_fh80v")]
 position = Vector2(93, 77)
 
-[node name="Unit4" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+[node name="Unit4" parent="GameSpace" instance=ExtResource("1_fh80v")]
 position = Vector2(243, 77)
 
 [node name="CursorSprite" type="Sprite2D" parent="."]
@@ -160,7 +158,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="SpawnList" type="ScrollContainer" parent="UI/UI/Building/Panel"]
-visible = false
 layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="UI/UI/Building/Panel/SpawnList"]

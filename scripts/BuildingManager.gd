@@ -4,6 +4,11 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Panel.visible = false
+	$Panel.set_tab_title(0,"")
+	$Panel.set_tab_icon(0,load("res://sprites/wood.png"))
+	
+	$Panel.set_tab_title(1,"")
+	$Panel.set_tab_icon(1,load("res://sprites/axe32.png"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
