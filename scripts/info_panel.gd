@@ -25,7 +25,8 @@ func unit_selection(object : unit):
 	%UnitName.text = Global.units[object.type].name
 	%preview_icon.texture = object.get_node("Sprite").texture
 	
-	for p in object.priorities:
+	for p in range(len(object.priorities)):
+		%PriorityBoxes.get_child(p).priority = object.priorities[p]
 		
 	
 func resource_selection(object : Res):

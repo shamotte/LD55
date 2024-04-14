@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=22 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -242,7 +242,8 @@ layout_mode = 1
 offset_right = 65.0
 offset_bottom = 23.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/UI/PreviewManager/Panel"]
+[node name="PriorityBoxes" type="HBoxContainer" parent="UI/UI/PreviewManager/Panel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
