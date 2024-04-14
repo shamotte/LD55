@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6o0ppecfcqvo"]
+[gd_scene load_steps=10 format=3 uid="uid://6o0ppecfcqvo"]
 
 [ext_resource type="Script" path="res://scripts/unit.gd" id="1_g8wtp"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/imp.png" id="2_ey7t7"]
@@ -41,6 +41,8 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_exkfb"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltbtx"]
+
 [node name="Unit" type="CharacterBody2D"]
 position = Vector2(0, 4)
 scale = Vector2(2, 1e-05)
@@ -75,3 +77,12 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_exkfb")
+
+[node name="attac_area" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attac_area"]
+shape = SubResource("CapsuleShape2D_ltbtx")
+debug_color = Color(0.952941, 0, 0.552941, 0.419608)

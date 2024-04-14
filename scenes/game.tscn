@@ -117,15 +117,6 @@ script = ExtResource("5_smeyy")
 [node name="Unit" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
 position = Vector2(53, 147)
 
-[node name="Unit2" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
-position = Vector2(181, 226)
-
-[node name="Unit3" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
-position = Vector2(93, 77)
-
-[node name="Unit4" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
-position = Vector2(243, 77)
-
 [node name="CursorSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
 self_modulate = Color(1, 1, 1, 0.752941)

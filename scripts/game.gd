@@ -6,6 +6,7 @@ var item_slot = preload("res://interface/item_slot.tscn")
 var building_slot = preload("res://interface/building_slot.tscn")
 var building_cost = preload("res://interface/building_cost.tscn")
 var unit_slot = preload("res://interface/unit_slot.tscn")
+var enemy = preload("res://object/enemy.tscn")
 
 var resource_info
 #Buildings Objects
@@ -52,8 +53,8 @@ func _ready():
 var active_selection
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.button_index ==1 and event.is_pressed():
-			pass
+		if event.button_index ==2 and event.is_pressed():
+			add_child(enemy.instantiate())
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

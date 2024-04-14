@@ -1,6 +1,6 @@
 extends Control
 
-var PRIORITIESLENGTH = 6
+var PRIORITIESLENGTH = 7
 @onready var priority_box= preload("res://object/priority_elem.tscn")
 # Called when the node enters the scene tree for the first time.
 var camera :Camera2D

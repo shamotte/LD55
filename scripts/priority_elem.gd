@@ -1,5 +1,4 @@
 extends Control
-class_name priority_box
 var priority:int
 var index:int
 

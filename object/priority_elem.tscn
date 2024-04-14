@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dahi40k2gv47i"]
 
-[ext_resource type="Script" path="res://object/priority_elem.gd" id="1_0kerx"]
+[ext_resource type="Script" path="res://scripts/priority_elem.gd" id="1_ht11j"]
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(64, 64)
@@ -8,9 +8,10 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 64.0
 offset_bottom = 64.0
-script = ExtResource("1_0kerx")
+script = ExtResource("1_ht11j")
 
 [node name="priority_elem" type="Button" parent="."]
+layout_mode = 0
 offset_left = 21.0
 offset_top = 32.0
 offset_right = 39.0
