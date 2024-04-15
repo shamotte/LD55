@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2rdiianj1yy5"
-path="res://.godot/imported/crafting.png-3559bbbad811035b5a12e1fb0f021593.ctex"
+uid="uid://bl7yyagnit43j"
+path="res://.godot/imported/question-mark.png-e75296e3faa006135f0920f5f110b1da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Items/crafting.png"
-dest_files=["res://.godot/imported/crafting.png-3559bbbad811035b5a12e1fb0f021593.ctex"]
+source_file="res://sprites/UI/question-mark.png"
+dest_files=["res://.godot/imported/question-mark.png-e75296e3faa006135f0920f5f110b1da.ctex"]
 
 [params]
 
