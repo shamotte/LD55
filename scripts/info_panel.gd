@@ -50,8 +50,11 @@ func _input(event):
 
 
 func unit_selection(object : unit):
+	$PreviewPanel/HPTexture.visible = true
 	%UnitName.text = Global.units[object.type].name
+	%HP.visible = true
 	%HP.text = str(object.hp)
+	
 	%preview_icon.texture = object.get_node("Sprite").texture
 	%PriorityBoxes.visible = true
 	%RecepiePanel.visible = false
@@ -64,6 +67,8 @@ func unit_selection(object : unit):
 func resource_selection(object : Res):
 	%PriorityBoxes.visible = false
 	%RecepiePanel.visible = false
+	%HP.visible = false
+	$PreviewPanel/HPTexture.visible = false
 	%UnitName.text = Global.resources[object.resource_type].name
 	%preview_icon.texture = object.get_node("Sprite2D").texture
 	
@@ -72,6 +77,8 @@ func resource_selection(object : Res):
 func building_selection(object : buildingObject):
 	%PriorityBoxes.visible = false
 	%RecepiePanel.visible = true
+	%HP.visible = false
+	$PreviewPanel/HPTexture.visible = false
 	%preview_icon.texture = object.get_node("Sprite2D").texture
 	%UnitName.text = Global.buildings[object.building_type].name
 	%Cou.change_priority(object.to_craft)
