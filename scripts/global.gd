@@ -35,7 +35,7 @@ var recipes = {
 	
 }
 
-enum BUILDINGS { PORTAL,TOWER,LAVALAKE,B3 }
+enum BUILDINGS { PORTAL,TOWER,LAVALAKE,FORGE,TENTACLE,TENTACLESFIELD }
 var buildings = {
 	BUILDINGS.PORTAL: {
 		"name": "Tower","sprite": preload("res://sprites/Buildings/DonutPortal.png"),
@@ -51,19 +51,31 @@ var buildings = {
 	},
 	BUILDINGS.LAVALAKE: {
 		"name": "Lava Lake","sprite": preload("res://sprites/Buildings/LavaLake.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,7],
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : null
 	},
-	BUILDINGS.B3: {
-		"name": "Tower","sprite": preload("res://sprites/Buildings/tower.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [50,70],
+	BUILDINGS.FORGE: {
+		"name": "Forge","sprite": preload("res://sprites/Buildings/Forge.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : null
-	}
+	},
+	BUILDINGS.TENTACLE: {
+		"name": "Lava Lake","sprite": preload("res://sprites/Buildings/Tentacle.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
+		"object": preload("res://object/tower.tscn"),
+		"recipe" : null
+	},
+	BUILDINGS.TENTACLESFIELD: {
+		"name": "Lava Lake","sprite": preload("res://sprites/Buildings/Tentacles.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
+		"object": preload("res://object/tower.tscn"),
+		"recipe" : null
+	},
 }
 
-enum UNIT {CULTIST,IMP,CEMON,PYTHONOS,LORD}
+enum UNIT {CULTIST,IMP,CEMON,PYTHONUS,LORD}
 var units = {
 	UNIT.CULTIST: {
 		"name" : "Cultist", "sprite": preload("res://sprites/Units/Cultist.png"),
@@ -86,8 +98,8 @@ var units = {
 		"object": preload("res://object/unit.tscn"),
 		"HP" : 10, "DMG" : 2
 	},
-	UNIT.PYTHONOS: {
-		"name" : "Pythonos", "sprite": preload("res://sprites/Units/Pythonomium.png"),
+	UNIT.PYTHONUS: {
+		"name" : "Pythonus", "sprite": preload("res://sprites/Units/Pythonomium.png"),
 		"toolSprite" : null,
 		"resource_type": [RESOURCE.WOOD,RESOURCE.GOLD], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
