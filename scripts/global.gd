@@ -3,7 +3,6 @@ extends Node
 const map_width = 1920
 const map_height = 1080
 
-
 var volume: float = 1.0
 
 
@@ -15,7 +14,7 @@ var resources = {
 		,"time" : 2.0, "resource_point_texture": preload("res://sprites/Resources/tree.png")
 	},
 	RESOURCE.ROCK: {
-		"name": "Rock", "sprite": preload("res://sprites/Resources/green_gem.png"), "type" : Priorities.ACTIONTYPES.GATHER
+		"name": "Rock", "sprite": preload("res://sprites/Resources/rockium.png"), "type" : Priorities.ACTIONTYPES.GATHER
 		,"time" : 3.0, "resource_point_texture": preload("res://sprites/Resources/rock.png")	
 	},
 	RESOURCE.IRON: {
@@ -31,7 +30,7 @@ var resources = {
 		,"time" : 10.0, "resource_point_texture": preload("res://sprites/Resources/gem_stone.png")
 	},
 	RESOURCE.HELLIUM: {
-		"name": "Helium", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHER
+		"name": "Helium", "sprite": preload("res://sprites/Resources/hellium.png"), "type" : Priorities.ACTIONTYPES.GATHER
 		,"time" : 10.0, "resource_point_texture": null
 	},
 	RESOURCE.OBSIDIANUM: {
@@ -107,13 +106,13 @@ var buildings = {
 		"recipe" : RECIPES.R4
 	},
 	BUILDINGS.TENTACLE: {
-		"name": "Lava Lake","sprite": preload("res://sprites/Buildings/Tentacle.png"),
+		"name": "Tentacle","sprite": preload("res://sprites/Buildings/Tentacle.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : null
 	},
 	BUILDINGS.TENTACLESFIELD: {
-		"name": "Lava Lake","sprite": preload("res://sprites/Buildings/Tentacles.png"),
+		"name": "Tentacles","sprite": preload("res://sprites/Buildings/Tentacles.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : null
@@ -254,7 +253,12 @@ func _ready():
 		current_resources[r] = 10
 
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("fullscreen"):
+		var get_mode = DisplayServer.window_get_mode()
+		if get_mode != DisplayServer.WINDOW_MODE_FULLSCREEN and get_mode != DisplayServer.WINDOW_MODE_MAXIMIZED:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	
 func add_resources(resource : RESOURCE, count : int):
 	if current_resources.has(resource):
