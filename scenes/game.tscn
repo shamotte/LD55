@@ -354,7 +354,6 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_jqn1q")
 
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("8_1k3t5")
 
 [node name="UI" type="Control" parent="UI"]
@@ -398,8 +397,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -44.0
-offset_bottom = 40.0
+offset_left = -36.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 36.0
 grow_horizontal = 0
 
 [node name="Panel" type="TabContainer" parent="UI/UI/Building"]

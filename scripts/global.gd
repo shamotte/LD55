@@ -3,6 +3,10 @@ extends Node
 const map_width = 1920
 const map_height = 1080
 
+
+var volume: float = 1.0
+
+
 var ITEM_OFFSET = 1000
 enum RESOURCE { WOOD, ROCK, IRON, GOLD }
 var resources = {
