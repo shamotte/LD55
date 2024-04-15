@@ -22,6 +22,10 @@ func _process(delta):
 
 func build_unit(position):
 	if selected_unit != -1:
+		#Checking if cursor is in right place
+		var Cursor = get_tree().get_first_node_in_group("CursorOverlaping")
+		if Cursor.is_overalaping():
+			return
 		#paying for building
 		for i in range(Global.units[selected_unit]["resource_type"].size()):
 			Global.current_resources[Global.units[selected_unit]["resource_type"][i]] -= Global.units[selected_unit]["resource_cost"][i]

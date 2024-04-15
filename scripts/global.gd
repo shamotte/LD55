@@ -61,7 +61,7 @@ var recipes = {
 enum BUILDINGS { PORTAL,TOWER,LAVALAKE,FORGE,TENTACLE,TENTACLESFIELD }
 var buildings = {
 	BUILDINGS.PORTAL: {
-		"name": "Tower","sprite": preload("res://sprites/Buildings/DonutPortal.png"),
+		"name": "Portal","sprite": preload("res://sprites/Buildings/DonutPortal.png"),
 		"resource_type": [RESOURCE.ROCK], "resource_cost": [2],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : RECIPES.R1

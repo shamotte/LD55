@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=18 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -14,7 +14,6 @@
 [ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="8_cjmjg"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
-[ext_resource type="PackedScene" uid="uid://dahi40k2gv47i" path="res://object/priority_elem.tscn" id="15_x630r"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
 vertices = PackedVector2Array(392, 383, 225, 321, 226, 321, -610, -232, -559, -284, -556, -116, -605, -107, -105, 387, -142, 376, -37, 270, 127, 267, 35, 163, 249, -72, 338, 1, 428, 110, 368, -276, 501, -285, 482, -211, 409, -204, 559, -150, 686, -140, 800, 7, 646, 72, 537, -48, 522, -114, 152, -296, 266, -157, -29, -262, 385, 277, 429, 370, 520, 151, 502, 199, 1, 81, -172, 131, -374, -181, -362, -278, -265, -364, -65, -345, -417, 191, -484, 311, -540, 321, -614, 231, -656, 2, -459, -89, -262, 175)
@@ -36,33 +35,17 @@ texture = ExtResource("2_qj8nh")
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_xykrx")
 
-[node name="Building Area" type="Area2D" parent="."]
-collision_layer = 9
-collision_mask = 14
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Building Area"]
-polygon = PackedVector2Array(-296, 176, -80, 32, 40, 32, 112, 112, 136, 192, 320, 288, 360, 224, 328, 136, 216, 32, 184, -104, 320, -232, 240, -248, 144, -208, -344, -176, -480, -56, -480, -56, -568, -96, -624, 72, -568, 168)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Building Area"]
-polygon = PackedVector2Array(568, -112, 592, -16, 680, 40, 736, 8, 728, -56, 640, -104)
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Building Area"]
-polygon = PackedVector2Array(16, 320, 104, 264, 64, 208, -16, 288)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 position = Vector2(2, 4)
 navigation_polygon = SubResource("NavigationPolygon_y668m")
 
 [node name="GameSpace" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Buildings" type="Node2D" parent="GameSpace" groups=["BuildingManager"]]
-y_sort_enabled = true
+[node name="Buildings" type="Node" parent="GameSpace" groups=["BuildingManager"]]
 script = ExtResource("3_y6sc7")
 
-[node name="Units" type="Node2D" parent="GameSpace" groups=["Units"]]
-y_sort_enabled = true
+[node name="Units" type="Node" parent="GameSpace" groups=["Units"]]
 script = ExtResource("5_smeyy")
 
 [node name="Unit" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
@@ -77,8 +60,7 @@ position = Vector2(74, -71)
 [node name="Unit4" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
 position = Vector2(-168, 23)
 
-[node name="Resources" type="Node2D" parent="GameSpace"]
-y_sort_enabled = true
+[node name="Resources" type="Node" parent="GameSpace"]
 
 [node name="ResourcePoint" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-517, 248)
@@ -256,8 +238,7 @@ resource_type = 1
 position = Vector2(-150, -242)
 resource_type = 1
 
-[node name="Enemies" type="Node2D" parent="GameSpace"]
-y_sort_enabled = true
+[node name="Enemies" type="Node" parent="GameSpace"]
 
 [node name="EnemySpawner" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
 position = Vector2(-378, 122)
@@ -363,14 +344,13 @@ script = ExtResource("7_40o6t")
 
 [node name="CheckPointer" type="Area2D" parent="CursorSprite"]
 position = Vector2(0, 4)
-collision_layer = 9
-collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CursorSprite/CheckPointer"]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_jqn1q")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("8_1k3t5")
 
 [node name="UI" type="Control" parent="UI"]
@@ -401,6 +381,13 @@ offset_bottom = 20.0
 grow_horizontal = 0
 alignment = 2
 
+[node name="Items" type="HBoxContainer" parent="UI/UI"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 320.0
+offset_right = 48.0
+offset_bottom = 336.0
+
 [node name="Building" type="Control" parent="UI/UI" groups=["BuildingUI"]]
 layout_mode = 1
 anchors_preset = 1
@@ -414,10 +401,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -36.0
-offset_top = 4.0
-offset_right = -4.0
-offset_bottom = 36.0
+offset_left = -44.0
+offset_bottom = 40.0
 grow_horizontal = 0
 
 [node name="Panel" type="TabContainer" parent="UI/UI/Building"]
@@ -447,32 +432,41 @@ layout_mode = 2
 
 [node name="PreviewManager" type="Control" parent="UI/UI"]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -193.0
 offset_top = -84.0
-offset_right = 240.0
+offset_right = 193.0
+grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("10_d5ti3")
 
-[node name="PreviewPanel" type="Panel" parent="UI/UI/PreviewManager"]
-unique_name_in_owner = true
+[node name="Panel" type="Panel" parent="UI/UI/PreviewManager"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -127.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UnitName" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
+[node name="preview_icon" type="Sprite2D" parent="UI/UI/PreviewManager/Panel"]
+unique_name_in_owner = true
+position = Vector2(33, 52)
+texture = ExtResource("11_tqatv")
+
+[node name="UnitName" type="Label" parent="UI/UI/PreviewManager/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_right = 80.0
+offset_right = 65.0
 offset_bottom = 23.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PriorityBoxes" type="HBoxContainer" parent="UI/UI/PreviewManager/PreviewPanel"]
+[node name="PriorityBoxes" type="HBoxContainer" parent="UI/UI/PreviewManager/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
@@ -480,36 +474,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -160.0
-offset_top = -81.0
-offset_bottom = -1.0
+offset_left = -305.0
+offset_top = -48.0
 grow_horizontal = 0
 grow_vertical = 0
-
-[node name="RecepiePanel" type="Panel" parent="UI/UI/PreviewManager/PreviewPanel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -160.0
-offset_right = 8.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="Control" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel" instance=ExtResource("15_x630r")]
-offset_left = 16.0
-offset_top = 12.0
-offset_right = 64.0
-offset_bottom = 76.0
-max_number = 99
-label = "count"
-
-[node name="preview_icon" type="Sprite2D" parent="UI/UI/PreviewManager/PreviewPanel"]
-unique_name_in_owner = true
-position = Vector2(40, 52)
-texture = ExtResource("11_tqatv")
 
 [node name="MousePointer" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -519,12 +487,4 @@ collision_mask = 128
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MousePointer"]
 shape = SubResource("CircleShape2D_jq1be")
 
-[connection signal="area_entered" from="Building Area" to="CursorSprite" method="_on_building_area_area_entered"]
-[connection signal="area_exited" from="Building Area" to="CursorSprite" method="_on_building_area_area_exited"]
 [connection signal="toggled" from="UI/UI/Building/CheckButton" to="UI/UI/Building" method="_on_check_button_toggled"]
-[connection signal="mouse_entered" from="UI/UI/PreviewManager" to="UI/UI/PreviewManager" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UI/UI/PreviewManager" to="UI/UI/PreviewManager" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="UI/UI/PreviewManager/PreviewPanel" to="UI/UI/PreviewManager" method="_on_preview_panel_mouse_entered"]
-[connection signal="mouse_exited" from="UI/UI/PreviewManager/PreviewPanel" to="UI/UI/PreviewManager" method="_on_preview_panel_mouse_exited"]
-[connection signal="mouse_entered" from="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/Control" to="UI/UI/PreviewManager" method="_on_control_mouse_entered"]
-[connection signal="mouse_exited" from="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/Control" to="UI/UI/PreviewManager" method="_on_control_mouse_exited"]
