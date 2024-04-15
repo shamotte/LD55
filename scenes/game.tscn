@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=27 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://interface/CheckSpace.gd" id="7_40o6t"]
 [ext_resource type="PackedScene" uid="uid://fvp2heuuowys" path="res://object/resource_point.tscn" id="7_f0igd"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="8_1k3t5"]
+[ext_resource type="PackedScene" uid="uid://c2idpjyy4sxwy" path="res://object/enemy_spawner.tscn" id="8_4bd8d"]
 [ext_resource type="Texture2D" uid="uid://b68vottib3284" path="res://sprites/UI/Build_Menu_Selected.png" id="8_t8nvj"]
 [ext_resource type="Texture2D" uid="uid://fp71qwttyi3j" path="res://sprites/UI/Build_Menu.png" id="9_hqmam"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
@@ -298,6 +299,104 @@ resource_type = 1
 position = Vector2(-150, -242)
 resource_type = 1
 
+[node name="Enemies" type="Node" parent="GameSpace"]
+
+[node name="EnemySpawner" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-378, 122)
+
+[node name="EnemySpawner2" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-385, 37)
+
+[node name="EnemySpawner3" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-296, 30)
+
+[node name="EnemySpawner4" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-337, -52)
+
+[node name="EnemySpawner5" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-337, -52)
+
+[node name="EnemySpawner6" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-219, -71)
+
+[node name="EnemySpawner7" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-101, -4)
+
+[node name="EnemySpawner8" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-32, -86)
+
+[node name="EnemySpawner9" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(121, -123)
+
+[node name="EnemySpawner10" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(196, -4)
+
+[node name="EnemySpawner11" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(78, 83)
+
+[node name="EnemySpawner12" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-111, 82)
+
+[node name="EnemySpawner13" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(102, 225)
+
+[node name="EnemySpawner14" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(282, 301)
+
+[node name="EnemySpawner15" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(388, 225)
+
+[node name="EnemySpawner16" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(287, 163)
+
+[node name="EnemySpawner17" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(290, 12)
+
+[node name="EnemySpawner18" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-88, -215)
+
+[node name="EnemySpawner19" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-219, -286)
+
+[node name="EnemySpawner20" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(114, -248)
+
+[node name="EnemySpawner21" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-583, -156)
+
+[node name="EnemySpawner22" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-596, 8)
+
+[node name="EnemySpawner23" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-505, 198)
+
+[node name="EnemySpawner24" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-33, 319)
+
+[node name="EnemySpawner25" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-489, 216)
+
+[node name="EnemySpawner26" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(672, 22)
+
+[node name="EnemySpawner27" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(664, -102)
+
+[node name="EnemySpawner28" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(489, -161)
+
+[node name="EnemySpawner29" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(278, -241)
+
+[node name="EnemySpawner30" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-269, -288)
+
+[node name="EnemySpawner31" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-95, -219)
+
+[node name="EnemySpawner32" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-323, -204)
+
 [node name="CursorSprite" type="Sprite2D" parent="." groups=["CursorOverlaping"]]
 modulate = Color(1, 1, 1, 0.501961)
 self_modulate = Color(1, 1, 1, 0.752941)
@@ -438,10 +537,6 @@ offset_top = -48.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="ResourceSpawnTimer" type="Timer" parent="."]
-wait_time = 10.0
-autostart = true
-
 [node name="MousePointer" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 0
@@ -451,4 +546,3 @@ collision_mask = 128
 shape = SubResource("CircleShape2D_jq1be")
 
 [connection signal="toggled" from="UI/UI/Building/CheckButton" to="UI/UI/Building" method="_on_check_button_toggled"]
-[connection signal="timeout" from="ResourceSpawnTimer" to="." method="_on_resource_spawn_timer_timeout"]
