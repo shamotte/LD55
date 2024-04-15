@@ -3,7 +3,6 @@ extends Node
 const map_width = 1920
 const map_height = 1080
 
-
 var volume: float = 1.0
 
 
@@ -254,7 +253,12 @@ func _ready():
 		current_resources[r] = 10
 
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("fullscreen"):
+		var get_mode = DisplayServer.window_get_mode()
+		if get_mode != DisplayServer.WINDOW_MODE_FULLSCREEN and get_mode != DisplayServer.WINDOW_MODE_MAXIMIZED:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	
 func add_resources(resource : RESOURCE, count : int):
 	if current_resources.has(resource):
