@@ -27,6 +27,7 @@ func build_unit(position):
 			Global.current_resources[Global.units[selected_unit]["resource_type"][i]] -= Global.units[selected_unit]["resource_cost"][i]
 		#Summoning Object
 		var newUnit = Global.units[selected_unit]["object"].instantiate()
+		newUnit.setStats(selected_unit) 
 		newUnit.position = position
 		add_child(newUnit)
 		UnselectObject()

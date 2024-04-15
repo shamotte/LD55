@@ -44,7 +44,7 @@ var recipes = {
 	
 }
 
-enum BUILDINGS { PORTAL,TOWER,B2,B3 }
+enum BUILDINGS { PORTAL,TOWER,LAVALAKE,B3 }
 var buildings = {
 	BUILDINGS.PORTAL: {
 		"name": "Tower","sprite": preload("res://sprites/Buildings/DonutPortal.png"),
@@ -58,9 +58,9 @@ var buildings = {
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : null
 	},
-	BUILDINGS.B2: {
-		"name": "Tower","sprite": preload("res://sprites/Buildings/tower.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [15,17],
+	BUILDINGS.LAVALAKE: {
+		"name": "Lava Lake","sprite": preload("res://sprites/Buildings/LavaLake.png"),
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,7],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : null
 	},
@@ -72,35 +72,40 @@ var buildings = {
 	}
 }
 
-enum UNIT {CULTIST,IMP,CEMON,PYTHONOMIUM,LORD}
+enum UNIT {CULTIST,IMP,CEMON,PYTHONOS,LORD}
 var units = {
 	UNIT.CULTIST: {
-		"name" : "Kultysta", "sprite": preload("res://sprites/Units/Cultist.png"),
+		"name" : "Cultist", "sprite": preload("res://sprites/Units/Cultist.png"),
+		"toolSprite" : null,
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
 		"HP" : 10, "DMG" : 2
 	},
 	UNIT.IMP: {
 		"name" : "Imp", "sprite": preload("res://sprites/Units/imp.png"),
+		"toolSprite" : preload("res://sprites/Items/axe.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
 		"HP" : 10, "DMG" : 2
 	},
 	UNIT.CEMON: {
-		"name" : "Imp", "sprite": preload("res://sprites/Units/Cemon.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
+		"name" : "Cemon", "sprite": preload("res://sprites/Units/Cemon.png"),
+		"toolSprite" : null,
+		"resource_type": [RESOURCE.WOOD,RESOURCE.IRON], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
 		"HP" : 10, "DMG" : 2
 	},
-	UNIT.PYTHONOMIUM: {
-		"name" : "Imp", "sprite": preload("res://sprites/Units/Pythonomium.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
+	UNIT.PYTHONOS: {
+		"name" : "Pythonos", "sprite": preload("res://sprites/Units/Pythonomium.png"),
+		"toolSprite" : null,
+		"resource_type": [RESOURCE.WOOD,RESOURCE.GOLD], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
 		"HP" : 10, "DMG" : 2
 	},
 	UNIT.LORD: {
-		"name" : "Imp", "sprite": preload("res://sprites/Units/DemonLord.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
+		"name" : "Demon Lord", "sprite": preload("res://sprites/Units/DemonLord.png"),
+		"toolSprite" : null,
+		"resource_type": [RESOURCE.IRON,RESOURCE.GOLD], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
 		"HP" : 10, "DMG" : 2
 	},
