@@ -143,6 +143,7 @@ func look_for_higher_priority_job():
 			
 			
 			
+			
 func setStats(unitId):
 	work_range = Global.units[unitId]["work_range"]
 	work_speed = Global.units[unitId]["work_speed"]
