@@ -66,12 +66,18 @@ func resource_selection(object : Res):
 	%UnitName.text = Global.resources[object.resource_type].name
 	%preview_icon.texture = object.get_node("Sprite2D").texture
 	
+	
+@onready var resource_icon = preload("res://interface/resource_slot.tscn")
 func building_selection(object : buildingObject):
 	%PriorityBoxes.visible = false
 	%RecepiePanel.visible = true
 	%preview_icon.texture = object.get_node("Sprite2D").texture
 	%UnitName.text = Global.buildings[object.building_type].name
 	%Cou.change_priority(object.to_craft)
+	var recipe = object.recipe
+	for igr in Global.recipes[recipe].ingredients:
+		pass
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
