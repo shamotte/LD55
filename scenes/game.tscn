@@ -64,6 +64,7 @@ y_sort_enabled = true
 script = ExtResource("3_y6sc7")
 
 [node name="Units" type="Node2D" parent="GameSpace" groups=["Units"]]
+unique_name_in_owner = true
 y_sort_enabled = true
 script = ExtResource("5_smeyy")
 
@@ -566,6 +567,26 @@ layout_mode = 2
 unique_name_in_owner = true
 position = Vector2(40, 44)
 texture = ExtResource("11_tqatv")
+
+[node name="Endgame" type="Label" parent="UI"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 0.0666667, 0.286275, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -24.5
+offset_right = 141.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER
+ALL YOUR MINIONS WERE DEFEATED"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MousePointer" type="Area2D" parent="."]
 unique_name_in_owner = true
