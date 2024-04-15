@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6jv1sfnxnkmw"
-path="res://.godot/imported/hellium.png-43af3e5e1086e29a276b460998119258.ctex"
+uid="uid://d2rdiianj1yy5"
+path="res://.godot/imported/crafting.png-3559bbbad811035b5a12e1fb0f021593.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Resources/hellium.png"
-dest_files=["res://.godot/imported/hellium.png-43af3e5e1086e29a276b460998119258.ctex"]
+source_file="res://sprites/Items/crafting.png"
+dest_files=["res://.godot/imported/crafting.png-3559bbbad811035b5a12e1fb0f021593.ctex"]
 
 [params]
 
