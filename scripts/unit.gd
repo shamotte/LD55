@@ -48,8 +48,10 @@ func _process(delta):
 	#Rotation
 	if velocity.x > 0:
 		$Sprite.flip_h = false
+		$Sprite/ItemParent.scale.x = 1.0
 	elif velocity.x < 0:
 		$Sprite.flip_h = true
+		$Sprite/ItemParent.scale.x = -1.0
 	
 	match state:
 		STATES.IDLE:
@@ -143,7 +145,7 @@ func look_for_higher_priority_job():
 			
 func setStats(unitId):
 	$Sprite.texture = Global.units[unitId]["sprite"]
-	$Sprite/Item.texture = Global.units[unitId]["toolSprite"]
+	$Sprite/ItemParent/Item.texture = Global.units[unitId]["toolSprite"]
 	type = unitId
 
 func _physics_process(delta):

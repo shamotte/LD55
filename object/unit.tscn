@@ -124,10 +124,11 @@ sprite_frames = SubResource("SpriteFrames_pox06")
 autoplay = "default"
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(1.25, 0.75)
 texture = ExtResource("2_ey7t7")
 
-[node name="Item" type="Sprite2D" parent="Sprite"]
+[node name="ItemParent" type="Node2D" parent="Sprite"]
+
+[node name="Item" type="Sprite2D" parent="Sprite/ItemParent"]
 position = Vector2(5, 0)
 texture = ExtResource("3_xcimi")
 
