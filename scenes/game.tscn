@@ -1,22 +1,24 @@
-[gd_scene load_steps=24 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=26 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
-[ext_resource type="Texture2D" uid="uid://gxj6gtkdb4s3" path="res://sprites/grass.png" id="2_mb5b4"]
+[ext_resource type="Texture2D" uid="uid://3fts5stbfhkp" path="res://sprites/map.png" id="2_qj8nh"]
 [ext_resource type="Script" path="res://scripts/camera_motor.gd" id="2_xykrx"]
 [ext_resource type="Script" path="res://scripts/Buildings.gd" id="3_y6sc7"]
 [ext_resource type="Script" path="res://scripts/Units.gd" id="5_smeyy"]
 [ext_resource type="Script" path="res://scripts/BuildingManager.gd" id="5_ysb7k"]
 [ext_resource type="Script" path="res://interface/CheckSpace.gd" id="7_40o6t"]
+[ext_resource type="PackedScene" uid="uid://fvp2heuuowys" path="res://object/resource_point.tscn" id="7_f0igd"]
+[ext_resource type="Script" path="res://scripts/UI.gd" id="8_1k3t5"]
 [ext_resource type="Texture2D" uid="uid://b68vottib3284" path="res://sprites/UI/Build_Menu_Selected.png" id="8_t8nvj"]
 [ext_resource type="Texture2D" uid="uid://fp71qwttyi3j" path="res://sprites/UI/Build_Menu.png" id="9_hqmam"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
-vertices = PackedVector2Array(630, 9, 630, 350, 2, 357, 2, 2)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(640, 0, 640, 360, -8, 368, -8, -8)])
+vertices = PackedVector2Array(392, 383, 225, 321, 226, 321, -610, -232, -559, -284, -556, -116, -605, -107, -105, 387, -142, 376, -37, 270, 127, 267, 35, 163, 249, -72, 338, 1, 428, 110, 368, -276, 501, -285, 482, -211, 409, -204, 559, -150, 686, -140, 800, 7, 646, 72, 537, -48, 522, -114, 152, -296, 266, -157, -29, -262, 385, 277, 429, 370, 520, 151, 502, 199, 1, 81, -172, 131, -374, -181, -362, -278, -265, -364, -65, -345, -417, 191, -484, 311, -540, 321, -614, 231, -656, 2, -459, -89, -262, 175)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(10, 9, 11, 12, 13, 14), PackedInt32Array(15, 16, 17, 18), PackedInt32Array(19, 20, 21, 22, 23, 24), PackedInt32Array(17, 19, 24, 18), PackedInt32Array(25, 15, 18, 26, 27), PackedInt32Array(28, 29, 0, 2, 10), PackedInt32Array(14, 30, 31, 28, 10), PackedInt32Array(32, 27, 26, 12, 11), PackedInt32Array(33, 34, 35, 36, 37, 27, 32), PackedInt32Array(38, 39, 40, 41, 42, 6, 5, 43), PackedInt32Array(44, 38, 43, 34, 33)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-59, -355, -23, -273, 152, -307, 368, -286, 515, -297, 493, -215, 563, -160, 692, -150, 816, 12, 644, 84, 528, -44, 513, -108, 407, -193, 275, -149, 260, -76, 344, -7, 434, 102, 533, 146, 510, 206, 398, 281, 443, 376, 392, 394, 221, 330, 127, 278, -105, 399, -162, 382, -45, 264, 24, 162, -5, 93, -168, 140, -260, 185, -411, 200, -478, 321, -544, 333, -624, 236, -667, 2, -615, -109, -621, -236, -550, -308, -546, -124, -462, -100, -384, -185, -372, -283, -269, -375)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqn1q"]
@@ -87,25 +89,14 @@ radius = 3.0
 [node name="Game" type="Node2D"]
 script = ExtResource("1_x25h7")
 
+[node name="Map" type="Sprite2D" parent="."]
+texture = ExtResource("2_qj8nh")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_xykrx")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -488.0
-offset_top = -288.0
-offset_right = 1176.0
-offset_bottom = 648.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_mb5b4")
-stretch_mode = 1
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(2, 4)
 navigation_polygon = SubResource("NavigationPolygon_y668m")
 
 [node name="GameSpace" type="Node2D" parent="."]
@@ -118,16 +109,194 @@ script = ExtResource("3_y6sc7")
 script = ExtResource("5_smeyy")
 
 [node name="Unit" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
-position = Vector2(53, 147)
+position = Vector2(-103, -85)
 
 [node name="Unit2" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
-position = Vector2(181, 226)
+position = Vector2(124, 36)
 
 [node name="Unit3" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
-position = Vector2(93, 77)
+position = Vector2(74, -71)
 
 [node name="Unit4" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
-position = Vector2(243, 77)
+position = Vector2(-168, 23)
+
+[node name="Resources" type="Node" parent="GameSpace"]
+
+[node name="ResourcePoint" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-517, 248)
+resource_type = 1
+
+[node name="ResourcePoint2" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-546, 194)
+resource_type = 1
+
+[node name="ResourcePoint3" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-482, 166)
+resource_type = 1
+
+[node name="ResourcePoint18" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-539, -33)
+
+[node name="ResourcePoint19" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-582, 39)
+
+[node name="ResourcePoint20" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-515, 93)
+
+[node name="ResourcePoint21" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-454, 20)
+
+[node name="ResourcePoint22" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-421, -55)
+
+[node name="ResourcePoint23" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-432, 87)
+
+[node name="ResourcePoint24" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-513, 26)
+
+[node name="ResourcePoint25" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-473, -19)
+
+[node name="ResourcePoint26" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(241, -212)
+
+[node name="ResourcePoint27" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(184, -160)
+
+[node name="ResourcePoint28" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(57, -144)
+
+[node name="ResourcePoint29" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(0, -160)
+
+[node name="ResourcePoint30" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-74, -154)
+
+[node name="ResourcePoint31" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-148, -167)
+
+[node name="ResourcePoint32" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-246, -178)
+
+[node name="ResourcePoint33" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-306, -139)
+
+[node name="ResourcePoint34" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-237, -126)
+
+[node name="ResourcePoint35" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-270, 113)
+
+[node name="ResourcePoint36" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-252, 61)
+
+[node name="ResourcePoint37" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-187, 65)
+
+[node name="ResourcePoint38" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-219, 19)
+
+[node name="ResourcePoint39" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-215, 94)
+
+[node name="ResourcePoint40" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(145, 119)
+
+[node name="ResourcePoint41" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(207, 140)
+
+[node name="ResourcePoint42" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(153, 162)
+
+[node name="ResourcePoint43" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(213, 190)
+
+[node name="ResourcePoint44" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(50, 262)
+
+[node name="ResourcePoint45" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(264, 222)
+
+[node name="ResourcePoint46" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(253, 171)
+
+[node name="ResourcePoint47" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(310, 198)
+
+[node name="ResourcePoint48" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(318, 235)
+
+[node name="ResourcePoint49" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(279, 122)
+
+[node name="ResourcePoint50" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(220, 69)
+
+[node name="ResourcePoint51" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(623, -82)
+
+[node name="ResourcePoint53" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(649, -25)
+
+[node name="ResourcePoint52" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(695, -38)
+
+[node name="ResourcePoint4" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-126, 376)
+resource_type = 1
+
+[node name="ResourcePoint5" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-52, 358)
+resource_type = 1
+
+[node name="ResourcePoint6" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(427, 135)
+resource_type = 1
+
+[node name="ResourcePoint7" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(480, 161)
+resource_type = 1
+
+[node name="ResourcePoint8" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(431, 199)
+resource_type = 1
+
+[node name="ResourcePoint9" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(116, -217)
+resource_type = 1
+
+[node name="ResourcePoint10" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(66, -240)
+resource_type = 1
+
+[node name="ResourcePoint11" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-10, -224)
+resource_type = 1
+
+[node name="ResourcePoint12" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-81, -266)
+resource_type = 1
+
+[node name="ResourcePoint13" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-170, -316)
+resource_type = 1
+
+[node name="ResourcePoint14" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-259, -323)
+resource_type = 1
+
+[node name="ResourcePoint15" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-322, -256)
+resource_type = 1
+
+[node name="ResourcePoint16" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-241, -240)
+resource_type = 1
+
+[node name="ResourcePoint17" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-150, -242)
+resource_type = 1
 
 [node name="CursorSprite" type="Sprite2D" parent="." groups=["CursorOverlaping"]]
 modulate = Color(1, 1, 1, 0.501961)
@@ -142,6 +311,8 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_jqn1q")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("8_1k3t5")
 
 [node name="UI" type="Control" parent="UI"]
 layout_mode = 3

@@ -16,7 +16,6 @@ func _process(delta):
 
 	volume_normal = lerp(volume_normal, -20.0 if in_battle else 0.0, 0.005)
 	volume_battle = lerp(volume_battle, 0.0 if in_battle else -20.0, 0.005)
-	print(volume_battle)
 
 	$Normal.volume_db = volume_normal
 	$Battle.volume_db = volume_battle
