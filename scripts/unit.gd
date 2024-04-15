@@ -27,6 +27,7 @@ var spawn_anim_end = false
 var hp = max_hp
 
 func _ready():
+	$SpawnSound.play()
 	$AnimationPlayer.play("spawn")
 	spawn_anim_end = false
 
@@ -122,6 +123,7 @@ func attac(location : Vector2):
 		cool = false
 		%CooldownTimer.start(cooldown)
 		%attac_area.global_position = location
+		$AttackSound.play()
 		for enemy in %attac_area.get_overlapping_bodies():
 			enemy.take_damage(damage)
 	

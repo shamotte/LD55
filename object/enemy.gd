@@ -14,9 +14,11 @@ signal died
 var target = null
 @onready var agent: NavigationAgent2D = %agent
 @onready var timer : Timer = %Timer
+
 func _ready():
 	Priorities.add_action(Priorities.ACTIONTYPES.FIGHT,id,$".",0.0)
 	%Timer.wait_time = cooldown
+	$SpawnSound.play()
 
 func set_stats(id:int):
 	max_hp = Global.enemies[id]["HP"]

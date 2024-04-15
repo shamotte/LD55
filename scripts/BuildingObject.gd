@@ -11,10 +11,13 @@ var busy = false
 
 func action_finished():
 	busy = false
+	$CompleteSound.play()
 	for elem in Global.recipes[recipe].results:
 		Global.add_resources(elem[0],elem[1])
+		
 func _ready():
 	$AnimationPlayer.play("spawn")
+	$SpawnSound.play()
 	recipe =  Global.buildings[building_type].recipe
 	#Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,get_node("."),Global.recipes[recipe].work)# Replace with function body.
 
