@@ -505,6 +505,17 @@ unique_name_in_owner = true
 position = Vector2(40, 44)
 texture = ExtResource("11_tqatv")
 
+[node name="HP" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 32.0
+offset_top = 60.0
+offset_right = 72.0
+offset_bottom = 83.0
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MousePointer" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 0
