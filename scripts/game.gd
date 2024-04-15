@@ -82,7 +82,7 @@ func _on_enemy_spawn_timer_timeout():
 		var e = enemy_scene.instantiate()
 		e.global_position = spawn.global_position
 		e.get_node("Sprite2D").texture = Global.enemies[type]["sprite"]
-		
+		e.set_stats(type)
 		$GameSpace/Enemies.add_child(e)
 		
 	timer_timeouts += 1

@@ -8,8 +8,12 @@ var volume: float = 1.0
 
 
 var ITEM_OFFSET = 1000
-enum RESOURCE { WOOD, ROCK, IRON, GOLD }
+enum RESOURCE { WOOD, ROCK, IRON, GOLD, GEM, OBSIDIANUM, HELLIUM ,FOOD, COPIUM, AMONGIUM}
 var resources = {
+	RESOURCE.FOOD: {
+		"name": "Food", "sprite": preload("res://sprites/Resources/yummy.png"), "type" : Priorities.ACTIONTYPES.GATHER
+		,"time" : 2.0, "resource_point_texture": null
+	},
 	RESOURCE.WOOD: {
 		"name": "Wood", "sprite": preload("res://sprites/Resources/wood.png"), "type" : Priorities.ACTIONTYPES.GATHER
 		,"time" : 2.0, "resource_point_texture": preload("res://sprites/Resources/tree.png")
@@ -25,6 +29,26 @@ var resources = {
 	RESOURCE.GOLD: {
 		"name": "Gold", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHER
 		,"time" : 10.0, "resource_point_texture": preload("res://sprites/Resources/gold.png")
+	},
+	RESOURCE.GEM: {
+		"name": "Gem", "sprite": preload("res://sprites/Resources/green_gem.png"), "type" : Priorities.ACTIONTYPES.GATHER
+		,"time" : 10.0, "resource_point_texture": preload("res://sprites/Resources/gem_stone.png")
+	},
+	RESOURCE.HELLIUM: {
+		"name": "Gold", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHER
+		,"time" : 10.0, "resource_point_texture": null
+	},
+	RESOURCE.OBSIDIANUM: {
+		"name": "Gold", "sprite": preload("res://sprites/Resources/obsidianium.png"), "type" : Priorities.ACTIONTYPES.GATHER
+		,"time" : 10.0, "resource_point_texture": preload("res://sprites/Resources/gold.png")
+	},
+	RESOURCE.COPIUM: {
+		"name": "Gold", "sprite": preload("res://sprites/Resources/Copium1.png"), "type" : Priorities.ACTIONTYPES.GATHER
+		,"time" : 10.0, "resource_point_texture": null
+	},
+	RESOURCE.AMONGIUM: {
+		"name": "Gold", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHER
+		,"time" : 10.0, "resource_point_texture": null
 	}
 }
 
@@ -100,6 +124,14 @@ var buildings = {
 	},
 }
 
+@export var work_range = 10
+@export var work_speed = 1
+@export var speed = 100
+@export var damage:float = 5.0
+@export var max_hp = 100
+@export var cooldown = 2.0
+@export var fight_range = 30
+
 enum UNIT {CULTIST,IMP,CEMON,PYTHONUS,LORD}
 var units = {
 	UNIT.CULTIST: {
@@ -107,35 +139,45 @@ var units = {
 		"toolSprite" : preload("res://sprites/Items/Eye_Staff.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
-		"HP" : 10, "DMG" : 2
+		"work_range" : 50, "work_speed" : 0.5,
+		"speed" : 80, "HP" : 25, "damage" : 10,
+		"cooldown" : 2.0, "fight_range" : 60
 	},
 	UNIT.IMP: {
 		"name" : "Imp", "sprite": preload("res://sprites/Units/imp.png"),
 		"toolSprite" : preload("res://sprites/Items/axe.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
-		"HP" : 10, "DMG" : 2
+		"work_range" : 10, "work_speed" : 1,
+		"speed" : 120, "HP" : 15, "damage" : 1,
+		"cooldown" : 0.5, "fight_range" : 30
 	},
 	UNIT.CEMON: {
 		"name" : "Cemon", "sprite": preload("res://sprites/Units/Cemon.png"),
 		"toolSprite" : null,
 		"resource_type": [RESOURCE.WOOD,RESOURCE.IRON], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
-		"HP" : 10, "DMG" : 2
+		"work_range" : 10, "work_speed" : 0.8,
+		"speed" : 50, "HP" : 60, "damage" : 6,
+		"cooldown" : 1, "fight_range" : 20
 	},
 	UNIT.PYTHONUS: {
 		"name" : "Pythonus", "sprite": preload("res://sprites/Units/Pythonomium.png"),
 		"toolSprite" : null,
 		"resource_type": [RESOURCE.WOOD,RESOURCE.GOLD], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
-		"HP" : 10, "DMG" : 2
+		"work_range" : 15, "work_speed" : 2,
+		"speed" : 100, "HP" : 20, "damage" : 8,
+		"cooldown" : 1.5, "fight_range" : 30
 	},
 	UNIT.LORD: {
 		"name" : "Demon Lord", "sprite": preload("res://sprites/Units/DemonLord.png"),
 		"toolSprite" : preload("res://sprites/Items/demon_sword.png"),
 		"resource_type": [RESOURCE.IRON,RESOURCE.GOLD], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
-		"HP" : 10, "DMG" : 2
+		"work_range" : 30, "work_speed" : 0.2,
+		"speed" : 66, "HP" : 66, "damage" : 16,
+		"cooldown" : 2.5, "fight_range" : 30
 	},
 }
 
@@ -144,32 +186,44 @@ var enemies = {
 	ENEMY.SLIME: {
 		"name" : "Chłop", "sprite": preload("res://sprites/Units/Peasant.png"),
 		"object": preload("res://object/unit.tscn"),
-		"HP" : 5, "DMG" : 1
+		"HP" : 10, "range" : 15, 
+		"damage" : 1, "cooldown" : 1.0,
+		"speed" : 50
 	},
 	ENEMY.WENDIGO: {
 		"name" : "Kapłan", "sprite": preload("res://sprites/Units/Priest.png"),
 		"object": preload("res://object/unit.tscn"),
-		"HP" : 5, "DMG" : 1
+		"HP" : 45, "range" : 30, 
+		"damage" : 3, "cooldown" : 0.5,
+		"speed" : 40
 	},
 	ENEMY.PEASANT: {
 		"name" : "Chłop", "sprite": preload("res://sprites/Units/Peasant.png"),
 		"object": preload("res://object/unit.tscn"),
-		"HP" : 5, "DMG" : 1
+		"HP" : 15, "range" : 30, 
+		"damage" : 1, "cooldown" : 1.0,
+		"speed" : 75
 	},
 	ENEMY.PRIEST: {
 		"name" : "Kapłan", "sprite": preload("res://sprites/Units/Priest.png"),
 		"object": preload("res://object/unit.tscn"),
-		"HP" : 5, "DMG" : 1
+		"HP" : 25, "range" : 50, 
+		"damage" : 10, "cooldown" : 2.0,
+		"speed" : 45
 	},
 	ENEMY.KNIGHT: {
-		"name" : "Chłop", "sprite": preload("res://sprites/Units/knight.png"),
+		"name" : "Rycerz", "sprite": preload("res://sprites/Units/knight.png"),
 		"object": preload("res://object/unit.tscn"),
-		"HP" : 5, "DMG" : 1
+		"HP" : 45, "range" : 30, 
+		"damage" : 10, "cooldown" : 1.5,
+		"speed" : 50
 	},
 	ENEMY.HORSEMAN: {
-		"name" : "Chłop", "sprite": preload("res://sprites/Units/Horseman.png"),
+		"name" : "Kawalerzysta", "sprite": preload("res://sprites/Units/Horseman.png"),
 		"object": preload("res://object/unit.tscn"),
-		"HP" : 5, "DMG" : 1
+		"HP" : 55, "range" : 30, 
+		"damage" : 8, "cooldown" : 2.0,
+		"speed" : 50
 	},
 	
 }

@@ -6,9 +6,9 @@ class_name unit
 @export var damage:float = 5.0
 @export var max_hp = 100
 @export var cooldown = 2.0
-
-
 @export var fight_range = 30
+
+
 @export var type:	Global.UNIT = Global.UNIT.IMP
 var target: Vector2 = Vector2(100, 100)
 
@@ -142,6 +142,13 @@ func look_for_higher_priority_job():
 			
 			
 func setStats(unitId):
+	work_range = Global.units[unitId]["work_range"]
+	work_speed = Global.units[unitId]["work_speed"]
+	speed = Global.units[unitId]["speed"]
+	damage = Global.units[unitId]["damage"]
+	max_hp = Global.units[unitId]["HP"]
+	cooldown = Global.units[unitId]["cooldown"]
+	fight_range = Global.units[unitId]["fight_range"]
 	$Sprite.texture = Global.units[unitId]["sprite"]
 	$Sprite/Item.texture = Global.units[unitId]["toolSprite"]
 	type = unitId

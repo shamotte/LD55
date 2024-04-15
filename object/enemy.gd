@@ -18,6 +18,14 @@ func _ready():
 	Priorities.add_action(Priorities.ACTIONTYPES.FIGHT,id,$".",0.0)
 	%Timer.wait_time = cooldown
 
+func set_stats(id:int):
+	max_hp = Global.enemies[id]["HP"]
+	hp = max_hp
+	range  = Global.enemies[id]["range"]
+	damage = Global.enemies[id]["damage"]
+	cooldown = Global.enemies[id]["cooldown"]
+	speed = Global.enemies[id]["speed"]
+
 func take_damage(damage:float):
 	hp-=damage
 	if hp<=0:
