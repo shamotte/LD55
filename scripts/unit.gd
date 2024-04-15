@@ -8,7 +8,7 @@ class_name unit
 @export var fight_range = 30
 @export var type:	Global.UNIT = Global.UNIT.IMP
 var target: Vector2 = Vector2(100, 100)
-var item_equipped = Global.ITEM.AXE
+#var item_equipped = Global.ITEM.AXE
 
 
 @onready var agent : NavigationAgent2D = %NavAgent

@@ -21,12 +21,6 @@ func _ready():
 		$UI/UI/Resources.add_child(s)
 	resource_info = $UI/UI/Resources.get_children() 
 		
-	for i in Global.current_items:
-		var s = item_slot.instantiate()
-		s.get_node("Sprite").texture = Global.items[i]["sprite"]
-		s.get_node("Count").text = str(Global.current_items[i])
-		$UI/UI/Items.add_child(s)
-		
 	for i in Global.buildings:
 		var s = building_slot.instantiate()
 		s.get_node("Building").texture = Global.buildings[i]["sprite"]

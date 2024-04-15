@@ -5,19 +5,19 @@ enum RESOURCE { WOOD, ROCK, IRON, GOLD }
 var resources = {
 	RESOURCE.WOOD: {
 		"name": "Wood", "sprite": preload("res://sprites/Resources/wood.png"), "type" : Priorities.ACTIONTYPES.GATHERWOOD
-		,"time" : 2.0
+		,"time" : 2.0, "resource_point_texture": preload("res://sprites/Resources/tree.png")
 	},
 	RESOURCE.ROCK: {
 		"name": "Rock", "sprite": preload("res://sprites/Resources/green_gem.png"), "type" : Priorities.ACTIONTYPES.GATHERROCK
-		,"time" : 3.0	
+		,"time" : 3.0, "resource_point_texture": preload("res://sprites/Resources/rock.png")	
 	},
 	RESOURCE.IRON: {
 		"name": "Iron", "sprite": preload("res://sprites/Resources/Copium1.png"), "type" : Priorities.ACTIONTYPES.GATHERIRON,
-		"time" : 7.0
+		"time" : 7.0, "resource_point_texture": preload("res://sprites/Resources/Iron.png")
 	},
 	RESOURCE.GOLD: {
 		"name": "Gold", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHERGOLD
-		,"time" : 10.0
+		,"time" : 10.0, "resource_point_texture": preload("res://sprites/Resources/gold.png")
 	}
 }
 
@@ -25,20 +25,11 @@ var resources = {
 
 var current_resources = {}
 
-enum ITEM { AXE = 1001, SWORD}
-var items = {
-	ITEM.AXE: {
-		"name": "Axe", "sprite": preload("res://sprites/Items/axe.png"),
-	}
-}
-var current_items = {}
-
-
 enum RECIPES {AXE}
 var recipes = {
 	RECIPES.AXE : {
 		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,2], [RESOURCE.ROCK,2]],
-		"results": [[ITEM.AXE,1]]
+		"results": []
 	}
 	
 	
@@ -104,7 +95,7 @@ var units = {
 	},
 	UNIT.LORD: {
 		"name" : "Demon Lord", "sprite": preload("res://sprites/Units/DemonLord.png"),
-		"toolSprite" : null,
+		"toolSprite" : preload("res://sprites/Items/demon_sword.png"),
 		"resource_type": [RESOURCE.IRON,RESOURCE.GOLD], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
 		"HP" : 10, "DMG" : 2
@@ -146,13 +137,34 @@ var enemies = {
 	
 }
 
+enum PRIORIRITY {WOOD,ROCK,IRON,FOOD,GOLD,CRAFT,FIGHT}
+var priorieties = {
+	PRIORIRITY.WOOD: {
+		"name" : "Wood", "sprite": preload("res://sprites/Resources/wood.png")
+		},
+	PRIORIRITY.ROCK: {
+		"name" : "Rock", "sprite": preload("res://sprites/Resources/green_gem.png")
+		},
+	PRIORIRITY.IRON: {
+		"name" : "Iron", "sprite": preload("res://sprites/Resources/Copium1.png")
+		},
+	PRIORIRITY.FOOD: {
+		"name" : "Food", "sprite": preload("res://sprites/Resources/Amongium.png")
+		},
+	PRIORIRITY.GOLD: {
+		"name" : "Gold", "sprite": preload("res://sprites/Resources/obsidianium.png")
+		},
+	PRIORIRITY.CRAFT: {
+		"name" : "Craft", "sprite": preload("res://sprites/UI/axe32.png")
+		},
+	PRIORIRITY.FIGHT: {
+		"name" : "Fight", "sprite": preload("res://sprites/UI/axe32.png")
+		},
+	}
 
 func _ready():
 	for r in resources:
 		current_resources[r] = 10
-		
-	for i in items:
-		current_items[i] = 1
 
 func _process(delta):
 	pass
