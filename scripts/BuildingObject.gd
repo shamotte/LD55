@@ -26,10 +26,15 @@ func _process(delta):
 			if to_craft>0:
 			
 			
-				if true: #TODO check whether you can accualy craft it
-					Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,$".",Global.recipes[recipe].work)
-					to_craft-=1
-					busy = true
+			
+		#for i in range(Global.buildings[building]["resource_type"].size()):
+		#	if Global.current_resources[ Global.buildings[building]["resource_type"][i] ] < Global.buildings[building]["resource_cost"][i]:
+		#for i in range(Global.recipes[][""])	
+		#	ingredients
+			if true: #TODO check whether you can accualy craft it
+				Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,$".",Global.recipes[recipe].work)
+				to_craft-=1
+				busy = true
 		
 		
 func display_previev(node):
