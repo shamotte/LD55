@@ -25,6 +25,7 @@ func build_building(position):
 			Global.current_resources[Global.buildings[selected_building]["resource_type"][i]] -= Global.buildings[selected_building]["resource_cost"][i]
 		#Summoning Object
 		var newBuilding = Global.buildings[selected_building]["object"].instantiate()
+		newBuilding.set_texture(Global.buildings[selected_building]["sprite"])
 		newBuilding.position = position
 		add_child(newBuilding)
 		UnselectObject()

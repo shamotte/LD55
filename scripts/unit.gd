@@ -17,8 +17,14 @@ var priorities = [2,3,1,1,1,1,1] #tablica wskazująca priorytety danych akcji w 
 var current_action: Priorities.action = null
 var work_time: float
 
+#Spawning Animation
+var end_summoning = false
+
+var spawn_anim_end = false
+
 func _ready():
 	$AnimationPlayer.play("spawn")
+	spawn_anim_end = false
 
 
 func _input(event):
@@ -32,6 +38,14 @@ enum STATES  { WORK, WALK, IDLE,FIGHT}
 var state: STATES = STATES.IDLE
 var enemy_killed = false
 func _process(delta):
+	#Is animation end
+	if !spawn_anim_end:
+		return
+	#Rotation
+	if velocity.x > 0:
+		$Sprite.scale.x = 1.0
+	elif velocity.x < 0:
+		$Sprite.scale.x = -1.0
 	
 	match state:
 		STATES.IDLE:
@@ -104,10 +118,17 @@ func look_for_higher_priority_job():
 		else:
 			Priorities.return_action(new_job)
 			
-		
-	
+			
+			
+func setStats(unitId):
+	$Sprite.texture = Global.units[unitId]["sprite"]
+	$Sprite/Item.texture = Global.units[unitId]["toolSprite"]
+	type = unitId
 
 func _physics_process(delta):
+	#Is animation end
+	if !spawn_anim_end:
+		return
 	if global_position.distance_to(target) >=work_range:
 		var direction = agent.get_next_path_position() - global_position
 		direction = direction.normalized()
@@ -117,4 +138,9 @@ func _physics_process(delta):
 
 func display_previev(node : Control):
 		node.unit_selection(self)
+	
+
+
+func _on_animation_player_animation_finished(anim_name):
+	spawn_anim_end = true
 	
