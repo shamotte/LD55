@@ -7,12 +7,8 @@ var volume: float = 1.0
 
 
 var ITEM_OFFSET = 1000
-enum RESOURCE { WOOD, ROCK, IRON, GOLD, GEM, OBSIDIANUM, HELLIUM ,FOOD, COPIUM, AMONGIUM}
+enum RESOURCE {WOOD, ROCK, IRON, GOLD, GEM, HELLIUM, OBSIDIANUM , COPIUM, AMONGIUM,FOOD}
 var resources = {
-	RESOURCE.FOOD: {
-		"name": "Food", "sprite": preload("res://sprites/Resources/yummy.png"), "type" : Priorities.ACTIONTYPES.GATHER
-		,"time" : 2.0, "resource_point_texture": null
-	},
 	RESOURCE.WOOD: {
 		"name": "Wood", "sprite": preload("res://sprites/Resources/wood.png"), "type" : Priorities.ACTIONTYPES.GATHER
 		,"time" : 2.0, "resource_point_texture": preload("res://sprites/Resources/tree.png")
@@ -48,6 +44,10 @@ var resources = {
 	RESOURCE.AMONGIUM: {
 		"name": "Amongium", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHER
 		,"time" : 10.0, "resource_point_texture": null
+	},
+	RESOURCE.FOOD: {
+		"name": "Food", "sprite": preload("res://sprites/Resources/yummy.png"), "type" : Priorities.ACTIONTYPES.GATHER
+		,"time" : 2.0, "resource_point_texture": null
 	}
 }
 
@@ -61,7 +61,7 @@ var current_resources = {}
 enum RECIPES {R1,R2,R3,R4}
 var recipes = {
 	RECIPES.R1 : {
-		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,2], [RESOURCE.ROCK,2]],
+		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,10], [RESOURCE.ROCK,10]],
 		"results": [[RESOURCE.ROCK,1]]
 	},
 	
