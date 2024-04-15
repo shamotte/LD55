@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=22 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -14,8 +14,10 @@
 [ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="8_cjmjg"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
+[ext_resource type="Texture2D" uid="uid://codhgt0vj6esd" path="res://sprites/Items/health.png" id="14_hf8ep"]
 [ext_resource type="Texture2D" uid="uid://bym0ptnbq5wge" path="res://sprites/Items/wares.png" id="15_pktq6"]
 [ext_resource type="PackedScene" uid="uid://dahi40k2gv47i" path="res://object/priority_elem.tscn" id="15_x630r"]
+[ext_resource type="Texture2D" uid="uid://c2u432pxwkprq" path="res://sprites/UI/arrow.png" id="16_4w1iu"]
 [ext_resource type="Texture2D" uid="uid://cuj43sy1s5u22" path="res://sprites/UI/unitselect.png" id="16_c4l1p"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
@@ -491,6 +493,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="UI/UI/PreviewManager/PreviewPanel"]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 40.0
+offset_bottom = 84.0
+texture = ExtResource("14_hf8ep")
+
+[node name="HP" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 60.0
+offset_right = 56.0
+offset_bottom = 83.0
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="UnitName" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
 unique_name_in_owner = true
 layout_mode = 1
@@ -533,6 +553,7 @@ offset_left = 8.0
 offset_top = 7.0
 offset_right = 56.0
 offset_bottom = 71.0
+max_number = 99
 label = "count"
 texture = ExtResource("15_pktq6")
 
@@ -562,6 +583,10 @@ size_flags_vertical = 0
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/ing/VBoxContainer"]
+position = Vector2(15, 39)
+texture = ExtResource("16_4w1iu")
 
 [node name="preview_icon" type="Sprite2D" parent="UI/UI/PreviewManager/PreviewPanel"]
 unique_name_in_owner = true

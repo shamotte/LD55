@@ -152,6 +152,7 @@ func setStats(unitId):
 	speed = Global.units[unitId]["speed"]
 	damage = Global.units[unitId]["damage"]
 	max_hp = Global.units[unitId]["HP"]
+	hp = max_hp
 	cooldown = Global.units[unitId]["cooldown"]
 	fight_range = Global.units[unitId]["fight_range"]
 	$Sprite.texture = Global.units[unitId]["sprite"]
