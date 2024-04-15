@@ -76,7 +76,7 @@ enum UNIT {CULTIST,IMP,CEMON,PYTHONOS,LORD}
 var units = {
 	UNIT.CULTIST: {
 		"name" : "Cultist", "sprite": preload("res://sprites/Units/Cultist.png"),
-		"toolSprite" : null,
+		"toolSprite" : preload("res://sprites/Items/Eye_Staff.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
 		"HP" : 10, "DMG" : 2
