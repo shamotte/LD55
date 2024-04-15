@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://codhgt0vj6esd" path="res://sprites/Items/health.png" id="14_hf8ep"]
 [ext_resource type="Texture2D" uid="uid://bym0ptnbq5wge" path="res://sprites/Items/wares.png" id="15_pktq6"]
 [ext_resource type="PackedScene" uid="uid://dahi40k2gv47i" path="res://object/priority_elem.tscn" id="15_x630r"]
+[ext_resource type="Texture2D" uid="uid://c2u432pxwkprq" path="res://sprites/UI/arrow.png" id="16_4w1iu"]
 [ext_resource type="Texture2D" uid="uid://cuj43sy1s5u22" path="res://sprites/UI/unitselect.png" id="16_c4l1p"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
@@ -552,6 +553,7 @@ offset_left = 8.0
 offset_top = 7.0
 offset_right = 56.0
 offset_bottom = 71.0
+max_number = 99
 label = "count"
 texture = ExtResource("15_pktq6")
 
@@ -582,15 +584,37 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
+[node name="Sprite2D" type="Sprite2D" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/ing/VBoxContainer"]
+position = Vector2(15, 39)
+texture = ExtResource("16_4w1iu")
+
 [node name="preview_icon" type="Sprite2D" parent="UI/UI/PreviewManager/PreviewPanel"]
 unique_name_in_owner = true
 position = Vector2(40, 44)
 texture = ExtResource("11_tqatv")
 
-[node name="Endgame" type="Label" parent="UI"]
+[node name="Endgame" type="Control" parent="UI"]
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 0.0666667, 0.286275, 1)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/Endgame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.596078, 0, 0.105882, 0.764706)
+
+[node name="Label" type="Label" parent="UI/Endgame"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -602,10 +626,15 @@ offset_right = 141.0
 offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "GAME OVER
-ALL YOUR MINIONS WERE DEFEATED"
+All your minions were defeated!
+
+(Due to time constraints, we can't properly reset the game.
+Please start the game again if you wish to restart.)
+
+Thank you for playing!"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="MousePointer" type="Area2D" parent="."]
 unique_name_in_owner = true
