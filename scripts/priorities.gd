@@ -9,7 +9,7 @@ var actions = {
 	},
 	ACTIONTYPES.CRAFT: {
 		"name": "Craft",
-		"sprite": null
+		"sprite": preload("res://sprites/UI/crafting.png")
 	},
 	ACTIONTYPES.FIGHT: {
 		"name": "Fight",

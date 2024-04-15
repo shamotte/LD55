@@ -46,9 +46,9 @@ text = "1"
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 8.0
+offset_top = 16.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 48.0
 texture = ExtResource("3_mieux")
 
 [node name="Label" type="Label" parent="."]
