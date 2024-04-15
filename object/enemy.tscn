@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpd1mbtqfo2yi"]
+[gd_scene load_steps=11 format=3 uid="uid://dpd1mbtqfo2yi"]
 
 [ext_resource type="Script" path="res://object/enemy.gd" id="1_4wtti"]
 [ext_resource type="Texture2D" uid="uid://clsk64o35xsu8" path="res://sprites/Units/knight.png" id="2_pvoxd"]
 [ext_resource type="AudioStream" uid="uid://cyyjmfiricwe0" path="res://sounds/aliendeath.wav" id="3_g3t21"]
 [ext_resource type="Texture2D" uid="uid://cc3bd3vpufmr1" path="res://sprites/Items/axe.png" id="3_qnqn3"]
+[ext_resource type="AudioStream" uid="uid://da7ndnk6d7ik3" path="res://sounds/fight2.wav" id="5_vq8ee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6kv6"]
 
@@ -85,5 +86,8 @@ stream = ExtResource("3_g3t21")
 libraries = {
 "": SubResource("AnimationLibrary_2r655")
 }
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_vq8ee")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

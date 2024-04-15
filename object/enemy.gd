@@ -67,6 +67,7 @@ func attac(target: Node2D):
 		if target!= null:
 			%attac_area.global_position = target.position
 			print("atacking")
+			$AttackSound.play()
 			for unit in %attac_area.get_overlapping_bodies():
 				unit.take_damage(damage)
 
