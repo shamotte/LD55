@@ -37,7 +37,7 @@ func get_id() -> int:
 	return id
 	
 
-
+var mutex:Mutex = Mutex.new()
 func add_action(type : ACTIONTYPES,id : int, node :Node2D,time : float):
 	aveilable.append(action.new(type,id,node,time))
 
@@ -53,12 +53,19 @@ func return_action(act: action):
 	aveilable.append(act)
 	
 func get_action(a)->action:
-	aveilable.sort_custom(func(l,r):return a[l.type]>a[r.type])
-	if not aveilable.is_empty():
-		if aveilable[0].type == ACTIONTYPES.FIGHT:
-			return aveilable[0]
+	mutex.lock()
+	var b = aveilable.filter(func(n) : return a[n.type]>0)
+	b.sort_custom(func(l,r):return a[l.type]>a[r.type])
+	if not b.is_empty():
+		if b[0].type == ACTIONTYPES.FIGHT:
+			mutex.unlock()
+			return b[0]
 		else:
-			return aveilable.pop_front()
+			var pom = b.pop_front()
+			aveilable.erase(pom)
+			mutex.unlock()
+			return pom
+	mutex.unlock()
 	return null
 	
 

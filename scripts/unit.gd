@@ -4,15 +4,17 @@ class_name unit
 @export var work_speed = 1
 @export var speed = 100
 @export var damage:float = 5.0
+@export var max_hp = 100
+@export var cooldown = 2.0
+
 
 @export var fight_range = 30
 @export var type:	Global.UNIT = Global.UNIT.IMP
 var target: Vector2 = Vector2(100, 100)
-#var item_equipped = Global.ITEM.AXE
 
 
 @onready var agent : NavigationAgent2D = %NavAgent
-var priorities = [2,3,1,1,1,1,1] #tablica wskazująca priorytety danych akcji w takiej samej kolejności jak w enumie Priorities.ACTIONTYPES
+var priorities = [1,1,1,1,1,1,0] #tablica wskazująca priorytety danych akcji w takiej samej kolejności jak w enumie Priorities.ACTIONTYPES
 
 var current_action: Priorities.action = null
 var work_time: float
@@ -21,6 +23,8 @@ var work_time: float
 var end_summoning = false
 
 var spawn_anim_end = false
+
+var hp = max_hp
 
 func _ready():
 	$AnimationPlayer.play("spawn")
@@ -65,12 +69,16 @@ func _process(delta):
 					print("walking")
 					state = STATES.WALK
 		STATES.WALK:
-			target = current_action.node.position
-			agent.target_position = target
-			if agent.distance_to_target() < work_range :
-				print("working")
-				state = STATES.WORK
-				work_time = current_action.time 
+			if current_action.node != null:
+				target = current_action.node.position
+				agent.target_position = target
+				if agent.distance_to_target() < work_range :
+					print("working")
+					state = STATES.WORK
+					work_time = current_action.time 
+			else:
+				state = STATES.IDLE
+				Priorities.remove_action_null_node(current_action)
 		STATES.WORK:
 			if agent.distance_to_target() > work_range:
 				state = STATES.WALK
@@ -79,28 +87,36 @@ func _process(delta):
 			if work_time<=0:
 				$gather.play()
 				state = STATES.IDLE
-				if current_action.node.has_method("action_finished"):
-					current_action.node.action_finished()
+				if current_action.node != null:
+					if current_action.node.has_method("action_finished"):
+						current_action.node.action_finished()
+					else:
+						state = STATES.IDLE
 				else:
-					
 					state = STATES.IDLE
+					Priorities.remove_action_null_node(current_action)
 				
 		STATES.FIGHT:
 			if current_action != null:
 				if not enemy_killed:
-					target = current_action.node.position
-					agent.target_position = target
-					if agent.distance_to_target() <=fight_range:
-						attac(target)
+					if current_action.node != null:
+						target = current_action.node.position
+						agent.target_position = target
+						if agent.distance_to_target() <=fight_range:
+							attac(target)
 		
 				
 	if state == STATES.WORK or state == STATES.WALK:
 		look_for_higher_priority_job()
 	
+var cool = true
 func attac(location : Vector2):
-	%attac_area.global_position = location
-	for enemy in %attac_area.get_overlapping_bodies():
-		enemy.take_damage(damage)
+	if cool:
+		cool = false
+		%CooldownTimer.start(cooldown)
+		%attac_area.global_position = location
+		for enemy in %attac_area.get_overlapping_bodies():
+			enemy.take_damage(damage)
 	
 func target_dead():
 	enemy_killed = true
@@ -144,3 +160,12 @@ func display_previev(node : Control):
 func _on_animation_player_animation_finished(anim_name):
 	spawn_anim_end = true
 	
+func take_damage(damage:float):
+	hp -= damage
+	if hp<=0:
+		queue_free()
+	
+
+
+func _on_cooldown_timer_timeout():
+	cool = true # Replace with function body.

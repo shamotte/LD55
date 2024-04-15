@@ -15,6 +15,9 @@ func _input(event):
 	if event is InputEventMouseMotion and mouse_movement:
 		position -= event.relative
 		
+	position.x = clamp(position.x, -Global.map_width/2 + 320, Global.map_width/2 - 320)
+	position.y = clamp(position.y, -Global.map_height/2 + 180, Global.map_height/2 - 180)
+		
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
