@@ -2,7 +2,7 @@ extends Node2D
 class_name Res
 
 @export var resource_type: Global.RESOURCE
-@export var resource_count_initial: int = 1
+@export var resource_count_initial: int = 3
 var resource_count = resource_count_initial
 
 @onready var id =  Priorities.get_id()
@@ -14,12 +14,18 @@ func action_finished():
 	resource_count-=1;
 	Global.add_resources(resource_type, 1)
 	
+	if resource_count < resource_count_initial:
+		$Health.visible = true
+		$Health.max_value = resource_count_initial
+		$Health.value = resource_count
+	
 	if resource_count != 0:
 		await get_tree().create_timer(10.0).timeout
 		add_self_to_available_actions()
 	else:
 		visible = false
 		$RespawnTimer.start()
+		$Health.visible = false
 
 	
 
