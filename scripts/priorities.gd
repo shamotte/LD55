@@ -1,19 +1,15 @@
 extends Node
 
-enum ACTIONTYPES {GATHERWOOD =0, GATHERROCK,GATHERIRON,GATHERFOOD,GATHERGOLD,CRAFT,FIGHT}
+enum ACTIONTYPES {GATHER=0,CRAFT,FIGHT}
 
 func get_action_name(index:int) -> String:
 
 	match index:
 		0:
-			return "wood"
+			return "gather"
 		1:
-			return "rock"
-		2: return "iron"
-		3: return "food"
-		4: return "gold"
-		5: return "craft"
-		6: return "FIGHT"
+			return "craft"
+		2: return "figth"
 	return "error_string"
 		
 

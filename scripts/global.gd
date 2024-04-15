@@ -7,19 +7,19 @@ var ITEM_OFFSET = 1000
 enum RESOURCE { WOOD, ROCK, IRON, GOLD }
 var resources = {
 	RESOURCE.WOOD: {
-		"name": "Wood", "sprite": preload("res://sprites/Resources/wood.png"), "type" : Priorities.ACTIONTYPES.GATHERWOOD
+		"name": "Wood", "sprite": preload("res://sprites/Resources/wood.png"), "type" : Priorities.ACTIONTYPES.GATHER
 		,"time" : 2.0, "resource_point_texture": preload("res://sprites/Resources/tree.png")
 	},
 	RESOURCE.ROCK: {
-		"name": "Rock", "sprite": preload("res://sprites/Resources/green_gem.png"), "type" : Priorities.ACTIONTYPES.GATHERROCK
+		"name": "Rock", "sprite": preload("res://sprites/Resources/green_gem.png"), "type" : Priorities.ACTIONTYPES.GATHER
 		,"time" : 3.0, "resource_point_texture": preload("res://sprites/Resources/rock.png")	
 	},
 	RESOURCE.IRON: {
-		"name": "Iron", "sprite": preload("res://sprites/Resources/Copium1.png"), "type" : Priorities.ACTIONTYPES.GATHERIRON,
+		"name": "Iron", "sprite": preload("res://sprites/Resources/Copium1.png"), "type" : Priorities.ACTIONTYPES.GATHER,
 		"time" : 7.0, "resource_point_texture": preload("res://sprites/Resources/Iron.png")
 	},
 	RESOURCE.GOLD: {
-		"name": "Gold", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHERGOLD
+		"name": "Gold", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHER
 		,"time" : 10.0, "resource_point_texture": preload("res://sprites/Resources/gold.png")
 	}
 }
