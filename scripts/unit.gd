@@ -14,7 +14,7 @@ var target: Vector2 = Vector2(100, 100)
 
 
 @onready var agent : NavigationAgent2D = %NavAgent
-var priorities = [1,1,1,1,1,1,0] #tablica wskazująca priorytety danych akcji w takiej samej kolejności jak w enumie Priorities.ACTIONTYPES
+var priorities = [1,1,1]#tablica wskazująca priorytety danych akcji w takiej samej kolejności jak w enumie Priorities.ACTIONTYPES
 
 var current_action: Priorities.action = null
 var work_time: float

@@ -1,12 +1,15 @@
 extends Control
 var priority:int
 var index:int
-
+@export var max_number:int = 5
+@export var label :String
+@export var texture :Texture
 
 signal value_changed(index, new_priority)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Icon.texture = texture
+	$Label.text = label
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,8 +19,8 @@ func _process(delta):
 
 func change_label(name : int):
 	#$Label.text = name
-	$Label.text = Global.resources[priority]["name"]
-	$Icon.texture = Global.resources[priority]["sprite"]
+	$Label.text = Priorities.get_action_name(name)
+	$Icon.texture = null
 
 
 func change_priority(n: int):
@@ -27,7 +30,7 @@ func change_priority(n: int):
 	
 func _on_priority_elem_pressed():
 	priority += 1
-	if priority >=5:
+	if priority >=max_number:
 		priority = 0
 	$priority_elem.text = str(priority)
 	value_changed.emit(index,priority)

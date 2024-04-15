@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c682t0wqeg8ae"
-path="res://.godot/imported/demon_sword.png-531ae6a61298659d9c6b82c39d8f6285.ctex"
+uid="uid://csa8rba2gjjlj"
+path="res://.godot/imported/gem_stone.png-f165837afde31d3ac6c21d330d665f30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Items/demon_sword.png"
-dest_files=["res://.godot/imported/demon_sword.png-531ae6a61298659d9c6b82c39d8f6285.ctex"]
+source_file="res://sprites/Resources/gem_stone.png"
+dest_files=["res://.godot/imported/gem_stone.png-f165837afde31d3ac6c21d330d665f30.ctex"]
 
 [params]
 
