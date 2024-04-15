@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://rynd5iuo55pm"]
+[gd_scene load_steps=12 format=3 uid="uid://rynd5iuo55pm"]
 
 [ext_resource type="Script" path="res://scripts/BuildingObject.gd" id="1_fsosm"]
 [ext_resource type="Texture2D" uid="uid://bcd1mc6c6h2eg" path="res://sprites/Buildings/tower.png" id="1_qf5ig"]
 [ext_resource type="Texture2D" uid="uid://cdvowh1o7tq3" path="res://sprites/summon_portal.png" id="2_ma4qt"]
+[ext_resource type="AudioStream" uid="uid://bufc7sddkrn1s" path="res://sounds/use2.wav" id="4_05vp8"]
+[ext_resource type="AudioStream" uid="uid://te5s5lolg1w" path="res://sounds/summon.wav" id="5_wuufu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2eke"]
 atlas = ExtResource("2_ma4qt")
@@ -99,3 +101,9 @@ shape = SubResource("RectangleShape2D_f83t4")
 libraries = {
 "": SubResource("AnimationLibrary_s0a3g")
 }
+
+[node name="CompleteSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_05vp8")
+
+[node name="SpawnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_wuufu")
