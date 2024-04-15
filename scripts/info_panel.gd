@@ -18,9 +18,9 @@ func _ready():
 		child.priority = 0
 		child.index = p
 		child.value_changed.connect(update_priority)
-		#child.change_label(Priorities.get_action_name(p))
 		%PriorityBoxes.add_child(child)
 		child.change_label(p)
+		child.change_icon(p)
 		child.mouse_entered.connect(_on_mouse_entered)
 		
 		

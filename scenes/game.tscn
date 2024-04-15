@@ -467,8 +467,10 @@ grow_vertical = 2
 [node name="UnitName" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_right = 80.0
-offset_bottom = 23.0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 84.0
+offset_bottom = 29.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -481,8 +483,8 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -160.0
-offset_top = -81.0
-offset_bottom = -1.0
+offset_top = -77.0
+offset_bottom = 3.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -503,12 +505,11 @@ offset_left = 16.0
 offset_top = 12.0
 offset_right = 64.0
 offset_bottom = 76.0
-max_number = 99
 label = "count"
 
 [node name="preview_icon" type="Sprite2D" parent="UI/UI/PreviewManager/PreviewPanel"]
 unique_name_in_owner = true
-position = Vector2(40, 52)
+position = Vector2(40, 44)
 texture = ExtResource("11_tqatv")
 
 [node name="MousePointer" type="Area2D" parent="."]

@@ -2,14 +2,27 @@ extends Node
 
 enum ACTIONTYPES {GATHER=0,CRAFT,FIGHT}
 
-func get_action_name(index:int) -> String:
+var actions = {
+	ACTIONTYPES.GATHER: {
+		"name": "Gather",
+		"sprite": preload("res://sprites/UI/axe32.png")
+	},
+	ACTIONTYPES.CRAFT: {
+		"name": "Craft",
+		"sprite": null
+	},
+	ACTIONTYPES.FIGHT: {
+		"name": "Fight",
+		"sprite": preload("res://sprites/UI/fight.png")
+	}
+}
+	
+func get_action_icon(index:int):
 
 	match index:
-		0:
-			return "gather"
-		1:
-			return "craft"
-		2: return "figth"
+		0: return "Gather"
+		1: return "Craft"
+		2: return "Fight"
 	return "error_string"
 		
 
