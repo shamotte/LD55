@@ -9,6 +9,7 @@ func update_priority(index:int,new_value : int):
 	if active_selection is unit:
 		active_selection.priorities[index] = new_value
 		print("writing new priority")
+
 func _ready():
 	camera = get_viewport().get_camera_2d()
 	%PriorityBoxes.visible= false
@@ -68,6 +69,12 @@ func building_selection(object : buildingObject):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pointer.global_position = $"../../..".mousePos()
+	
+	if active_selection != null:
+		%SelectedIndicator.global_position = active_selection.global_position
+		%SelectedIndicator.visible = true
+	else:
+		%SelectedIndicator.visible = false
 
 
 var mouse_in:bool
