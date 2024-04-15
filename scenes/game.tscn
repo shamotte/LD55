@@ -42,10 +42,12 @@ navigation_polygon = SubResource("NavigationPolygon_y668m")
 [node name="GameSpace" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Buildings" type="Node" parent="GameSpace" groups=["BuildingManager"]]
+[node name="Buildings" type="Node2D" parent="GameSpace" groups=["BuildingManager"]]
+y_sort_enabled = true
 script = ExtResource("3_y6sc7")
 
-[node name="Units" type="Node" parent="GameSpace" groups=["Units"]]
+[node name="Units" type="Node2D" parent="GameSpace" groups=["Units"]]
+y_sort_enabled = true
 script = ExtResource("5_smeyy")
 
 [node name="Unit" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
@@ -60,7 +62,8 @@ position = Vector2(74, -71)
 [node name="Unit4" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
 position = Vector2(-168, 23)
 
-[node name="Resources" type="Node" parent="GameSpace"]
+[node name="Resources" type="Node2D" parent="GameSpace"]
+y_sort_enabled = true
 
 [node name="ResourcePoint" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-517, 248)
@@ -238,7 +241,8 @@ resource_type = 1
 position = Vector2(-150, -242)
 resource_type = 1
 
-[node name="Enemies" type="Node" parent="GameSpace"]
+[node name="Enemies" type="Node2D" parent="GameSpace"]
+y_sort_enabled = true
 
 [node name="EnemySpawner" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
 position = Vector2(-378, 122)
@@ -339,6 +343,7 @@ position = Vector2(-323, -204)
 [node name="CursorSprite" type="Sprite2D" parent="." groups=["CursorOverlaping"]]
 modulate = Color(1, 1, 1, 0.501961)
 self_modulate = Color(1, 1, 1, 0.752941)
+z_index = 1
 script = ExtResource("7_40o6t")
 
 [node name="CheckPointer" type="Area2D" parent="CursorSprite"]
@@ -379,13 +384,6 @@ offset_right = -42.0
 offset_bottom = 20.0
 grow_horizontal = 0
 alignment = 2
-
-[node name="Items" type="HBoxContainer" parent="UI/UI"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 320.0
-offset_right = 48.0
-offset_bottom = 336.0
 
 [node name="Building" type="Control" parent="UI/UI" groups=["BuildingUI"]]
 layout_mode = 1
