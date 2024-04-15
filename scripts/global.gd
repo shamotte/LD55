@@ -135,8 +135,17 @@ var buildings = {
 @export var cooldown = 2.0
 @export var fight_range = 30
 
-enum UNIT {SLIME,SHROOM,CULTIST,IMP,WENDIGO,CEMON,PYTHONUS,LORD}
+enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,PYTHONUS,LORD}
 var units = {
+	UNIT.REDSLIMES: {
+		"name" : "Slime", "sprite": preload("res://sprites/Units/slime_red.png"),
+		"toolSprite" : null,
+		"resource_type": [RESOURCE.HELLIUM], "resource_cost": [4],
+		"object": preload("res://object/unit.tscn"),
+		"work_range" : 10, "work_speed" : 0.4,
+		"speed" : 300, "HP" : 25, "damage" : 1,
+		"cooldown" : 0.1, "fight_range" : 30
+	},
 	UNIT.SLIME: {
 		"name" : "Slime", "sprite": preload("res://sprites/Units/slimebehindtheslaughter.png"),
 		"toolSprite" : null,
