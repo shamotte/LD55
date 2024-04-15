@@ -19,6 +19,8 @@ func _ready():
 	Priorities.add_action(Priorities.ACTIONTYPES.FIGHT,id,$".",0.0)
 	%Timer.wait_time = cooldown
 	$SpawnSound.play()
+	
+	$AnimationPlayer.play("spawn")
 
 func set_stats(id:int):
 	max_hp = Global.enemies[id]["HP"]
@@ -78,3 +80,13 @@ func _physics_process(delta):
 			direction = direction.normalized()
 			velocity = velocity.lerp(direction * speed , 0.25)
 			move_and_slide()
+	
+	
+	if $AnimationPlayer.current_animation != "spawn":
+		if $AnimationPlayer.current_animation != "walk":
+			$AnimationPlayer.play("walk")
+			
+	if velocity.x > 0:
+		$Sprite2D.flip_h = false
+	elif velocity.x < 0:
+		$Sprite2D.flip_h = true

@@ -126,6 +126,7 @@ sprite_frames = SubResource("SpriteFrames_pox06")
 autoplay = "default"
 
 [node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 1e-05)
 texture = ExtResource("2_ey7t7")
 
 [node name="ItemParent" type="Node2D" parent="Sprite"]
