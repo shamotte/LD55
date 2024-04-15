@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxe4ktb8ndc14"
-path="res://.godot/imported/shroom.png-47be43e4b0851004456ccc6b4d85c973.ctex"
+uid="uid://bk6dqwmop1hrt"
+path="res://.godot/imported/Forge.png-958f509220e29de01613efab7af9e633.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Resources/shroom.png"
-dest_files=["res://.godot/imported/shroom.png-47be43e4b0851004456ccc6b4d85c973.ctex"]
+source_file="res://sprites/Buildings/Forge.png"
+dest_files=["res://.godot/imported/Forge.png-958f509220e29de01613efab7af9e633.ctex"]
 
 [params]
 

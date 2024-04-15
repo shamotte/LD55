@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=18 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -10,9 +10,8 @@
 [ext_resource type="Script" path="res://interface/CheckSpace.gd" id="7_40o6t"]
 [ext_resource type="PackedScene" uid="uid://fvp2heuuowys" path="res://object/resource_point.tscn" id="7_f0igd"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="8_1k3t5"]
-[ext_resource type="PackedScene" path="res://object/enemy_spawner.tscn" id="8_4bd8d"]
-[ext_resource type="Texture2D" uid="uid://b68vottib3284" path="res://sprites/UI/Build_Menu_Selected.png" id="8_t8nvj"]
-[ext_resource type="Texture2D" uid="uid://fp71qwttyi3j" path="res://sprites/UI/Build_Menu.png" id="9_hqmam"]
+[ext_resource type="PackedScene" uid="uid://c2idpjyy4sxwy" path="res://object/enemy_spawner.tscn" id="8_4bd8d"]
+[ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="8_cjmjg"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
 
@@ -23,66 +22,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-59, -355, -23, -273, 1
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqn1q"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eev7q"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wh76"]
-bg_color = Color(0.152941, 0.152941, 0.152941, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8celt"]
-bg_color = Color(0.105882, 0.105882, 0.105882, 1)
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-anti_aliasing = false
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqxit"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2ng8"]
-bg_color = Color(0.152941, 0.152941, 0.152941, 1)
-border_width_top = 4
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjns5"]
-bg_color = Color(0.152941, 0.152941, 0.152941, 1)
-border_width_top = 2
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unl3m"]
-bg_color = Color(0.105882, 0.105882, 0.105882, 1)
-border_width_top = 2
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-anti_aliasing = false
-
-[sub_resource type="Theme" id="Theme_70afd"]
-CheckButton/icons/checked = ExtResource("8_t8nvj")
-CheckButton/icons/checked_disabled = ExtResource("9_hqmam")
-CheckButton/icons/checked_disabled_mirrored = ExtResource("9_hqmam")
-CheckButton/icons/checked_mirrored = ExtResource("9_hqmam")
-CheckButton/icons/unchecked = ExtResource("9_hqmam")
-CheckButton/icons/unchecked_disabled = ExtResource("9_hqmam")
-CheckButton/icons/unchecked_disabled_mirrored = ExtResource("9_hqmam")
-CheckButton/icons/unchecked_mirrored = ExtResource("9_hqmam")
-CheckButton/styles/focus = SubResource("StyleBoxEmpty_eev7q")
-Panel/styles/panel = SubResource("StyleBoxFlat_2wh76")
-TabContainer/constants/side_margin = 0
-TabContainer/styles/panel = SubResource("StyleBoxFlat_8celt")
-TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_qqxit")
-TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_t2ng8")
-TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_rjns5")
-TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_unl3m")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jq1be"]
 radius = 3.0
@@ -420,7 +359,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_70afd")
+theme = ExtResource("8_cjmjg")
 
 [node name="Label" type="Label" parent="UI/UI"]
 layout_mode = 0
@@ -523,6 +462,8 @@ unique_name_in_owner = true
 layout_mode = 1
 offset_right = 65.0
 offset_bottom = 23.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PriorityBoxes" type="HBoxContainer" parent="UI/UI/PreviewManager/Panel"]
 unique_name_in_owner = true

@@ -3,7 +3,7 @@ class_name buildingObject
 var texture = null
 @onready var id = Priorities.get_id()
 @export var building_type : Global.BUILDINGS
-var recipe : Global.RECIPES
+var recipe #: Global.RECIPES
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("spawn")

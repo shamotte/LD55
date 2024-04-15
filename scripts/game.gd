@@ -21,7 +21,6 @@ func _ready():
 		$UI/UI/Resources.add_child(s)
 	resource_info = $UI/UI/Resources.get_children() 
 		
-		
 	for i in Global.buildings:
 		var s = building_slot.instantiate()
 		s.get_node("Building").texture = Global.buildings[i]["sprite"]

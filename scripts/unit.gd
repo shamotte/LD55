@@ -13,7 +13,6 @@ class_name unit
 var target: Vector2 = Vector2(100, 100)
 
 
-
 @onready var agent : NavigationAgent2D = %NavAgent
 var priorities = [1,1,1,1,1,1,0] #tablica wskazująca priorytety danych akcji w takiej samej kolejności jak w enumie Priorities.ACTIONTYPES
 
