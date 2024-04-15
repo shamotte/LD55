@@ -30,8 +30,10 @@ func _process(delta):
 				var cur_res = Global.current_resources[recipe_id]
 				var cost = Global.recipes[recipe]["ingredients"][i][1]
 				if cur_res < cost:
-					print("Ret")
-					return		
+					print("No Money")
+					return	
+			for i in range( Global.recipes[recipe]["ingredients"].size() ):		
+				Global.current_resources[Global.recipes[recipe]["ingredients"][i][0]] -= Global.recipes[recipe]["ingredients"][i][1]
 			Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,$".",Global.recipes[recipe].work)
 			to_craft-=1
 			busy = true
