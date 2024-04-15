@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dahi40k2gv47i"]
 
-[ext_resource type="Theme" uid="uid://ctvue7yhiii5k" path="res://UITheme.tres" id="1_fgc25"]
+[ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="1_fgc25"]
 [ext_resource type="Script" path="res://scripts/priority_elem.gd" id="1_ht11j"]
 [ext_resource type="Texture2D" uid="uid://bbd6xt53dmrjc" path="res://sprites/Resources/wood.png" id="3_mieux"]
 

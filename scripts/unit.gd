@@ -59,21 +59,21 @@ func _process(delta):
 				if current_action.type == Priorities.ACTIONTYPES.FIGHT:
 					if current_action.node != null:
 						enemy_killed =false
-						print("going fighting")
+						
 						state=STATES.FIGHT
 					
 						current_action.node.died.connect(target_dead)
 					else:
 						Priorities.remove_action_null_node(current_action)
 				else:
-					print("walking")
+					
 					state = STATES.WALK
 		STATES.WALK:
 			if current_action.node != null:
 				target = current_action.node.position
 				agent.target_position = target
 				if agent.distance_to_target() < work_range :
-					print("working")
+					
 					state = STATES.WORK
 					work_time = current_action.time 
 			else:
