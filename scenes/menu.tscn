@@ -71,7 +71,7 @@ theme_override_colors/font_color = Color(0.670588, 0.231373, 0.12549, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 20
-text = "LUDUM DARE 55 EDITION"
+text = "LUDUM DARE 55 SUBMISSION"
 horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="."]
@@ -116,8 +116,9 @@ offset_right = 81.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-value = 100.0
-exp_edit = true
+max_value = 1.0
+step = 0.05
+value = 0.5
 script = ExtResource("4_b7tuh")
 
 [node name="VolumeLabel" type="Label" parent="Control"]
@@ -144,8 +145,8 @@ offset_top = 112.0
 offset_right = 624.0
 offset_bottom = 272.0
 text = "Let the monsters take the world!
-Summon and lead a horde of diverse creatures,
-gather resources, build establishments and fend off Earth's defenders!
+Summon and lead a horde of diverse creatures!
+Gather resources, build establishments and fend off Earth's defenders!
 Your army is an unpredictable bunch - each one has a mind of his own!
 Assign priorities to their actions in hopes of achieving global domination!
 Good luck and thanks for playing!"
