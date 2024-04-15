@@ -29,6 +29,7 @@ func set_stats(id:int):
 	damage = Global.enemies[id]["damage"]
 	cooldown = Global.enemies[id]["cooldown"]
 	speed = Global.enemies[id]["speed"]
+	$Sprite2D/ItemParent/Item.texture = Global.enemies[id]["tool"]
 
 func take_damage(damage:float):
 	hp-=damage
@@ -88,5 +89,7 @@ func _physics_process(delta):
 			
 	if velocity.x > 0:
 		$Sprite2D.flip_h = false
+		$Sprite2D/ItemParent.scale.x = 1.0
 	elif velocity.x < 0:
 		$Sprite2D.flip_h = true
+		$Sprite2D/ItemParent.scale.x = -1.0
