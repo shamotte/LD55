@@ -65,14 +65,24 @@ func _process(delta):
 
 
 var resource_point = preload("res://object/resource_point.tscn")
-
-func _on_resource_spawn_timer_timeout():
-	if get_tree().get_nodes_in_group("resource_point").size() < 10:
-		for i in range(7):
-			var rp = resource_point.instantiate()
-			rp.global_position = Vector2(randi_range(0, 640), randi_range(0,360))
-			rp.resource_type = Global.resources.keys().pick_random()
-			$GameSpace.add_child(rp)
 			
 func mousePos():
 	return get_global_mouse_position()
+
+
+var enemy_scene = preload("res://object/enemy.tscn")
+var timer_timeouts = 0
+
+func _on_enemy_spawn_timer_timeout():
+	
+	for i in range(randi_range(0, 1 + timer_timeouts * 2)):
+		var spawn = get_tree().get_nodes_in_group("enemy_spawner").pick_random()
+		var type = Global.enemies.keys().pick_random()
+		
+		var e = enemy_scene.instantiate()
+		e.global_position = spawn.global_position
+		e.get_node("Sprite2D").texture = Global.enemies[type]["sprite"]
+		
+		$GameSpace/Enemies.add_child(e)
+		
+	timer_timeouts += 1

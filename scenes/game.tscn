@@ -519,6 +519,10 @@ collision_mask = 128
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MousePointer"]
 shape = SubResource("CircleShape2D_jq1be")
 
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [connection signal="area_entered" from="Building Area" to="CursorSprite" method="_on_building_area_area_entered"]
 [connection signal="area_exited" from="Building Area" to="CursorSprite" method="_on_building_area_area_exited"]
 [connection signal="toggled" from="UI/UI/Building/CheckButton" to="UI/UI/Building" method="_on_check_button_toggled"]
@@ -528,3 +532,4 @@ shape = SubResource("CircleShape2D_jq1be")
 [connection signal="mouse_exited" from="UI/UI/PreviewManager/PreviewPanel" to="UI/UI/PreviewManager" method="_on_preview_panel_mouse_exited"]
 [connection signal="mouse_entered" from="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/Control" to="UI/UI/PreviewManager" method="_on_control_mouse_entered"]
 [connection signal="mouse_exited" from="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/Control" to="UI/UI/PreviewManager" method="_on_control_mouse_exited"]
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
