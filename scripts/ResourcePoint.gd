@@ -8,8 +8,8 @@ class_name Res
 
 func action_finished():
 	resource_count-=1;
+	Global.add_resources(resource_type, 1)
 	if resource_count == 0:
-		Global.add_resources(resource_type, 1)
 		queue_free()
 	await get_tree().create_timer(10.0).timeout
 	add_self_to_available_actions()

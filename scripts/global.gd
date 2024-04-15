@@ -25,20 +25,27 @@ var resources = {
 
 var current_resources = {}
 
-enum ITEM { AXE = 1001, SWORD}
-var items = {
-	ITEM.AXE: {
-		"name": "Axe", "sprite": preload("res://sprites/Items/axe.png"),
-	}
-}
-var current_items = {}
 
 
-enum RECIPES {AXE}
+
+enum RECIPES {R1,R2,R3,R4}
 var recipes = {
-	RECIPES.AXE : {
+	RECIPES.R1 : {
 		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,2], [RESOURCE.ROCK,2]],
-		"results": [[ITEM.AXE,1]]
+		"results": [[RESOURCE.ROCK,1]]
+	},
+	
+	RECIPES.R2 : {
+		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,2], [RESOURCE.ROCK,2]],
+		"results": [[RESOURCE.ROCK,1]]
+	},
+	RECIPES.R3 : {
+		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,2], [RESOURCE.ROCK,2]],
+		"results": [[RESOURCE.ROCK,1]]
+	},
+	RECIPES.R4 : {
+		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,2], [RESOURCE.ROCK,2]],
+		"results": [[RESOURCE.ROCK,1]]
 	}
 	
 	
@@ -50,25 +57,27 @@ var buildings = {
 		"name": "Tower","sprite": preload("res://sprites/Buildings/DonutPortal.png"),
 		"resource_type": [RESOURCE.ROCK], "resource_cost": [2],
 		"object": preload("res://object/tower.tscn"),
-		"recipe" : RECIPES.AXE
+		"recipe" : RECIPES.R1
 	},
 	BUILDINGS.TOWER: {
 		"name": "Tower","sprite": preload("res://sprites/Buildings/tower.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [5,7],
 		"object": preload("res://object/tower.tscn"),
-		"recipe" : null
+		"recipe" :RECIPES.R2
 	},
 	BUILDINGS.LAVALAKE: {
 		"name": "Lava Lake","sprite": preload("res://sprites/Buildings/LavaLake.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,7],
 		"object": preload("res://object/tower.tscn"),
-		"recipe" : null
+		"recipe" : RECIPES.R3
+		
+		
 	},
 	BUILDINGS.B3: {
 		"name": "Tower","sprite": preload("res://sprites/Buildings/tower.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [50,70],
 		"object": preload("res://object/tower.tscn"),
-		"recipe" : null
+		"recipe" : RECIPES.R4
 	}
 }
 
@@ -151,8 +160,6 @@ func _ready():
 	for r in resources:
 		current_resources[r] = 10
 		
-	for i in items:
-		current_items[i] = 1
 
 func _process(delta):
 	pass

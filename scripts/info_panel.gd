@@ -52,6 +52,11 @@ func resource_selection(object : Res):
 	%PriorityBoxes.visible = false
 	%UnitName.text = Global.resources[object.resource_type].name
 	%preview_icon.texture = object.get_node("Sprite2D").texture
+	
+func building_selection(object : buildingObject):
+	%PriorityBoxes.visible = false
+	%preview_icon.texture = object.get_node("Sprite2D").texture
+	%UnitName.text = Global.buildings[object.building_type].name
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

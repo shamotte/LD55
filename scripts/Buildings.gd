@@ -26,6 +26,7 @@ func build_building(position):
 		#Summoning Object
 		var newBuilding = Global.buildings[selected_building]["object"].instantiate()
 		newBuilding.set_texture(Global.buildings[selected_building]["sprite"])
+		newBuilding.building_type = selected_building
 		newBuilding.position = position
 		add_child(newBuilding)
 		UnselectObject()
