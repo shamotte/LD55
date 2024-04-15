@@ -19,8 +19,8 @@ func _process(delta):
 
 func change_label(name : int):
 	#$Label.text = name
-	#$Label.text = Priorities.actions[name]["name"]
-	$Label.text = ""
+	$Label.text = Priorities.actions[name]["name"]
+	#$Label.text = ""
 	
 func change_icon(name : int):
 	#$Label.text = name
