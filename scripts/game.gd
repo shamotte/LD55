@@ -74,7 +74,6 @@ var enemy_scene = preload("res://object/enemy.tscn")
 var timer_timeouts = 0
 
 func _on_enemy_spawn_timer_timeout():
-	
 	for i in range(randi_range(0, 1 + timer_timeouts * 2)):
 		var spawn = get_tree().get_nodes_in_group("enemy_spawner").pick_random()
 		var type = Global.enemies.keys().pick_random()
