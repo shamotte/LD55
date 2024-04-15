@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=21 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -14,6 +14,7 @@
 [ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="8_cjmjg"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
+[ext_resource type="Texture2D" uid="uid://bym0ptnbq5wge" path="res://sprites/Items/wares.png" id="15_pktq6"]
 [ext_resource type="PackedScene" uid="uid://dahi40k2gv47i" path="res://object/priority_elem.tscn" id="15_x630r"]
 [ext_resource type="Texture2D" uid="uid://cuj43sy1s5u22" path="res://sprites/UI/unitselect.png" id="16_c4l1p"]
 
@@ -363,7 +364,6 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_jqn1q")
 
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("8_1k3t5")
 
 [node name="UI" type="Control" parent="UI"]
@@ -438,6 +438,39 @@ layout_mode = 2
 [node name="GridContainer" type="GridContainer" parent="UI/UI/Building/Panel/SpawnList"]
 layout_mode = 2
 
+[node name="Help" type="ScrollContainer" parent="UI/UI/Building/Panel"]
+visible = false
+layout_mode = 2
+
+[node name="HelpText" type="Label" parent="UI/UI/Building/Panel/Help"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "ACTION PRIORITY:
+Click on units to manage
+their priorities.
+High number - important.
+Priority 0 - forbidden.
+
+RESOURCES:
+Gather natural resources
+and use buildings to craft
+more of them.
+
+CRAFTING:
+Place buildings and wait
+for units to craft items for
+you. Select a building to
+use up your resources
+and queue a unit to pick
+the result up.
+
+DEFENSE:
+You will occasionally
+be attacked by humans.
+Defend against them 
+and prepare for the next
+attack!"
+
 [node name="PreviewManager" type="Control" parent="UI/UI"]
 layout_mode = 1
 anchors_preset = 2
@@ -495,11 +528,12 @@ grow_vertical = 2
 
 [node name="Cou" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel" instance=ExtResource("15_x630r")]
 unique_name_in_owner = true
-offset_left = 16.0
-offset_top = 12.0
-offset_right = 64.0
-offset_bottom = 76.0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 56.0
+offset_bottom = 71.0
 label = "count"
+texture = ExtResource("15_pktq6")
 
 [node name="ing" type="Panel" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel"]
 unique_name_in_owner = true
