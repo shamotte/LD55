@@ -23,11 +23,11 @@ var resources = {
 		,"time" : 3.0, "resource_point_texture": preload("res://sprites/Resources/rock.png")	
 	},
 	RESOURCE.IRON: {
-		"name": "Iron", "sprite": preload("res://sprites/Resources/Copium1.png"), "type" : Priorities.ACTIONTYPES.GATHER,
+		"name": "Iron", "sprite": preload("res://sprites/Resources/crafted_iron.png"), "type" : Priorities.ACTIONTYPES.GATHER,
 		"time" : 7.0, "resource_point_texture": preload("res://sprites/Resources/Iron.png")
 	},
 	RESOURCE.GOLD: {
-		"name": "Gold", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHER
+		"name": "Gold", "sprite": preload("res://sprites/Resources/crafted_gold.png"), "type" : Priorities.ACTIONTYPES.GATHER
 		,"time" : 10.0, "resource_point_texture": preload("res://sprites/Resources/gold.png")
 	},
 	RESOURCE.GEM: {
@@ -35,19 +35,19 @@ var resources = {
 		,"time" : 10.0, "resource_point_texture": preload("res://sprites/Resources/gem_stone.png")
 	},
 	RESOURCE.HELLIUM: {
-		"name": "Gold", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHER
+		"name": "Helium", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHER
 		,"time" : 10.0, "resource_point_texture": null
 	},
 	RESOURCE.OBSIDIANUM: {
-		"name": "Gold", "sprite": preload("res://sprites/Resources/obsidianium.png"), "type" : Priorities.ACTIONTYPES.GATHER
+		"name": "Obsidianium", "sprite": preload("res://sprites/Resources/obsidianium.png"), "type" : Priorities.ACTIONTYPES.GATHER
 		,"time" : 10.0, "resource_point_texture": preload("res://sprites/Resources/gold.png")
 	},
 	RESOURCE.COPIUM: {
-		"name": "Gold", "sprite": preload("res://sprites/Resources/Copium1.png"), "type" : Priorities.ACTIONTYPES.GATHER
+		"name": "Copium", "sprite": preload("res://sprites/Resources/Copium1.png"), "type" : Priorities.ACTIONTYPES.GATHER
 		,"time" : 10.0, "resource_point_texture": null
 	},
 	RESOURCE.AMONGIUM: {
-		"name": "Gold", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHER
+		"name": "Amongium", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHER
 		,"time" : 10.0, "resource_point_texture": null
 	}
 }
@@ -77,12 +77,10 @@ var recipes = {
 	RECIPES.R4 : {
 		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,2], [RESOURCE.ROCK,2]],
 		"results": [[RESOURCE.ROCK,1]]
-	}
-	
-	
+	}	
 }
 
-enum BUILDINGS { PORTAL,TOWER,LAVALAKE,FORGE,TENTACLE,TENTACLESFIELD }
+enum BUILDINGS { PORTAL,TOWER,LAVALAKE,FORGE,TENTACLE,TENTACLESFIELD}
 var buildings = {
 	BUILDINGS.PORTAL: {
 		"name": "Portal","sprite": preload("res://sprites/Buildings/DonutPortal.png"),
@@ -101,8 +99,6 @@ var buildings = {
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : RECIPES.R3
-		
-		
 	},
 	BUILDINGS.FORGE: {
 		"name": "Forge","sprite": preload("res://sprites/Buildings/Forge.png"),
@@ -141,7 +137,7 @@ var units = {
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 50, "work_speed" : 0.5,
 		"speed" : 80, "HP" : 25, "damage" : 10,
-		"cooldown" : 2.0, "fight_range" : 60
+		"cooldown" : 2.0, "fight_range" : 90
 	},
 	UNIT.IMP: {
 		"name" : "Imp", "sprite": preload("res://sprites/Units/imp.png"),
@@ -150,7 +146,7 @@ var units = {
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 10, "work_speed" : 1,
 		"speed" : 120, "HP" : 15, "damage" : 1,
-		"cooldown" : 0.5, "fight_range" : 30
+		"cooldown" : 0.5, "fight_range" : 40
 	},
 	UNIT.CEMON: {
 		"name" : "Cemon", "sprite": preload("res://sprites/Units/Cemon.png"),
@@ -159,7 +155,7 @@ var units = {
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 10, "work_speed" : 0.8,
 		"speed" : 50, "HP" : 60, "damage" : 6,
-		"cooldown" : 1, "fight_range" : 20
+		"cooldown" : 1, "fight_range" : 40
 	},
 	UNIT.PYTHONUS: {
 		"name" : "Pythonus", "sprite": preload("res://sprites/Units/Pythonomium.png"),
@@ -168,16 +164,16 @@ var units = {
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 15, "work_speed" : 2,
 		"speed" : 100, "HP" : 20, "damage" : 8,
-		"cooldown" : 1.5, "fight_range" : 30
+		"cooldown" : 1.5, "fight_range" : 40
 	},
 	UNIT.LORD: {
-		"name" : "Demon Lord", "sprite": preload("res://sprites/Units/DemonLord.png"),
+		"name" : "Baron", "sprite": preload("res://sprites/Units/DemonLord.png"),
 		"toolSprite" : preload("res://sprites/Items/demon_sword.png"),
 		"resource_type": [RESOURCE.IRON,RESOURCE.GOLD], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 30, "work_speed" : 0.2,
 		"speed" : 66, "HP" : 66, "damage" : 16,
-		"cooldown" : 2.5, "fight_range" : 30
+		"cooldown" : 2.5, "fight_range" : 40
 	},
 }
 
