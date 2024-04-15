@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://codhgt0vj6esd"
-path="res://.godot/imported/health.png-f02b678c4f90a7fa1cb31671541d153d.ctex"
+uid="uid://d2rdiianj1yy5"
+path="res://.godot/imported/crafting.png-53c25b71acc75ca88ebbbace990f2875.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Items/health.png"
-dest_files=["res://.godot/imported/health.png-f02b678c4f90a7fa1cb31671541d153d.ctex"]
+source_file="res://sprites/UI/crafting.png"
+dest_files=["res://.godot/imported/crafting.png-53c25b71acc75ca88ebbbace990f2875.ctex"]
 
 [params]
 

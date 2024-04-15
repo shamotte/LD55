@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2rdiianj1yy5"
-path="res://.godot/imported/crafting.png-3559bbbad811035b5a12e1fb0f021593.ctex"
+uid="uid://c2u432pxwkprq"
+path="res://.godot/imported/arrow.png-55880307c4ea61c16a51b27656e71a7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Items/crafting.png"
-dest_files=["res://.godot/imported/crafting.png-3559bbbad811035b5a12e1fb0f021593.ctex"]
+source_file="res://sprites/UI/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-55880307c4ea61c16a51b27656e71a7e.ctex"]
 
 [params]
 
