@@ -78,7 +78,7 @@ resource_type = 1
 
 [node name="ResourcePoint2" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-546, 194)
-resource_type = 1
+resource_type = 2
 
 [node name="ResourcePoint3" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-482, 166)
@@ -198,7 +198,7 @@ resource_type = 1
 
 [node name="ResourcePoint5" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-52, 358)
-resource_type = 1
+resource_type = 6
 
 [node name="ResourcePoint6" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(427, 135)
@@ -206,11 +206,11 @@ resource_type = 1
 
 [node name="ResourcePoint7" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(480, 161)
-resource_type = 1
+resource_type = 4
 
 [node name="ResourcePoint8" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(431, 199)
-resource_type = 1
+resource_type = 3
 
 [node name="ResourcePoint9" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(116, -217)
@@ -222,7 +222,7 @@ resource_type = 1
 
 [node name="ResourcePoint11" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-10, -224)
-resource_type = 1
+resource_type = 3
 
 [node name="ResourcePoint12" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-81, -266)
@@ -230,7 +230,7 @@ resource_type = 1
 
 [node name="ResourcePoint13" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-170, -316)
-resource_type = 1
+resource_type = 2
 
 [node name="ResourcePoint14" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-259, -323)
@@ -238,11 +238,11 @@ resource_type = 1
 
 [node name="ResourcePoint15" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-322, -256)
-resource_type = 1
+resource_type = 4
 
 [node name="ResourcePoint16" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-241, -240)
-resource_type = 1
+resource_type = 2
 
 [node name="ResourcePoint17" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-150, -242)
@@ -363,6 +363,7 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_jqn1q")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("8_1k3t5")
 
 [node name="UI" type="Control" parent="UI"]
