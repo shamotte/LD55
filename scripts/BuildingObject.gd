@@ -21,14 +21,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not busy:
-		if to_craft>0:
+	if recipe != null:
+		if not busy:
+			if to_craft>0:
 			
 			
-			if true: #TODO check whether you can accualy craft it
-				Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,$".",Global.recipes[recipe].work)
-				to_craft-=1
-				busy = true
+				if true: #TODO check whether you can accualy craft it
+					Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,$".",Global.recipes[recipe].work)
+					to_craft-=1
+					busy = true
 		
 		
 func display_previev(node):
