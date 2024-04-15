@@ -47,9 +47,9 @@ func _process(delta):
 		return
 	#Rotation
 	if velocity.x > 0:
-		$Sprite.scale.x = 1.0
+		$Sprite.flip_h = false
 	elif velocity.x < 0:
-		$Sprite.scale.x = -1.0
+		$Sprite.flip_h = true
 	
 	match state:
 		STATES.IDLE:
@@ -69,15 +69,20 @@ func _process(delta):
 					print("walking")
 					state = STATES.WALK
 		STATES.WALK:
+			if $AnimationPlayer.current_animation != "walk" :
+				$AnimationPlayer.play("walk")
+			
 			if current_action.node != null:
 				target = current_action.node.position
 				agent.target_position = target
 				if agent.distance_to_target() < work_range :
 					print("working")
 					state = STATES.WORK
+					$AnimationPlayer.stop()
 					work_time = current_action.time 
 			else:
 				state = STATES.IDLE
+				$AnimationPlayer.stop()
 				Priorities.remove_action_null_node(current_action)
 		STATES.WORK:
 			if agent.distance_to_target() > work_range:
