@@ -21,21 +21,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if recipe != null:
-		if not busy:
-			if to_craft>0:
-			
-			
-			
+	if not busy:
+		if to_craft>0:
 			#for i in range(Global.buildings[building]["resource_type"].size()):
-			#if Global.current_resources[ Global.buildings[building]["resource_type"][i] ] < Global.buildings[building]["resource_cost"][i]:
-			#for i in range(Global.recipes[][""])	
-			#ingredients
-				if true: 
-				#TODO check whether you can accualy craft it
-					Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,$".",Global.recipes[recipe].work)
-					to_craft-=1
-					busy = true
+			#	if Global.current_resources[ Global.buildings[building]["resource_type"][i] ] < Global.buildings[building]["resource_cost"][i]:
+			for i in range( Global.recipes[recipe]["ingredients"].size() ):	
+				var recipe_id = Global.recipes[recipe]["ingredients"][i][0]
+				var cur_res = Global.current_resources[recipe_id]
+				var cost = Global.recipes[recipe]["ingredients"][i][1]
+				if cur_res < cost:
+					print("Ret")
+					return		
+			Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,$".",Global.recipes[recipe].work)
+			to_craft-=1
+			busy = true
 		
 		
 func display_previev(node):
@@ -47,4 +46,10 @@ func new_walue(value):
 func set_texture(newTexture):
 	texture = newTexture
 	$Sprite2D.texture = newTexture
+	$AnimatedSprite2D.animation = "default"
+	
+func set_stats(id):
+	building_type = id 
+	recipe =  Global.buildings[building_type]["recipe"]
+	$Sprite2D.texture = Global.buildings[building_type]["sprite"]
 	$AnimatedSprite2D.animation = "default"
