@@ -127,8 +127,26 @@ var buildings = {
 @export var cooldown = 2.0
 @export var fight_range = 30
 
-enum UNIT {CULTIST,IMP,CEMON,PYTHONUS,LORD}
+enum UNIT {SLIME,SHROOM,CULTIST,IMP,WENDIGO,CEMON,PYTHONUS,LORD}
 var units = {
+	UNIT.SLIME: {
+		"name" : "Slime", "sprite": preload("res://sprites/Units/slimebehindtheslaughter.png"),
+		"toolSprite" : null,
+		"resource_type": [RESOURCE.WOOD], "resource_cost": [1],
+		"object": preload("res://object/unit.tscn"),
+		"work_range" : 10, "work_speed" : 0.2,
+		"speed" : 30, "HP" : 25, "damage" : 3,
+		"cooldown" : 1.0, "fight_range" : 30
+	},
+	UNIT.SHROOM: {
+		"name" : "Shroom", "sprite": preload("res://sprites/Units/shroom.png"),
+		"toolSprite" : null,
+		"resource_type": [RESOURCE.FOOD], "resource_cost": [4],
+		"object": preload("res://object/unit.tscn"),
+		"work_range" : 10, "work_speed" : 0.3,
+		"speed" : 40, "HP" : 25, "damage" : 1,
+		"cooldown" : 0.2, "fight_range" : 10
+	},
 	UNIT.CULTIST: {
 		"name" : "Cultist", "sprite": preload("res://sprites/Units/Cultist.png"),
 		"toolSprite" : preload("res://sprites/Items/Eye_Staff.png"),
@@ -140,12 +158,21 @@ var units = {
 	},
 	UNIT.IMP: {
 		"name" : "Imp", "sprite": preload("res://sprites/Units/imp.png"),
-		"toolSprite" : preload("res://sprites/Items/axe.png"),
+		"toolSprite" : preload("res://sprites/Items/PitchFork.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 10, "work_speed" : 1,
 		"speed" : 120, "HP" : 15, "damage" : 1,
 		"cooldown" : 0.5, "fight_range" : 40
+	},
+	UNIT.WENDIGO: {
+		"name" : "Wendigo", "sprite": preload("res://sprites/Units/wendigo.png"),
+		"toolSprite" : null,
+		"resource_type": [RESOURCE.WOOD,RESOURCE.GEM], "resource_cost": [50,10],
+		"object": preload("res://object/unit.tscn"),
+		"work_range" : 20, "work_speed" : 1.5,
+		"speed" : 70, "HP" : 35, "damage" : 7,
+		"cooldown" : 2.0, "fight_range" : 40
 	},
 	UNIT.CEMON: {
 		"name" : "Cemon", "sprite": preload("res://sprites/Units/Cemon.png"),
@@ -181,6 +208,7 @@ var enemies = {
 	ENEMY.SLIME: {
 		"name" : "Chłop", "sprite": preload("res://sprites/Units/Peasant.png"),
 		"object": preload("res://object/unit.tscn"),
+		"tool": preload("res://sprites/Items/NoItem.png"),
 		"HP" : 10, "range" : 15, 
 		"damage" : 1, "cooldown" : 1.0,
 		"speed" : 50
@@ -188,6 +216,7 @@ var enemies = {
 	ENEMY.WENDIGO: {
 		"name" : "Kapłan", "sprite": preload("res://sprites/Units/Priest.png"),
 		"object": preload("res://object/unit.tscn"),
+		"tool": preload("res://sprites/Items/NoItem.png"),
 		"HP" : 45, "range" : 30, 
 		"damage" : 3, "cooldown" : 0.5,
 		"speed" : 40
@@ -195,6 +224,7 @@ var enemies = {
 	ENEMY.PEASANT: {
 		"name" : "Chłop", "sprite": preload("res://sprites/Units/Peasant.png"),
 		"object": preload("res://object/unit.tscn"),
+		"tool": preload("res://sprites/Items/PitchFork.png"),
 		"HP" : 15, "range" : 30, 
 		"damage" : 1, "cooldown" : 1.0,
 		"speed" : 75
@@ -202,6 +232,7 @@ var enemies = {
 	ENEMY.PRIEST: {
 		"name" : "Kapłan", "sprite": preload("res://sprites/Units/Priest.png"),
 		"object": preload("res://object/unit.tscn"),
+		"tool": preload("res://sprites/Items/Warhammer.png"),
 		"HP" : 25, "range" : 50, 
 		"damage" : 10, "cooldown" : 2.0,
 		"speed" : 45
@@ -209,6 +240,7 @@ var enemies = {
 	ENEMY.KNIGHT: {
 		"name" : "Rycerz", "sprite": preload("res://sprites/Units/knight.png"),
 		"object": preload("res://object/unit.tscn"),
+		"tool": preload("res://sprites/Items/Sword.png"),
 		"HP" : 45, "range" : 30, 
 		"damage" : 10, "cooldown" : 1.5,
 		"speed" : 50
@@ -216,9 +248,10 @@ var enemies = {
 	ENEMY.HORSEMAN: {
 		"name" : "Kawalerzysta", "sprite": preload("res://sprites/Units/Horseman.png"),
 		"object": preload("res://object/unit.tscn"),
+		"tool": preload("res://sprites/Items/spear.png"),
 		"HP" : 55, "range" : 30, 
 		"damage" : 8, "cooldown" : 2.0,
-		"speed" : 50
+		"speed" : 100
 	},
 	
 }

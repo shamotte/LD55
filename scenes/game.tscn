@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=21 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -14,6 +14,7 @@
 [ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="8_cjmjg"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
+[ext_resource type="Texture2D" uid="uid://codhgt0vj6esd" path="res://sprites/Items/health.png" id="14_hf8ep"]
 [ext_resource type="PackedScene" uid="uid://dahi40k2gv47i" path="res://object/priority_elem.tscn" id="15_x630r"]
 [ext_resource type="Texture2D" uid="uid://cuj43sy1s5u22" path="res://sprites/UI/unitselect.png" id="16_c4l1p"]
 
@@ -456,6 +457,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="UI/UI/PreviewManager/PreviewPanel"]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 40.0
+offset_bottom = 84.0
+texture = ExtResource("14_hf8ep")
+
+[node name="HP" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 60.0
+offset_right = 56.0
+offset_bottom = 83.0
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="UnitName" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
 unique_name_in_owner = true
 layout_mode = 1
@@ -531,17 +550,6 @@ layout_mode = 2
 unique_name_in_owner = true
 position = Vector2(40, 44)
 texture = ExtResource("11_tqatv")
-
-[node name="HP" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 32.0
-offset_top = 60.0
-offset_right = 72.0
-offset_bottom = 83.0
-text = "100"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="MousePointer" type="Area2D" parent="."]
 unique_name_in_owner = true

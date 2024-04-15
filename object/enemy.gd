@@ -27,6 +27,7 @@ func set_stats(id:int):
 	damage = Global.enemies[id]["damage"]
 	cooldown = Global.enemies[id]["cooldown"]
 	speed = Global.enemies[id]["speed"]
+	$Sprite2D/Weapon.texture = Global.enemies[id]["tool"]
 
 func take_damage(damage:float):
 	hp-=damage
