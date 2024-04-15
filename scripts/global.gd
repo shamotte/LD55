@@ -300,7 +300,7 @@ var priorieties = {
 
 func _ready():
 	for r in resources:
-		current_resources[r] = 10
+		current_resources[r] = 0
 
 func _process(delta):
 	if Input.is_action_just_pressed("fullscreen"):
