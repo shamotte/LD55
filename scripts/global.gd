@@ -58,25 +58,33 @@ var current_resources = {}
 
 
 
-enum RECIPES {R1,R2,R3,R4}
+enum RECIPES {R1,R2,R3,R4, R5, R6}
 var recipes = {
 	RECIPES.R1 : {
-		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,10], [RESOURCE.ROCK,10]],
-		"results": [[RESOURCE.ROCK,1]]
+		"work" : 10.0, "ingredients" : [[RESOURCE.GEM,10], [RESOURCE.ROCK,10]],
+		"results": [[RESOURCE.COPIUM,1]]
 	},
 	
 	RECIPES.R2 : {
-		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,2], [RESOURCE.ROCK,2]],
-		"results": [[RESOURCE.ROCK,1]]
+		"work" : 10.0, "ingredients" : [[RESOURCE.COPIUM,2], [RESOURCE.GEM,2]],
+		"results": [[RESOURCE.AMONGIUM, 1]]
 	},
 	RECIPES.R3 : {
-		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,2], [RESOURCE.ROCK,2]],
-		"results": [[RESOURCE.ROCK,1]]
+		"work" : 5.0, "ingredients" : [[RESOURCE.ROCK,3], [RESOURCE.GOLD, 3]],
+		"results": [[RESOURCE.OBSIDIANUM,3]]
 	},
 	RECIPES.R4 : {
-		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,2], [RESOURCE.ROCK,2]],
-		"results": [[RESOURCE.ROCK,1]]
-	}	
+		"work" : 5.0, "ingredients" : [[RESOURCE.OBSIDIANUM, 2], [RESOURCE.AMONGIUM, 2]],
+		"results": [[RESOURCE.HELLIUM,1]]
+	},
+	RECIPES.R5 : {
+		"work" : 15.0, "ingredients" : [[RESOURCE.WOOD,3]],
+		"results": [[RESOURCE.FOOD,1]]
+	},
+	RECIPES.R6 : {
+		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,2]],
+		"results": [[RESOURCE.FOOD,3]]
+	}
 }
 
 enum BUILDINGS { PORTAL,TOWER,LAVALAKE,FORGE,TENTACLE,TENTACLESFIELD}
@@ -109,13 +117,13 @@ var buildings = {
 		"name": "Tentacle","sprite": preload("res://sprites/Buildings/Tentacle.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/tower.tscn"),
-		"recipe" : null
+		"recipe" : RECIPES.R5
 	},
 	BUILDINGS.TENTACLESFIELD: {
 		"name": "Tentacles","sprite": preload("res://sprites/Buildings/Tentacles.png"),
 		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
 		"object": preload("res://object/tower.tscn"),
-		"recipe" : null
+		"recipe" : RECIPES.R6
 	},
 }
 

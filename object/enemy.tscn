@@ -11,6 +11,7 @@
 
 [node name="enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 65
+collision_mask = 0
 script = ExtResource("1_4wtti")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

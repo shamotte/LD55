@@ -45,14 +45,14 @@ func _ready():
 		
 		
 var active_selection
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index ==2 and event.is_pressed():
-			add_child(enemy.instantiate())
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if %Units.get_child_count()<1:
+		Engine.time_scale = 0
+		%Endgame.visible = true
+	
 	for i in range(Global.current_resources.size()):
 		resource_info[i].get_node("Count").text = str(Global.current_resources[i])
 	#for r in Global.current_resources:
