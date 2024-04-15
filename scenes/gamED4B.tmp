@@ -35,21 +35,7 @@ texture = ExtResource("2_qj8nh")
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_xykrx")
 
-[node name="Building Area" type="Area2D" parent="."]
-collision_layer = 9
-collision_mask = 14
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Building Area"]
-polygon = PackedVector2Array(-296, 176, -80, 32, 40, 32, 112, 112, 136, 192, 320, 288, 360, 224, 328, 136, 216, 32, 184, -104, 320, -232, 240, -248, 144, -208, -344, -176, -480, -56, -480, -56, -568, -96, -624, 72, -568, 168)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Building Area"]
-polygon = PackedVector2Array(568, -112, 592, -16, 680, 40, 736, 8, 728, -56, 640, -104)
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Building Area"]
-polygon = PackedVector2Array(16, 320, 104, 264, 64, 208, -16, 288)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 position = Vector2(2, 4)
 navigation_polygon = SubResource("NavigationPolygon_y668m")
 
@@ -358,8 +344,6 @@ script = ExtResource("7_40o6t")
 
 [node name="CheckPointer" type="Area2D" parent="CursorSprite"]
 position = Vector2(0, 4)
-collision_layer = 9
-collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CursorSprite/CheckPointer"]
 scale = Vector2(2, 2)
@@ -503,6 +487,4 @@ collision_mask = 128
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MousePointer"]
 shape = SubResource("CircleShape2D_jq1be")
 
-[connection signal="area_entered" from="Building Area" to="CursorSprite" method="_on_building_area_area_entered"]
-[connection signal="area_exited" from="Building Area" to="CursorSprite" method="_on_building_area_area_exited"]
 [connection signal="toggled" from="UI/UI/Building/CheckButton" to="UI/UI/Building" method="_on_check_button_toggled"]
