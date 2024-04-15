@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvi540areu8k7"
-path="res://.godot/imported/crafted_iron.png-8a093acfe5c187e81937b1c7b0f34f78.ctex"
+uid="uid://cuj43sy1s5u22"
+path="res://.godot/imported/unitselect.png-9df21265ad1aac6ed77d515f02f03b07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Resources/crafted_iron.png"
-dest_files=["res://.godot/imported/crafted_iron.png-8a093acfe5c187e81937b1c7b0f34f78.ctex"]
+source_file="res://sprites/UI/unitselect.png"
+dest_files=["res://.godot/imported/unitselect.png-9df21265ad1aac6ed77d515f02f03b07.ctex"]
 
 [params]
 

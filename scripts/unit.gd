@@ -48,8 +48,10 @@ func _process(delta):
 	#Rotation
 	if velocity.x > 0:
 		$Sprite.flip_h = false
+		$Sprite/ItemParent.scale.x = 1.0
 	elif velocity.x < 0:
 		$Sprite.flip_h = true
+		$Sprite/ItemParent.scale.x = -1.0
 	
 	match state:
 		STATES.IDLE:
@@ -59,14 +61,14 @@ func _process(delta):
 				if current_action.type == Priorities.ACTIONTYPES.FIGHT:
 					if current_action.node != null:
 						enemy_killed =false
-						print("going fighting")
+						
 						state=STATES.FIGHT
 					
 						current_action.node.died.connect(target_dead)
 					else:
 						Priorities.remove_action_null_node(current_action)
 				else:
-					print("walking")
+					
 					state = STATES.WALK
 		STATES.WALK:
 			if $AnimationPlayer.current_animation != "walk" :
@@ -76,7 +78,7 @@ func _process(delta):
 				target = current_action.node.position
 				agent.target_position = target
 				if agent.distance_to_target() < work_range :
-					print("working")
+					
 					state = STATES.WORK
 					$AnimationPlayer.stop()
 					work_time = current_action.time 
@@ -150,7 +152,7 @@ func setStats(unitId):
 	cooldown = Global.units[unitId]["cooldown"]
 	fight_range = Global.units[unitId]["fight_range"]
 	$Sprite.texture = Global.units[unitId]["sprite"]
-	$Sprite/Item.texture = Global.units[unitId]["toolSprite"]
+	$Sprite/ItemParent/Item.texture = Global.units[unitId]["toolSprite"]
 	type = unitId
 
 func _physics_process(delta):
