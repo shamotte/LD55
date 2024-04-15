@@ -51,6 +51,7 @@ func _input(event):
 
 func unit_selection(object : unit):
 	%UnitName.text = Global.units[object.type].name
+	%HP.text = str(object.hp)
 	%preview_icon.texture = object.get_node("Sprite").texture
 	%PriorityBoxes.visible = true
 	%RecepiePanel.visible = false
