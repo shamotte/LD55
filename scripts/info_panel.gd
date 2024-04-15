@@ -25,9 +25,9 @@ func _ready():
 		child.priority = 0
 		child.index = p
 		child.value_changed.connect(update_priority)
-		#child.change_label(Priorities.get_action_name(p))
 		%PriorityBoxes.add_child(child)
 		child.change_label(p)
+		child.change_icon(p)
 		child.mouse_entered.connect(_on_mouse_entered)
 		
 		
@@ -76,8 +76,12 @@ func building_selection(object : buildingObject):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pointer.global_position = $"../../..".mousePos()
+	
 	if active_selection != null:
-		active_selection.display_previev($".")
+		%SelectedIndicator.global_position = active_selection.global_position
+		%SelectedIndicator.visible = true
+	else:
+		%SelectedIndicator.visible = false
 
 
 var mouse_in:bool

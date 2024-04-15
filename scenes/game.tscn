@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=20 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
 [ext_resource type="PackedScene" uid="uid://dahi40k2gv47i" path="res://object/priority_elem.tscn" id="15_x630r"]
+[ext_resource type="Texture2D" uid="uid://cuj43sy1s5u22" path="res://sprites/UI/unitselect.png" id="16_c4l1p"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
 vertices = PackedVector2Array(392, 383, 225, 321, 226, 321, -610, -232, -559, -284, -556, -116, -605, -107, -105, 387, -142, 376, -37, 270, 127, 267, 35, 163, 249, -72, 338, 1, 428, 110, 368, -276, 501, -285, 482, -211, 409, -204, 559, -150, 686, -140, 800, 7, 646, 72, 537, -48, 522, -114, 152, -296, 266, -157, -29, -262, 385, 277, 429, 370, 520, 151, 502, 199, 1, 81, -172, 131, -374, -181, -362, -278, -265, -364, -65, -345, -417, 191, -484, 311, -540, 321, -614, 231, -656, 2, -459, -89, -262, 175)
@@ -467,8 +468,10 @@ grow_vertical = 2
 [node name="UnitName" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_right = 80.0
-offset_bottom = 23.0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 84.0
+offset_bottom = 29.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -481,8 +484,8 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -160.0
-offset_top = -81.0
-offset_bottom = -1.0
+offset_top = -77.0
+offset_bottom = 3.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -504,12 +507,11 @@ offset_left = 16.0
 offset_top = 12.0
 offset_right = 64.0
 offset_bottom = 76.0
-max_number = 99
 label = "count"
 
 [node name="preview_icon" type="Sprite2D" parent="UI/UI/PreviewManager/PreviewPanel"]
 unique_name_in_owner = true
-position = Vector2(40, 52)
+position = Vector2(40, 44)
 texture = ExtResource("11_tqatv")
 
 [node name="MousePointer" type="Area2D" parent="."]
@@ -520,6 +522,18 @@ collision_mask = 128
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MousePointer"]
 shape = SubResource("CircleShape2D_jq1be")
 
+[node name="SelectedIndicator" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="SelectedIndicator"]
+position = Vector2(0, -8)
+texture = ExtResource("16_c4l1p")
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [connection signal="area_entered" from="Building Area" to="CursorSprite" method="_on_building_area_area_entered"]
 [connection signal="area_exited" from="Building Area" to="CursorSprite" method="_on_building_area_area_exited"]
 [connection signal="toggled" from="UI/UI/Building/CheckButton" to="UI/UI/Building" method="_on_check_button_toggled"]
@@ -527,5 +541,6 @@ shape = SubResource("CircleShape2D_jq1be")
 [connection signal="mouse_exited" from="UI/UI/PreviewManager" to="UI/UI/PreviewManager" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="UI/UI/PreviewManager/PreviewPanel" to="UI/UI/PreviewManager" method="_on_preview_panel_mouse_entered"]
 [connection signal="mouse_exited" from="UI/UI/PreviewManager/PreviewPanel" to="UI/UI/PreviewManager" method="_on_preview_panel_mouse_exited"]
-[connection signal="mouse_entered" from="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/Cou" to="UI/UI/PreviewManager" method="_on_control_mouse_entered"]
-[connection signal="mouse_exited" from="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/Cou" to="UI/UI/PreviewManager" method="_on_control_mouse_exited"]
+[connection signal="mouse_entered" from="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/Control" to="UI/UI/PreviewManager" method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/Control" to="UI/UI/PreviewManager" method="_on_control_mouse_exited"]
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

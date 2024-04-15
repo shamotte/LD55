@@ -47,9 +47,11 @@ func _process(delta):
 		return
 	#Rotation
 	if velocity.x > 0:
-		$Sprite.scale.x = 1.0
+		$Sprite.flip_h = false
+		$Sprite/ItemParent.scale.x = 1.0
 	elif velocity.x < 0:
-		$Sprite.scale.x = -1.0
+		$Sprite.flip_h = true
+		$Sprite/ItemParent.scale.x = -1.0
 	
 	match state:
 		STATES.IDLE:
@@ -69,15 +71,20 @@ func _process(delta):
 					
 					state = STATES.WALK
 		STATES.WALK:
+			if $AnimationPlayer.current_animation != "walk" :
+				$AnimationPlayer.play("walk")
+			
 			if current_action.node != null:
 				target = current_action.node.position
 				agent.target_position = target
 				if agent.distance_to_target() < work_range :
 					
 					state = STATES.WORK
+					$AnimationPlayer.stop()
 					work_time = current_action.time 
 			else:
 				state = STATES.IDLE
+				$AnimationPlayer.stop()
 				Priorities.remove_action_null_node(current_action)
 		STATES.WORK:
 			if agent.distance_to_target() > work_range:
@@ -138,7 +145,7 @@ func look_for_higher_priority_job():
 			
 func setStats(unitId):
 	$Sprite.texture = Global.units[unitId]["sprite"]
-	$Sprite/Item.texture = Global.units[unitId]["toolSprite"]
+	$Sprite/ItemParent/Item.texture = Global.units[unitId]["toolSprite"]
 	type = unitId
 
 func _physics_process(delta):
