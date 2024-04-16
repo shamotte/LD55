@@ -33,7 +33,7 @@ func _process(delta):
 				var cur_res = Global.current_resources[recipe_id]
 				var cost = Global.recipes[recipe]["ingredients"][i][1]
 				if cur_res < cost:
-					print("No Money")
+					#print("No Money")
 					return	
 			for i in range( Global.recipes[recipe]["ingredients"].size() ):		
 				Global.current_resources[Global.recipes[recipe]["ingredients"][i][0]] -= Global.recipes[recipe]["ingredients"][i][1]

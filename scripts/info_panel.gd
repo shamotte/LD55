@@ -6,12 +6,12 @@ var PRIORITIESLENGTH = 3
 var camera :Camera2D
 func update_priority(index:int,new_value : int):
 	if active_selection != null:
-		print("ad")
+		#print("ad")
 		if active_selection is unit:
 			active_selection.priorities[index] = new_value
-			print("writing new priority")
+			#print("writing new priority")
 		if active_selection is buildingObject:
-			print("clock")
+			#print("clock")
 			active_selection.new_walue(new_value)
 			
 			

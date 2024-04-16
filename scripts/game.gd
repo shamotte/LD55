@@ -78,7 +78,7 @@ func _on_enemy_spawn_timer_timeout():
 		var spawn = get_tree().get_nodes_in_group("enemy_spawner").pick_random()
 		var type = Global.enemies.keys().pick_random()
 		#Selecting enemy waves
-		print(type)
+		#print(type)
 		if timer_timeouts <= 5:
 			type = Global.ENEMY.PEASANT
 		elif timer_timeouts <= 10:
