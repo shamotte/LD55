@@ -19,6 +19,8 @@ func _ready():
 	Priorities.add_action(Priorities.ACTIONTYPES.FIGHT,id,$".",0.0)
 	%Timer.wait_time = cooldown
 	$SpawnSound.play()
+	
+	$AnimationPlayer.play("spawn")
 
 func set_stats(id:int):
 	max_hp = Global.enemies[id]["HP"]
@@ -27,6 +29,7 @@ func set_stats(id:int):
 	damage = Global.enemies[id]["damage"]
 	cooldown = Global.enemies[id]["cooldown"]
 	speed = Global.enemies[id]["speed"]
+	$Sprite2D/ItemParent/Item.texture = Global.enemies[id]["tool"]
 
 func take_damage(damage:float):
 	hp-=damage
@@ -64,6 +67,7 @@ func attac(target: Node2D):
 		if target!= null:
 			%attac_area.global_position = target.position
 			print("atacking")
+			$AttackSound.play()
 			for unit in %attac_area.get_overlapping_bodies():
 				unit.take_damage(damage)
 
@@ -78,3 +82,15 @@ func _physics_process(delta):
 			direction = direction.normalized()
 			velocity = velocity.lerp(direction * speed , 0.25)
 			move_and_slide()
+	
+	
+	if $AnimationPlayer.current_animation != "spawn":
+		if $AnimationPlayer.current_animation != "walk":
+			$AnimationPlayer.play("walk")
+			
+	if velocity.x > 0:
+		$Sprite2D.flip_h = false
+		$Sprite2D/ItemParent.scale.x = 1.0
+	elif velocity.x < 0:
+		$Sprite2D.flip_h = true
+		$Sprite2D/ItemParent.scale.x = -1.0
