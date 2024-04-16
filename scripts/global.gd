@@ -35,7 +35,7 @@ var resources = {
 	},
 	RESOURCE.OBSIDIANUM: {
 		"name": "Obsidianium", "sprite": preload("res://sprites/Resources/obsidianium.png"), "type" : Priorities.ACTIONTYPES.GATHER
-		,"time" : 10.0, "resource_point_texture": preload("res://sprites/Resources/gold.png")
+		,"time" : 10.0, "resource_point_texture": preload("res://sprites/Resources/Obsidianium_rock.png")
 	},
 	RESOURCE.COPIUM: {
 		"name": "Copium", "sprite": preload("res://sprites/Resources/Copium1.png"), "type" : Priorities.ACTIONTYPES.GATHER
@@ -58,72 +58,82 @@ var current_resources = {}
 
 
 
-enum RECIPES {R1,R2,R3,R4, R5, R6}
+enum RECIPES {COPIUM,AMONGIUM1,OBSIDIANUM,HELLIUM, FOOD1, FOOD2,AMONGIUM2}
 var recipes = {
-	RECIPES.R1 : {
+	RECIPES.COPIUM : {
 		"work" : 10.0, "ingredients" : [[RESOURCE.GEM,10], [RESOURCE.ROCK,10]],
 		"results": [[RESOURCE.COPIUM,1]]
 	},
 	
-	RECIPES.R2 : {
-		"work" : 10.0, "ingredients" : [[RESOURCE.COPIUM,2], [RESOURCE.GEM,2]],
+	RECIPES.AMONGIUM1 : {
+		"work" : 10.0, "ingredients" : [[RESOURCE.COPIUM,5], [RESOURCE.GEM,5]],
 		"results": [[RESOURCE.AMONGIUM, 1]]
 	},
-	RECIPES.R3 : {
+	RECIPES.OBSIDIANUM : {
 		"work" : 5.0, "ingredients" : [[RESOURCE.ROCK,3], [RESOURCE.GOLD, 3]],
 		"results": [[RESOURCE.OBSIDIANUM,3]]
 	},
-	RECIPES.R4 : {
+	RECIPES.HELLIUM : {
 		"work" : 5.0, "ingredients" : [[RESOURCE.OBSIDIANUM, 2], [RESOURCE.AMONGIUM, 2]],
 		"results": [[RESOURCE.HELLIUM,1]]
 	},
-	RECIPES.R5 : {
+	RECIPES.FOOD1 : {
 		"work" : 15.0, "ingredients" : [[RESOURCE.WOOD,3]],
 		"results": [[RESOURCE.FOOD,1]]
 	},
-	RECIPES.R6 : {
+	RECIPES.FOOD2 : {
 		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,2]],
 		"results": [[RESOURCE.FOOD,3]]
+	},
+	RECIPES.AMONGIUM2 : {
+		"work" : 5.0, "ingredients" : [[RESOURCE.COPIUM,1],[RESOURCE.GEM,1]],
+		"results": [[RESOURCE.AMONGIUM,2]]
 	}
 }
 
-enum BUILDINGS { PORTAL,TOWER,LAVALAKE,FORGE,TENTACLE,TENTACLESFIELD}
+enum BUILDINGS { PORTAL,TOWER,LAVALAKE,FORGE,TENTACLE,TENTACLESFIELD,MONASTERY}
 var buildings = {
 	BUILDINGS.PORTAL: {
 		"name": "Portal","sprite": preload("res://sprites/Buildings/DonutPortal.png"),
-		"resource_type": [RESOURCE.ROCK], "resource_cost": [2],
+		"resource_type": [RESOURCE.GEM,RESOURCE.OBSIDIANUM], "resource_cost": [1,3],
 		"object": preload("res://object/tower.tscn"),
-		"recipe" : RECIPES.R1
+		"recipe" : RECIPES.COPIUM
 	},
 	BUILDINGS.TOWER: {
 		"name": "Tower","sprite": preload("res://sprites/Buildings/tower.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [5,7],
+		"resource_type": [RESOURCE.HELLIUM,RESOURCE.OBSIDIANUM], "resource_cost": [2,5],
 		"object": preload("res://object/tower.tscn"),
-		"recipe" :RECIPES.R2
+		"recipe" :RECIPES.AMONGIUM1
 	},
 	BUILDINGS.LAVALAKE: {
 		"name": "Lava Lake","sprite": preload("res://sprites/Buildings/LavaLake.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
+		"resource_type": [RESOURCE.OBSIDIANUM,RESOURCE.ROCK], "resource_cost": [3,10],
 		"object": preload("res://object/tower.tscn"),
-		"recipe" : RECIPES.R3
+		"recipe" : RECIPES.OBSIDIANUM
 	},
 	BUILDINGS.FORGE: {
 		"name": "Forge","sprite": preload("res://sprites/Buildings/Forge.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
+		"resource_type": [RESOURCE.IRON,RESOURCE.GOLD], "resource_cost": [15,15],
 		"object": preload("res://object/tower.tscn"),
-		"recipe" : RECIPES.R4
+		"recipe" : RECIPES.HELLIUM
 	},
 	BUILDINGS.TENTACLE: {
 		"name": "Tentacle","sprite": preload("res://sprites/Buildings/Tentacle.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [5,5],
 		"object": preload("res://object/tower.tscn"),
-		"recipe" : RECIPES.R5
+		"recipe" : RECIPES.FOOD1
 	},
 	BUILDINGS.TENTACLESFIELD: {
 		"name": "Tentacles","sprite": preload("res://sprites/Buildings/Tentacles.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
+		"resource_type": [RESOURCE.FOOD,RESOURCE.GOLD], "resource_cost": [30,3],
 		"object": preload("res://object/tower.tscn"),
-		"recipe" : RECIPES.R6
+		"recipe" : RECIPES.FOOD2
+	},
+	BUILDINGS.MONASTERY: {
+		"name": "Tentacles","sprite": preload("res://sprites/Buildings/Monastery.png"),
+		"resource_type": [RESOURCE.AMONGIUM,RESOURCE.OBSIDIANUM], "resource_cost": [1,20],
+		"object": preload("res://object/tower.tscn"),
+		"recipe" : RECIPES.AMONGIUM2
 	},
 }
 
@@ -149,7 +159,7 @@ var units = {
 	UNIT.SLIME: {
 		"name" : "Slime", "sprite": preload("res://sprites/Units/slimebehindtheslaughter.png"),
 		"toolSprite" : null,
-		"resource_type": [RESOURCE.WOOD], "resource_cost": [1],
+		"resource_type": [RESOURCE.WOOD], "resource_cost": [4],
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 10, "work_speed" : 0.2,
 		"speed" : 30, "HP" : 25, "damage" : 3,
@@ -167,7 +177,7 @@ var units = {
 	UNIT.CULTIST: {
 		"name" : "Cultist", "sprite": preload("res://sprites/Units/Cultist.png"),
 		"toolSprite" : preload("res://sprites/Items/Eye_Staff.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
+		"resource_type": [RESOURCE.FOOD,RESOURCE.GEM], "resource_cost": [4,1],
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 50, "work_speed" : 0.5,
 		"speed" : 80, "HP" : 25, "damage" : 10,
@@ -176,7 +186,7 @@ var units = {
 	UNIT.IMP: {
 		"name" : "Imp", "sprite": preload("res://sprites/Units/imp.png"),
 		"toolSprite" : preload("res://sprites/Items/PitchFork.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [1,1],
+		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [4,4],
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 10, "work_speed" : 1,
 		"speed" : 120, "HP" : 15, "damage" : 1,
@@ -185,7 +195,7 @@ var units = {
 	UNIT.WENDIGO: {
 		"name" : "Wendigo", "sprite": preload("res://sprites/Units/wendigo.png"),
 		"toolSprite" : null,
-		"resource_type": [RESOURCE.WOOD,RESOURCE.GEM], "resource_cost": [50,10],
+		"resource_type": [RESOURCE.WOOD], "resource_cost": [20],
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 20, "work_speed" : 1.5,
 		"speed" : 70, "HP" : 35, "damage" : 7,
@@ -194,7 +204,7 @@ var units = {
 	UNIT.CEMON: {
 		"name" : "Cemon", "sprite": preload("res://sprites/Units/Cemon.png"),
 		"toolSprite" : null,
-		"resource_type": [RESOURCE.WOOD,RESOURCE.IRON], "resource_cost": [1,1],
+		"resource_type": [RESOURCE.FOOD,RESOURCE.COPIUM], "resource_cost": [10,1],
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 10, "work_speed" : 0.8,
 		"speed" : 50, "HP" : 60, "damage" : 6,
@@ -203,7 +213,7 @@ var units = {
 	UNIT.PYTHONUS: {
 		"name" : "Pythonus", "sprite": preload("res://sprites/Units/Pythonomium.png"),
 		"toolSprite" : null,
-		"resource_type": [RESOURCE.WOOD,RESOURCE.GOLD], "resource_cost": [1,1],
+		"resource_type": [RESOURCE.IRON,RESOURCE.GOLD], "resource_cost": [4,4],
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 15, "work_speed" : 2,
 		"speed" : 100, "HP" : 20, "damage" : 8,
@@ -212,7 +222,7 @@ var units = {
 	UNIT.LORD: {
 		"name" : "Baron", "sprite": preload("res://sprites/Units/DemonLord.png"),
 		"toolSprite" : preload("res://sprites/Items/demon_sword.png"),
-		"resource_type": [RESOURCE.IRON,RESOURCE.GOLD], "resource_cost": [1,1],
+		"resource_type": [RESOURCE.AMONGIUM,RESOURCE.OBSIDIANUM], "resource_cost": [1,5],
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 30, "work_speed" : 0.2,
 		"speed" : 66, "HP" : 66, "damage" : 16,
@@ -298,9 +308,21 @@ var priorieties = {
 		},
 	}
 
+
 func _ready():
 	for r in resources:
 		current_resources[r] = 0
+	#Startign Resources
+	current_resources[RESOURCE.WOOD] = 10
+	current_resources[RESOURCE.ROCK] = 10
+	current_resources[RESOURCE.IRON] = 4
+	current_resources[RESOURCE.GOLD] = 4
+	current_resources[RESOURCE.GEM] = 2
+	current_resources[RESOURCE.HELLIUM] = 1
+	current_resources[RESOURCE.OBSIDIANUM] = 5
+	current_resources[RESOURCE.COPIUM] = 1
+	current_resources[RESOURCE.AMONGIUM] = 1
+	current_resources[RESOURCE.FOOD] = 10
 
 func _process(delta):
 	if Input.is_action_just_pressed("fullscreen"):

@@ -77,6 +77,24 @@ func _on_enemy_spawn_timer_timeout():
 	for i in range(randi_range(0, 1 + timer_timeouts * 2)):
 		var spawn = get_tree().get_nodes_in_group("enemy_spawner").pick_random()
 		var type = Global.enemies.keys().pick_random()
+		#Selecting enemy waves
+		print(type)
+		if timer_timeouts <= 5:
+			type = Global.ENEMY.PEASANT
+		elif timer_timeouts <= 10:
+			if type == Global.ENEMY.KNIGHT || type == Global.ENEMY.HORSEMAN:
+				type = Global.ENEMY.PEASANT
+		elif timer_timeouts <= 15:
+			if type == Global.ENEMY.KNIGHT:
+				type = Global.ENEMY.PEASANT
+			if type == Global.ENEMY.HORSEMAN:
+				type = Global.ENEMY.PRIEST
+		elif timer_timeouts <= 20:
+			if type == Global.ENEMY.HORSEMAN:
+				type = Global.ENEMY.PRIEST
+		elif timer_timeouts <= 25:
+			if type == Global.ENEMY.HORSEMAN:
+				type = Global.ENEMY.KNIGHT
 		
 		var e = enemy_scene.instantiate()
 		e.global_position = spawn.global_position

@@ -4,7 +4,7 @@ class_name unit
 @export var work_speed = 1
 @export var speed = 100
 @export var damage:float = 5.0
-@export var max_hp = 100
+@export var max_hp = 15
 @export var cooldown = 2.0
 @export var fight_range = 30
 
